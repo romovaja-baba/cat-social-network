@@ -1,0 +1,23 @@
+img {
+  border-radius: 10px;
+}
+
+.app-wrapper {
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+}
+
+.main {
+  display: flex;
+}
+
+.nav {
+  grid-area: nav;
+}
+
+.content {
+  grid-area: content;
+}
