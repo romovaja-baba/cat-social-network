@@ -1,23 +1,17 @@
-img {
-  border-radius: 10px;
+*, *:before, *:after {
+  box-sizing: border-box;
 }
 
 .app-wrapper {
-  margin: 0 auto;
-
   display: flex;
   flex-direction: column;
-  width: 1200px;
+  gap: 50px
 }
 
-.main {
+.container {
   display: flex;
-}
+  gap: 120px;
 
-.nav {
-  grid-area: nav;
-}
-
-.content {
-  grid-area: content;
+  width: 1100px;
+  margin: 0 auto;
 }

@@ -1,0 +1,28 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    gap: 60px;
+}
+
+.mainInfo {
+    display: flex;
+    justify-content: flex-start;
+    gap: 60px;
+    
+}
+
+.profilePicture img {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    object-fit: cover;
+
+    border: none;
+    border-radius: 10px;
+}
+
+.profileName {
+    font-size: 30px;
+} 

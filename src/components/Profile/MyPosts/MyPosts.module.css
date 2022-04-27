@@ -1,0 +1,22 @@
+.postsArea {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.newPost {
+    display: flex;
+    align-items: center;
+}
+
+.newPost textarea {
+    width: 100%;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
