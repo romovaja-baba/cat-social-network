@@ -15,7 +15,7 @@ import Feed from './components/Feed/Feed';
 const App = () => {
   return (
     <BrowserRouter>
-      <div className='app-booker'>
+      <div className='app-wrapper'>
         <div>
           <Header />
         </div>
@@ -28,7 +28,7 @@ const App = () => {
             <Routes>
               <Route path="/feed" element={<Feed />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/dialogs" element={<Dialogs />} />
+              <Route path="/dialogs/*" element={<Dialogs />} />
               <Route path="/music" element={<Music />} />
               <Route path="/settings" element={<Settings />} />
             </Routes>

@@ -7,7 +7,7 @@ const Profile = () => {
         <div className={styles.container}>
             <div className={styles.mainInfo}>
                 <div className={styles.profilePicture}>
-                    <img height={"200px"} alt="" src="https://images.theconversation.com/files/350865/original/file-20200803-24-50u91u.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop" />
+                    <img height={"200px"} alt="" src="https://us.123rf.com/450wm/nengloveyou/nengloveyou1404/nengloveyou140400107/27500065-portrait-thai-yellow-cat-brown-eyed-expressive-look-isolated-on-white.jpg?ver=6" />
                 </div>
                 <div className={styles.profileName}>
                     Catmond Purrvic
