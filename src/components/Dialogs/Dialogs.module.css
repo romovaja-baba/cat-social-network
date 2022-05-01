@@ -12,26 +12,12 @@
 
 }
 
-.listItem {
-    padding: 10px;
-    opacity: .5;
-}
-
-.listItem a {
-    text-decoration: none;
-    color: #000
-}
-
-.active {
-    padding: 10px;
-    opacity: 1;
-}
-
 .content {
     width: 70%;
+    min-height: 500px;
     padding: 20px;
 
-    background-color: #FFE299;
+    background-color: #E9E9E9;
     border-radius: 10px;
 
     display: flex;
@@ -41,11 +27,3 @@
 
 }
 
-.message {
-    font-size: 14px;
-    max-width: 250px;
-
-    padding: 10px 15px;
-    background-color: #fff;
-    border-radius: 15px;
-}

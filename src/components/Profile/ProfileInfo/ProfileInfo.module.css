@@ -1,0 +1,29 @@
+.mainInfo {
+    display: flex;
+    justify-content: flex-start;
+    gap: 60px;
+
+    padding: 30px 30px;
+
+    background-image: url("https://img.freepik.com/free-vector/cursive-grid-yellow-pastel-aesthetic-background_53876-99191.jpg?w=2000");
+    background-size: cover;
+    border-radius: 10px;
+    overflow: hidden;
+    
+}
+
+.profilePicture img {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    object-fit: cover;
+
+    border: none;
+    border-radius: 10px;
+}
+
+.profileName {
+    color: #000;
+    font-size: 30px;
+    font-weight: 600;
+} 

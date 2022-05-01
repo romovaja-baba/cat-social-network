@@ -1,8 +1,13 @@
 .item {
+    padding: 20px;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    background-color: #E9E9E9;
+    border-radius: 15px;
 
     height: auto;
 }
@@ -20,6 +25,11 @@
     height: 70px;
     object-fit: cover;
     border-radius: 10px;
+}
+
+.postMessage {
+    font-size: 14px;
+    align-self: center;
 }
 
 .postLike {

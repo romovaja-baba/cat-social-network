@@ -7,16 +7,42 @@
 }
 
 .newPost {
+    min-height: 70px;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 }
 
 .newPost textarea {
+    padding: 10px;
+    height: 100%;
+
+    resize: none;
+    font-size: 14px;
+
+    border: 2px solid #E9E9E9;
+    border-radius: 10px;
     width: 100%;
+}
+
+.newPost textarea:focus {
+    outline: none;
+    border: 2px solid #FFB703;
+}
+
+.addButton {
+    align-self: center;
+
+    border: none;
+    outline: none;
+    background-color: #fff;
+    border-radius: 10px;
+
+    cursor: pointer;
 }
 
 .posts {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 }

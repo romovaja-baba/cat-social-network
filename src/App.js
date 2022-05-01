@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+
 import './App.css';
 
 import Header from './components/Header/Header';
@@ -12,7 +13,7 @@ import Music from './components/Music/Music';
 import Feed from './components/Feed/Feed';
 
 
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
@@ -26,9 +27,9 @@ const App = () => {
 
           <div className='content'>
             <Routes>
-              <Route path="/feed" element={<Feed />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/dialogs/*" element={<Dialogs />} />
+              <Route path="/feed" element={<Feed/>} />
+              <Route path="/profile" element={<Profile posts={props.posts}/>} />
+              <Route path="/dialogs/*" element={<Dialogs dialogs={props.dialogs} messages={props.messages}/>} />
               <Route path="/music" element={<Music />} />
               <Route path="/settings" element={<Settings />} />
             </Routes>

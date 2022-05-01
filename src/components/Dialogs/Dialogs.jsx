@@ -1,27 +1,21 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import styles from "./Dialogs.module.css";
 
-const Dialogs = () => {
+import DialogUser from "./Dialog/DialogUser";
+import Message from "./Message/Message";
 
-    const SelectedLink = () => {
-        return (
-            select => select.isActive ? styles.active : styles.listItem
-        );
-    }
+const Dialogs = (props) => {
+
+    let dialogElements = props.dialogs.map( dialog => <DialogUser name={dialog.name} id={dialog.id}/> );
+    let messagesElements = props.messages.map( message => <Message text={message.text}/> );
+
     return (
         <div className={styles.container}>
             <div className={styles.list}>
-                <div className={styles.listItem}><NavLink to="/dialogs/1" className={SelectedLink()}>Vlawd</NavLink></div>
-                <div className={styles.listItem}><NavLink to="/dialogs/2" className={SelectedLink()}>Ameowlinda</NavLink></div>
-                <div className={styles.listItem}><NavLink to="/dialogs/3" className={SelectedLink()}>Dr. Pawbert Whiskman</NavLink></div>
-                <div className={styles.listItem}><NavLink to="/dialogs/4" className={SelectedLink()}>Hissley</NavLink></div>
-                <div className={styles.listItem}><NavLink to="/dialogs/5" className={SelectedLink()}>Hecker</NavLink></div>
-
+                {dialogElements}
             </div>
             <div className={styles.content}>
-                <div className={styles.message}>Hey dude</div>
-                <div className={styles.message}>Yo what's up</div>
+                {messagesElements}
             </div>
         </div>
     )
