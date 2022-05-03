@@ -1,9 +1,16 @@
 import React from "react";
+import styles from "./Feed.module.css";
 
-const Feed = () => {
+import News from "./News/News";
+
+
+const Feed = (props) => {
+    let newsElements = props.news.map(news => <News key={news.id} news={news}/>);
     return (
-        <div>
-            Feed
+        <div className={styles.feedArea}>
+            <div className={styles.itemsArea}>
+                {newsElements}
+            </div>
         </div>
     )
 };

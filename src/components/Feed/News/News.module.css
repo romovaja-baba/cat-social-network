@@ -1,0 +1,25 @@
+.item {
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    background-color: #E9E9E9;
+    border-radius: 10px;
+}
+
+.text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.reaction {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+}

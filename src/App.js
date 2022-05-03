@@ -27,7 +27,7 @@ const App = (props) => {
 
           <div className='content'>
             <Routes>
-              <Route path="/feed" element={<Feed/>} />
+              <Route path="/feed" element={<Feed news={props.news}/>} />
               <Route path="/profile" element={<Profile posts={props.posts}/>} />
               <Route path="/dialogs/*" element={<Dialogs dialogs={props.dialogs} messages={props.messages}/>} />
               <Route path="/music" element={<Music />} />

@@ -1,0 +1,12 @@
+.feedArea {
+    width: 100%;
+}
+
+.itemsArea{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

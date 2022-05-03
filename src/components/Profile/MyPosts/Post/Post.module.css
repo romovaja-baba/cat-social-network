@@ -32,11 +32,15 @@
     align-self: center;
 }
 
+.postDate {
+    font-size: 12px;
+    color: white;
+}
+
 .postLike {
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-end;
     align-items: center;
-    gap: 5px;
-    
+    gap: 5px;   
 }
