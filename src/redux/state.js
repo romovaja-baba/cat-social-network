@@ -2,11 +2,11 @@ const state = {
 
     dialogsPage: {
         dialogUserData: [
-            { id: 1, name: "Vlawd" },
-            { id: 2, name: "Ameowlinda" },
-            { id: 3, name: "Dr. Pawbert Whiskman" },
-            { id: 4, name: "Hissley" },
-            { id: 5, name: "Hecker" }
+            { id: 1, name: "Vlawd", profilePictire: "cool-cat.jpg" },
+            { id: 2, name: "Ameowlinda", profilePictire: "soft-cat.jpg"},
+            { id: 3, name: "Dr. Pawbert Whiskman", profilePictire: "doctor-cat.jpg"},
+            { id: 4, name: "Hissley", profilePictire: "teddy-bear-cat.jpg"},
+            { id: 5, name: "Hecker", profilePictire: "hecker-cat.jpg"}
         ],
         messagesData: [
             { id: 1, text: "hey dude" },
@@ -32,6 +32,14 @@ const state = {
             { id: 4, title: "title 4", text: "news number 4", likeCount: "3133" },
             { id: 5, title: "title 5", text: "news number 5", likeCount: "319" },
             { id: 6, title: "title 6", text: "news number 6", likeCount: "190" }
+        ]
+    },
+
+    sideBarPage: {
+        friendsData: [
+            { id: 1, name: "Vlawd", profilePictire: "cool-cat.jpg" },
+            { id: 2, name: "Ameowlinda", profilePictire: "soft-cat.jpg"},
+            { id: 3, name: "Dr. Pawbert Whiskman", profilePictire: "doctor-cat.jpg"}
         ]
     }
 };

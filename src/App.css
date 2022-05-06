@@ -27,6 +27,12 @@ body {
   gap: 50px
 }
 
+.side-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 .container {
   display: flex;
   gap: 120px;
