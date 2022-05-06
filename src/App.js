@@ -10,7 +10,7 @@ import Dialogs from './components/Dialogs/Dialogs';
 import Settings from './components/Settings/Settings';
 import Music from './components/Music/Music';
 import Feed from './components/Feed/Feed';
-import SideBar from './components/Nav/SideBar/SideBar';
+import SideBar from './components/SideBar/SideBar';
 
 const App = (props) => {
   return (
@@ -24,7 +24,7 @@ const App = (props) => {
         <div className='container'>
           <div className="side-container">
             <Nav />
-            <SideBar />
+            <SideBar friends={props.friends}/>
           </div>
 
           <div className='content'>

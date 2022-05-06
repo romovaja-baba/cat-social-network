@@ -1,8 +1,0 @@
-.area {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-
-    align-items: center;
-}

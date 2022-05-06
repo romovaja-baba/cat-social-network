@@ -12,6 +12,7 @@ root.render(
     dialogs={state.dialogsPage.dialogUserData}
     messages={state.dialogsPage.messagesData}
     posts={state.profilePage.postsData}
-    news={state.feedPage.newsData}/>
+    news={state.feedPage.newsData}
+    friends={state.sideBarPage.friendsData}/>
   </React.StrictMode>
 );
