@@ -9,8 +9,17 @@ const DialogUser = (props) => {
             select => select.isActive ? styles.active : styles.listItem
         );
     };
+
+
     return (
-        <div className={styles.listItem}><NavLink to={`/dialogs/${props.id}`} className={SelectedLink()}>{props.name}</NavLink></div>
+
+        <div className={styles.listItem}>
+
+            <NavLink to={`/dialogs/${props.id}`} className={SelectedLink()}>
+                <img src={props.profilePicture} alt={props.name} width={"64px"} height={"64px"}/>
+                {props.name}
+            </NavLink>
+        </div>
     )
 };
 

@@ -19,3 +19,8 @@ h2 {
     text-decoration: none;
     color: #000;
 }
+
+img {
+    border-radius: 10px;
+    object-fit: cover;
+}

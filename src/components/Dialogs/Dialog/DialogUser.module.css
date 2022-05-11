@@ -1,15 +1,20 @@
 .listItem {
     padding: 10px;
-    opacity: .5;
+
+    display: flex;
+    align-items: center;
 }
 
 .listItem a {
     text-decoration: none;
-    color: #000
+    color: #000;
 }
 
 .active {
     padding: 10px;
-    opacity: 1;
     font-weight: 600;
+}
+
+img {
+    
 }
