@@ -9,7 +9,7 @@ const Post = (props) => {
                 <img className={styles.postProfilePicture} alt="" src="https://us.123rf.com/450wm/nengloveyou/nengloveyou1404/nengloveyou140400107/27500065-portrait-thai-yellow-cat-brown-eyed-expressive-look-isolated-on-white.jpg?ver=6" />
                 <div>
                     <div className={styles.postMessage}>{props.post.text}</div>
-                    <div className={styles.postDate}><date>{props.post.date}</date></div>
+                    {/* <div className={styles.postDate}><date>{props.post.date}</date></div> */}
                 </div>
 
             </div>

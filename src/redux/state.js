@@ -1,10 +1,12 @@
+import { rerenderEntireTree } from "../render";
+
 const state = {
 
     dialogsPage: {
         dialogUserData: [
             { id: 1, name: "Vlawd", profilePicture: "http://localhost:3000/cool-cat.jpg" },
             { id: 2, name: "Ameowlinda", profilePicture: "http://localhost:3000/soft-cat.jpg"},
-            { id: 3, name: "Dr. Pawbert Whiskman", profilePicture: "http://localhost:3000/doctor-cat.jpg"},
+            { id: 3, name: "Dr. Whiskman", profilePicture: "http://localhost:3000/doctor-cat.jpg"},
             { id: 4, name: "Hissley", profilePicture: "http://localhost:3000/teddy-bear-cat.jpg"},
             { id: 5, name: "Hecker", profilePicture: "http://localhost:3000/hecker-cat.jpg"}
         ],
@@ -18,9 +20,9 @@ const state = {
 
     profilePage: {
         postsData: [
-            { id: 1, text: "Hello everyone on this platform!!", likeCount: "9", date: "06/22/2022" },
-            { id: 2, text: "Whassup??", likeCount: "12", date: "07/02/2022" },
-            { id: 3, text: "Hope you guys had a PURRfect weekend!", likeCount: "24", date: "18/02/2022" }
+            { id: 1, text: "Hello everyone on this platform!!", likeCount: "9"},
+            { id: 2, text: "Whassup??", likeCount: "12"},
+            { id: 3, text: "Hope you guys had a PURRfect weekend!", likeCount: "24"}
         ]
     },
 
@@ -39,10 +41,22 @@ const state = {
         friendsData: [
             { id: 1, name: "Vlawd", profilePicture: "http://localhost:3000/cool-cat.jpg" },
             { id: 2, name: "Ameowlinda", profilePicture: "http://localhost:3000/soft-cat.jpg"},
-            { id: 3, name: "Dr. Pawbert Whiskman", profilePicture: "http://localhost:3000/doctor-cat.jpg"}
+            { id: 3, name: "Dr. Whiskman", profilePicture: "http://localhost:3000/doctor-cat.jpg"}
         ]
     }
 };
+
+export let addPost = (postMessage) => {
+    let newPost = {
+        id: 5,
+        text: postMessage,
+        likeCount: "0"
+    };
+    state.profilePage.postsData.push(newPost);
+    rerenderEntireTree(state);
+};
+
+
 
 export default state;
 

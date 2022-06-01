@@ -14,9 +14,10 @@ const DialogUser = (props) => {
     return (
 
         <div className={styles.listItem}>
-
+            <div className={styles.dialogUserPicture}>
+                <img src={props.profilePicture} alt={props.name} width={"64px"} height={"64px"} />
+            </div>
             <NavLink to={`/dialogs/${props.id}`} className={SelectedLink()}>
-                <img src={props.profilePicture} alt={props.name} width={"64px"} height={"64px"}/>
                 {props.name}
             </NavLink>
         </div>

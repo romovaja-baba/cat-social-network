@@ -6,9 +6,8 @@ import { NavLink } from "react-router-dom";
 const SideBar = (props) => {
 
     let friendsElements = props.friends.map((friend) => {
-        console.log(friend);
         return <div key={friend.id} className={styles.item}>
-            <img alt={friend.name} src={friend.profilePicture} width={"64px"} height={"64px"}/>
+            <img alt={friend.name} src={friend.profilePicture} width={"50px"} height={"50px"}/>
             <NavLink to={`/dialogs/${friend.id}`}>{friend.name}</NavLink>
         </div>
     });

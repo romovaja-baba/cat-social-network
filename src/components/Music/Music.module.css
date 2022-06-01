@@ -1,0 +1,17 @@
+.area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.song {
+    padding: 10px 15px;
+    background-color: #E9E9E9;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 15px;
+}
