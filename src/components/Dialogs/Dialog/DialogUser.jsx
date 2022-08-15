@@ -10,9 +10,7 @@ const DialogUser = (props) => {
         );
     };
 
-
     return (
-
         <div className={styles.listItem}>
             <div className={styles.dialogUserPicture}>
                 <img src={props.profilePicture} alt={props.name} width={"64px"} height={"64px"} />

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
-import { addPost } from './redux/state';
+import { addPost, updateNewPostText  } from './redux/state';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,11 +14,12 @@ export let rerenderEntireTree = (state) => {
 
     <App
     dialogs={state.dialogsPage.dialogUserData}
-    messages={state.dialogsPage.messagesData}
+    convos={state.dialogsPage.convosData}
     posts={state.profilePage.postsData}
     news={state.feedPage.newsData}
     friends={state.sideBarPage.friendsData}
-    addPost={addPost}/>
+    addPost={addPost}
+    updateNewPostText={updateNewPostText}/>
   </React.StrictMode>
 )
 };

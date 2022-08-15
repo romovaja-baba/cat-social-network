@@ -11,18 +11,21 @@ const MyPosts = (props) => {
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        let text = newPostElement.current.value;
+        props.addPost();
         newPostElement.current.value = '';
-        props.addPost(text);
-        
     };
+
+    let onPostChange = () => {
+        const text = newPostElement.current.value;
+        props.updateNewPostText(text);
+    }; 
 
     return (
         <div className={styles.postsArea}>
 
             <div className={styles.newPost}>
-                <textarea ref={newPostElement} placeholder="What's on your meownd?"></textarea>
-                <button className={styles.addButton} onClick={() => { addPost() }}>
+                <textarea ref={newPostElement} onChange={onPostChange} placeholder="What's on your meownd?" />
+                <button className={styles.addButton} onClick={ addPost }>
                     <img height="30px" src="add.png" alt="" />
                 </button>
             </div>

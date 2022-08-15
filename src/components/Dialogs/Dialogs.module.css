@@ -27,38 +27,4 @@
     gap: 10px;
 }
 
-.messageInput textarea {
-    width: 100%;
-    padding: 10px;
-    height: 100%;
-
-    border: 2px solid #E9E9E9;
-    outline: none;
-    border-radius: 10px;
-    overflow: hidden;
-    font-size: 14px;
-
-    resize: none;
-}
-
-.messageInput textarea:focus {
-    outline: none;
-    border: 2px solid #FFB703;
-}
-
-.messageInput {
-    display: flex;
-}
-
-.addButton {
-    align-self: center;
-
-    border: none;
-    outline: none;
-    background-color: inherit;
-    border-radius: 10px;
-
-    cursor: pointer;
-}
-
 
