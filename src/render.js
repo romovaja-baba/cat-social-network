@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
-import { addPost, updateNewPostText  } from './redux/state';
+import { addPost, sendMessage, updateNewPostText, updateNewMessageText } from './redux/state';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,7 +19,9 @@ export let rerenderEntireTree = (state) => {
     news={state.feedPage.newsData}
     friends={state.sideBarPage.friendsData}
     addPost={addPost}
-    updateNewPostText={updateNewPostText}/>
+    updateNewPostText={updateNewPostText}
+    sendMessage={sendMessage}
+    updateNewMessageText={updateNewMessageText}/>
   </React.StrictMode>
 )
 };

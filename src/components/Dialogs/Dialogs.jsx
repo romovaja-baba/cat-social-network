@@ -5,7 +5,7 @@ import DialogUser from "./Dialog/DialogUser";
 import Convos from "./Convos/Convos";
 import { useParams } from "react-router-dom";
 
-const Dialogs = ({ convos, dialogs }) => {
+const Dialogs = ({ convos, dialogs, sendMessage, updateNewMessageText }) => {
 
     const { id } = useParams();
 
@@ -20,7 +20,7 @@ const Dialogs = ({ convos, dialogs }) => {
                 {dialogElements}
             </div>
             <div className={styles.content}>
-                {userConvo && (<Convos userConvo={userConvo}/>)}
+                {userConvo && (<Convos userConvo={userConvo} sendMessage={sendMessage} updateNewMessageText={updateNewMessageText}/>)}
             </div>
         </div>
     )

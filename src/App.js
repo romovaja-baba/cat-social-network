@@ -11,6 +11,7 @@ import Settings from './components/Settings/Settings';
 import Music from './components/Music/Music';
 import Feed from './components/Feed/Feed';
 import SideBar from './components/SideBar/SideBar';
+import { updateNewMessageText } from './redux/state';
 
 const App = (props) => {
   return (
@@ -35,8 +36,14 @@ const App = (props) => {
                 addPost={props.addPost}
                 updateNewPostText={props.updateNewPostText}
               />} />
-              <Route path="/dialogs" element={<Dialogs dialogs={props.dialogs} convos={[]} />} />
-              <Route path="/dialogs/:id" element={<Dialogs dialogs={props.dialogs} convos={props.convos} />} />
+              <Route path="/dialogs" element={<Dialogs
+                dialogs={props.dialogs}
+                convos={[]}/>} />
+              <Route path="/dialogs/:id" element={<Dialogs 
+                dialogs={props.dialogs} 
+                convos={props.convos} 
+                sendMessage={props.sendMessage}
+                updateNewMessageText={updateNewMessageText} />} />
               <Route path="/music" element={<Music />} />
               <Route path="/settings" element={<Settings />} />
             </Routes>

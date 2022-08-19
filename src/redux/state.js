@@ -13,7 +13,7 @@ const state = {
 
         convosData: [
             {
-                userId: 1, 
+                userId: 1,
                 messages: [
                     { id: 1, text: "hey dude", senderId: 1 },
                     { id: 2, text: "yo whatsup", senderId: 0 },
@@ -22,7 +22,7 @@ const state = {
                 ]
             },
             {
-                userId: 2, 
+                userId: 2,
                 messages: [
                     { id: 1, text: "hiii how u like to eat out tonight?", senderId: 1 },
                     { id: 2, text: "ofc!!", senderId: 0 },
@@ -31,27 +31,28 @@ const state = {
                 ]
             },
             {
-                userId: 3, 
+                userId: 3,
                 messages: [
                     { id: 1, text: "dont call me, im busy", senderId: 1 },
                 ]
             },
             {
-                userId: 4, 
+                userId: 4,
                 messages: [
                     { id: 1, text: "heeey rmbr me?~~~", senderId: 1 }
                 ]
             },
             {
-                userId: 5, 
+                userId: 5,
                 messages: [
                     { id: 1, text: "i know your password, now send me 1ml rupees or i leak all ur photos", senderId: 1 },
-                    { id: 2, text: "ooh nice i forgot it long ago", senderId: 0},
-                    { id: 3, text: "get help", senderId: 1}
+                    { id: 2, text: "ooh nice i forgot it long ago", senderId: 0 },
+                    { id: 3, text: "get help", senderId: 1 }
                 ]
             },
 
-        ]
+        ],
+        newMessageText: ''
     },
 
     profilePage: {
@@ -92,14 +93,41 @@ export let addPost = () => {
         likeCount: "0",
         user: "Catmond Purrvic"
     };
-    state.profilePage.postsData.push(newPost);
-    state.profilePage.newPostText = '';
-    rerenderEntireTree(state);
+    if (newPost.text) {
+        state.profilePage.postsData.push(newPost);
+        state.profilePage.newPostText = '';
+        rerenderEntireTree(state);
+    } else {
+        alert('Post cannot be empty!')
+    }
+
 };
 
 export let updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
     rerenderEntireTree(state);
 };
+
+
+export let sendMessage = (userId) => {
+    let newMessage = {
+        id: 10,
+        text: state.dialogsPage.newMessageText,
+        senderId: 0
+    };
+    if (newMessage.text) {
+        state.dialogsPage.convosData.find(convo => convo.userId === userId).messages.push(newMessage);
+        state.dialogsPage.newMessageText = '';
+        rerenderEntireTree(state);
+        console.log(state.dialogsPage.convosData)
+    } else {
+        alert('Please type a message!')
+    }
+};
+
+export let updateNewMessageText = (newText) => {
+    state.dialogsPage.newMessageText = newText;
+    rerenderEntireTree(state);
+}
 
 export default state;
