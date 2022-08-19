@@ -35,7 +35,7 @@ const App = (props) => {
                 addPost={props.addPost}
                 updateNewPostText={props.updateNewPostText}
               />} />
-              <Route path="/dialogs" element={<Dialogs dialogs={props.dialogs} convos={props.convos} />} />
+              <Route path="/dialogs" element={<Dialogs dialogs={props.dialogs} convos={[]} />} />
               <Route path="/dialogs/:id" element={<Dialogs dialogs={props.dialogs} convos={props.convos} />} />
               <Route path="/music" element={<Music />} />
               <Route path="/settings" element={<Settings />} />

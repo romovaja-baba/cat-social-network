@@ -10,11 +10,12 @@ h2 {
 }
 
 .item {
+    font-size: 15px;
     width: 200px;
 
-    padding: 10px;
-    background-color: #e9e9e9;
-    border-radius: 10px;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 15px;
 
     display: flex;
     align-items: center;
@@ -22,6 +23,12 @@ h2 {
 
     white-space: nowrap;
     overflow: hidden;
+
+    transition: background-color 0.5s;
+}
+
+.item:hover {
+    background-color: #f0f0f0;
 }
 
 .item a {
@@ -30,6 +37,6 @@ h2 {
 }
 
 .item img {
-    border-radius: 50%;
+    border-radius: 45%;
     object-fit: cover;
 }

@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./Message.module.css";
 
-const Message = (props) => {
+const Message = ({text, senderId}) => {
     return (
-        <div className={props.senderId === 0 ? styles.myself : styles.others}>
+        <div className={senderId === 0 ? styles.myself : styles.others}>
             <div className={styles.message}>
-                {props.text}
+                {text}
             </div>
         </div>
     )

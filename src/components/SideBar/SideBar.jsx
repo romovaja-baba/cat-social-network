@@ -3,9 +3,9 @@ import styles from "./SideBar.module.css"
 
 import { NavLink } from "react-router-dom";
 
-const SideBar = (props) => {
+const SideBar = ({friends}) => {
 
-    let friendsElements = props.friends.map((friend) => {
+    let friendsElements = friends.map((friend) => {
         return <div key={friend.id} className={styles.item}>
             <img alt={friend.name} src={friend.profilePicture} width={"50px"} height={"50px"}/>
             <NavLink to={`/dialogs/${friend.id}`}>{friend.name}</NavLink>
@@ -13,7 +13,7 @@ const SideBar = (props) => {
     });
     return (
         <div className={styles.area}>
-            <h2>Your Friends</h2>
+            <h2>Your Best Friends</h2>
             {friendsElements}
         </div>
     )

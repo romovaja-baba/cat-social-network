@@ -1,12 +1,20 @@
 .listItem {
-    width: 200px;
+    min-width: 200px;
+    max-width: 250px;
+    padding: 10px;
 
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: flex-start;
+    gap: 5px;
 
     white-space: nowrap;
     overflow: hidden;
+    border-radius: 10px;
+}
+
+.listItem:hover {
+    background-color: #f0f0f0;
 }
 
 .listItem a {
@@ -14,14 +22,25 @@
     color: #000;
 }
 
-.dialogUserPicture img {
-    border-radius: 50%;
+.listItem img {
+    min-width: 55px;
+    border-radius: 45%;
     object-fit: cover;
 }
 
 .active {
     font-weight: 600;
-    background-color: #E9E9E9;
-    padding: 3px;
+
+    width: 200px;
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+
+    white-space: nowrap;
+    overflow: hidden;
     border-radius: 10px;
+
 }

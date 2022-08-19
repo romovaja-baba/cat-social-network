@@ -18,22 +18,19 @@ const MyPosts = (props) => {
     let onPostChange = () => {
         const text = newPostElement.current.value;
         props.updateNewPostText(text);
-    }; 
+    };
 
     return (
         <div className={styles.postsArea}>
 
             <div className={styles.newPost}>
                 <textarea ref={newPostElement} onChange={onPostChange} placeholder="What's on your meownd?" />
-                <button className={styles.addButton} onClick={ addPost }>
-                    <img height="30px" src="add.png" alt="" />
-                </button>
+                <img height="40px" src="add.svg" alt="" className={styles.addButton} onClick={addPost} />
             </div>
 
             <div className={styles.posts}>
                 {postsElements}
             </div>
-
         </div>
     )
 };

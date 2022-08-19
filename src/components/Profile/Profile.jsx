@@ -3,14 +3,13 @@ import styles from './Profile.module.css';
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-
-const Profile = (props) => {
+const Profile = ({posts, addPost, updateNewPostText}) => {
     return (
         <div className={styles.container}>
 
             <ProfileInfo/>
 
-            <MyPosts posts={props.posts} addPost={props.addPost} updateNewPostText={props.updateNewPostText }/>
+            <MyPosts posts={posts} addPost={addPost} updateNewPostText={updateNewPostText }/>
 
         </div>
     )

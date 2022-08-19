@@ -43,6 +43,10 @@
 
 .posts {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 20px;
+}
+
+.posts:last-child {
+    margin-bottom: 100px;
 }

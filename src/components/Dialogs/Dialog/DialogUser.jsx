@@ -3,7 +3,7 @@ import styles from "./DialogUser.module.css";
 
 import { NavLink } from "react-router-dom";
 
-const DialogUser = (props) => {
+const DialogUser = ({profilePicture, name, id}) => {
     const SelectedLink = () => {
         return (
             select => select.isActive ? styles.active : styles.listItem
@@ -12,11 +12,9 @@ const DialogUser = (props) => {
 
     return (
         <div className={styles.listItem}>
-            <div className={styles.dialogUserPicture}>
-                <img src={props.profilePicture} alt={props.name} width={"64px"} height={"64px"} />
-            </div>
-            <NavLink to={`/dialogs/${props.id}`} className={SelectedLink()}>
-                {props.name}
+            <img src={profilePicture} alt={name} width={"55px"} height={"55px"} />
+            <NavLink to={`/dialogs/${id}`} className={SelectedLink()}>
+                {name}
             </NavLink>
         </div>
     )

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ProfileInfo.module.css";
 
-const ProfileInfo = (props) => {
+const ProfileInfo = () => {
     return (
         <div className={styles.mainInfo}>
             <div className={styles.profilePicture}>

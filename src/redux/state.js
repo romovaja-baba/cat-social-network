@@ -15,7 +15,7 @@ const state = {
             {
                 userId: 1, 
                 messages: [
-                    { id: 1, text: "hey dude1", senderId: 1 },
+                    { id: 1, text: "hey dude", senderId: 1 },
                     { id: 2, text: "yo whatsup", senderId: 0 },
                     { id: 3, text: "wanna play elder scrolls tonight?", senderId: 1 },
                     { id: 4, text: "np", senderId: 0 }
@@ -24,29 +24,30 @@ const state = {
             {
                 userId: 2, 
                 messages: [
-                    { id: 1, text: "hey dude2", senderId: 1 },
-                    { id: 2, text: "yo whatsup", senderId: 0 },
-                    { id: 3, text: "wanna play elder scrolls tonight?", senderId: 1 },
-                    { id: 4, text: "np", senderId: 0 }
+                    { id: 1, text: "hiii how u like to eat out tonight?", senderId: 1 },
+                    { id: 2, text: "ofc!!", senderId: 0 },
+                    { id: 3, text: "you treat me to dinner then ;)", senderId: 1 },
+                    { id: 4, text: "...", senderId: 0 }
                 ]
             },
             {
                 userId: 3, 
                 messages: [
-                    { id: 1, text: "hey dude3", senderId: 1 },
-                    { id: 2, text: "yo whatsup", senderId: 0 }
+                    { id: 1, text: "dont call me, im busy", senderId: 1 },
                 ]
             },
             {
                 userId: 4, 
                 messages: [
-                    { id: 1, text: "hey dude4", senderId: 1 }
+                    { id: 1, text: "heeey rmbr me?~~~", senderId: 1 }
                 ]
             },
             {
                 userId: 5, 
                 messages: [
-                    { id: 1, text: "hey dude5", senderId: 1 }
+                    { id: 1, text: "i know your password, now send me 1ml rupees or i leak all ur photos", senderId: 1 },
+                    { id: 2, text: "ooh nice i forgot it long ago", senderId: 0},
+                    { id: 3, text: "get help", senderId: 1}
                 ]
             },
 
@@ -55,9 +56,9 @@ const state = {
 
     profilePage: {
         postsData: [
-            { id: 1, text: "Hello everyone on this platform!!", likeCount: "9" },
-            { id: 2, text: "Whassup??", likeCount: "12" },
-            { id: 3, text: "Hope you guys had a PURRfect weekend!", likeCount: "24" }
+            { id: 1, text: "Hello everyone on this platform!!", user: "Catmond Purrvic", likeCount: "9" },
+            { id: 2, text: "Whassup??", user: "Catmond Purrvic", likeCount: "12" },
+            { id: 3, text: "Hope you guys had a PURRfect weekend!", user: "Catmond Purrvic", likeCount: "24" }
         ],
         newPostText: ''
     },
@@ -88,7 +89,8 @@ export let addPost = () => {
     let newPost = {
         id: 5,
         text: state.profilePage.newPostText,
-        likeCount: "0"
+        likeCount: "0",
+        user: "Catmond Purrvic"
     };
     state.profilePage.postsData.push(newPost);
     state.profilePage.newPostText = '';
