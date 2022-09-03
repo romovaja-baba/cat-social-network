@@ -5,13 +5,13 @@ import DialogUser from "./Dialog/DialogUser";
 import Convos from "./Convos/Convos";
 import { useParams } from "react-router-dom";
 
-const Dialogs = ({ convos, dialogs, sendMessage, updateNewMessageText }) => {
+const Dialogs = ({ state }) => {
 
     const { id } = useParams();
 
-    let userConvo = convos.find(convo => convo.userId === parseInt(id));
+    let userConvo = state.dialogsPage.convosData.find(convo => convo.userId === parseInt(id));
 
-    let dialogElements = dialogs.map(dialog =>
+    let dialogElements = state.dialogsPage.dialogUserData.map(dialog =>
         <DialogUser name={dialog.name} id={dialog.id} key={dialog.id} profilePicture={dialog.profilePicture} />);
 
     return (
@@ -20,7 +20,7 @@ const Dialogs = ({ convos, dialogs, sendMessage, updateNewMessageText }) => {
                 {dialogElements}
             </div>
             <div className={styles.content}>
-                {userConvo && (<Convos userConvo={userConvo} sendMessage={sendMessage} updateNewMessageText={updateNewMessageText}/>)}
+                {userConvo && (<Convos userConvo={userConvo} state={state}/>)}
             </div>
         </div>
     )

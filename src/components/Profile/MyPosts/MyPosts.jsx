@@ -2,27 +2,26 @@ import React from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-const MyPosts = (props) => {
+const MyPosts = ({ state }) => {
 
-    let postsElements = props.posts.map(
+    let postsElements = state.profilePage.postsData.map(
         post => <Post key={post.id} post={post} />
     );
 
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        props.addPost();
+        state.profilePage.addPost();
         newPostElement.current.value = '';
     };
 
     let onPostChange = () => {
         const text = newPostElement.current.value;
-        props.updateNewPostText(text);
+        state.profilePage.updateNewPostText(text);
     };
 
     return (
         <div className={styles.postsArea}>
-
             <div className={styles.newPost}>
                 <textarea ref={newPostElement} onChange={onPostChange} placeholder="What's on your meownd?" />
                 <img height="40px" src="add.svg" alt="" className={styles.addButton} onClick={addPost} />

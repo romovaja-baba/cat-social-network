@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Post.module.css";
 
-const Post = ({post}) => {
+const Post = ({ post }) => {
 
     return (
         <div className={styles.item}>

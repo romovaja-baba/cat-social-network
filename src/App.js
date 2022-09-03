@@ -11,9 +11,9 @@ import Settings from './components/Settings/Settings';
 import Music from './components/Music/Music';
 import Feed from './components/Feed/Feed';
 import SideBar from './components/SideBar/SideBar';
-import { updateNewMessageText } from './redux/state';
 
-const App = (props) => {
+
+const App = ({ state }) => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
@@ -25,25 +25,15 @@ const App = (props) => {
         <div className='container'>
           <div className="side-container">
             <Nav />
-            <SideBar friends={props.friends} />
+            <SideBar state={state} />
           </div>
 
           <div className='content'>
             <Routes>
-              <Route path="/feed" element={<Feed news={props.news} />} />
-              <Route path="/profile" element={<Profile
-                posts={props.posts}
-                addPost={props.addPost}
-                updateNewPostText={props.updateNewPostText}
-              />} />
-              <Route path="/dialogs" element={<Dialogs
-                dialogs={props.dialogs}
-                convos={[]}/>} />
-              <Route path="/dialogs/:id" element={<Dialogs 
-                dialogs={props.dialogs} 
-                convos={props.convos} 
-                sendMessage={props.sendMessage}
-                updateNewMessageText={updateNewMessageText} />} />
+              <Route path="/feed" element={<Feed state={state} />} />
+              <Route path="/profile" element={<Profile state={state} />} />
+              <Route path="/dialogs" element={<Dialogs state={state} />} />
+              <Route path="/dialogs/:id" element={<Dialogs state={state} />} />
               <Route path="/music" element={<Music />} />
               <Route path="/settings" element={<Settings />} />
             </Routes>

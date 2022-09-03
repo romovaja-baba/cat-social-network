@@ -2,22 +2,22 @@ import React from "react";
 import styles from "./Convos.module.css";
 import Message from "../Message/Message";
 
-const Convos = (props) => {
+const Convos = ({ state, userConvo }) => {
 
-    const messagesElements = props.userConvo.messages.map((message) => {
-        return (<Message id={message.id} text={message.text} senderId={message.senderId} key={message.id}/>)
+    const messagesElements = userConvo.messages.map((message) => {
+        return (<Message id={message.id} text={message.text} senderId={message.senderId} key={message.id} />)
     })
 
     let newMessageElement = React.createRef();
 
     let sendMessage = () => {
-        props.sendMessage(props.userConvo.userId);
+        state.dialogsPage.sendMessage(userConvo.userId);
         newMessageElement.current.value = '';
     }
 
     let onMessageChange = () => {
-        const text = newMessageElement.current.value;
-        props.updateNewMessageText(text);
+        let text = newMessageElement.current.value;
+        state.dialogsPage.updateNewMessageText(text);
     }
 
     return (
