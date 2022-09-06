@@ -5,7 +5,7 @@ import DialogUser from "./Dialog/DialogUser";
 import Convos from "./Convos/Convos";
 import { useParams } from "react-router-dom";
 
-const Dialogs = ({ state }) => {
+const Dialogs = ({ state, dispatch }) => {
 
     const { id } = useParams();
 
@@ -20,7 +20,7 @@ const Dialogs = ({ state }) => {
                 {dialogElements}
             </div>
             <div className={styles.content}>
-                {userConvo && (<Convos userConvo={userConvo} state={state}/>)}
+                {userConvo && (<Convos userConvo={userConvo} state={state} dispatch={dispatch}/>)}
             </div>
         </div>
     )

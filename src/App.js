@@ -13,7 +13,7 @@ import Feed from './components/Feed/Feed';
 import SideBar from './components/SideBar/SideBar';
 
 
-const App = ({ state }) => {
+const App = ({ state, dispatch }) => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
@@ -31,9 +31,9 @@ const App = ({ state }) => {
           <div className='content'>
             <Routes>
               <Route path="/feed" element={<Feed state={state} />} />
-              <Route path="/profile" element={<Profile state={state} />} />
+              <Route path="/profile" element={<Profile state={state} dispatch={dispatch}/>} />
               <Route path="/dialogs" element={<Dialogs state={state} />} />
-              <Route path="/dialogs/:id" element={<Dialogs state={state} />} />
+              <Route path="/dialogs/:id" element={<Dialogs state={state} dispatch={dispatch}/>} />
               <Route path="/music" element={<Music />} />
               <Route path="/settings" element={<Settings />} />
             </Routes>

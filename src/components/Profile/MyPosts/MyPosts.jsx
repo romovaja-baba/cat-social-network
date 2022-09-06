@@ -2,7 +2,9 @@ import React from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-const MyPosts = ({ state }) => {
+import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../redux/state";
+
+const MyPosts = ({ state, dispatch }) => {
 
     let postsElements = state.profilePage.postsData.map(
         post => <Post key={post.id} post={post} />
@@ -11,13 +13,13 @@ const MyPosts = ({ state }) => {
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        state.profilePage.addPost();
+        dispatch(addPostActionCreator());
         newPostElement.current.value = '';
     };
 
     let onPostChange = () => {
         const text = newPostElement.current.value;
-        state.profilePage.updateNewPostText(text);
+        dispatch(updateNewPostTextActionCreator(text))
     };
 
     return (

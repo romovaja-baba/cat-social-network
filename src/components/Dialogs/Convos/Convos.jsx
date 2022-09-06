@@ -2,7 +2,9 @@ import React from "react";
 import styles from "./Convos.module.css";
 import Message from "../Message/Message";
 
-const Convos = ({ state, userConvo }) => {
+import { sendMessageActionCreator, updateNewMessageTextActionCreator } from "../../../redux/state";
+
+const Convos = ({ state, userConvo, dispatch }) => {
 
     const messagesElements = userConvo.messages.map((message) => {
         return (<Message id={message.id} text={message.text} senderId={message.senderId} key={message.id} />)
@@ -11,13 +13,13 @@ const Convos = ({ state, userConvo }) => {
     let newMessageElement = React.createRef();
 
     let sendMessage = () => {
-        state.dialogsPage.sendMessage(userConvo.userId);
+        dispatch(sendMessageActionCreator(userConvo.userId));
         newMessageElement.current.value = '';
     }
 
     let onMessageChange = () => {
         let text = newMessageElement.current.value;
-        state.dialogsPage.updateNewMessageText(text);
+        dispatch(updateNewMessageTextActionCreator(text));
     }
 
     return (
