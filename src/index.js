@@ -17,4 +17,4 @@ let rerenderEntireTree = (store) => {
 };
 rerenderEntireTree(store);
 
-store.subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree); 

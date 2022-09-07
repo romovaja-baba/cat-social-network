@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Convos.module.css";
 import Message from "../Message/Message";
 
-import { sendMessageActionCreator, updateNewMessageTextActionCreator } from "../../../redux/state";
+import { sendMessageActionCreator, updateNewMessageTextActionCreator } from "../../../redux/dialogs-reducer";
 
 const Convos = ({ state, userConvo, dispatch }) => {
 

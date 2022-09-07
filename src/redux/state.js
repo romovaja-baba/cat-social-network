@@ -1,7 +1,7 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const SEND_MESSAGE = "SEND-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+import dialogsReducer from "./dialogs-reducer";
+import feedReducer from "./feed-reducer";
+import profileReducer from "./profile-reducer";
+import sideBarReducer from "./sidebar-reducer";
 
 const store = {
 
@@ -96,48 +96,15 @@ const store = {
         this.rerenderEntireTree = observer;
     },
     dispatch(action) {
-        if (action.type === SEND_MESSAGE) {
-            let newMessage = {
-                id: 10,
-                text: this._state.dialogsPage.newMessageText,
-                senderId: 0
-            };
-            if (newMessage.text) {
-                this._state.dialogsPage.convosData.find(convo => convo.userId === action.userId).messages.push(newMessage);
-                this._state.dialogsPage.newMessageText = '';
-            } else {
-                alert('Please type a message!')
-            };
-            store.rerenderEntireTree(store);
-        } 
-        else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._state.dialogsPage.newMessageText = action.newText;
-        }
-        else if (action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                text: this._state.profilePage.newPostText,
-                likeCount: "0",
-                user: "Catmond Purrvic"
-            };
-            if (newPost.text) {
-                this._state.profilePage.postsData.push(newPost);
-                this._state.profilePage.newPostText = '';
-            } else {
-                alert('Post cannot be empty!')
-            };
-            store.rerenderEntireTree(store);
-        } 
-        else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText;
-        }
+    
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.feedPage = feedReducer(this._state.feedPage, action);
+        this._state.sideBarPage = sideBarReducer(this._state.sideBarPage, action);
+
+        this.rerenderEntireTree(this);
+
     }
 };
-
-export const addPostActionCreator = () => ({ type: ADD_POST });
-export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text });
-export const sendMessageActionCreator = (userId) => ({ type: SEND_MESSAGE, userId: userId });
-export const updateNewMessageTextActionCreator = (text) => ({ type: UPDATE_NEW_MESSAGE_TEXT, newText: text });
-
 export default store;
 window.store = store;
