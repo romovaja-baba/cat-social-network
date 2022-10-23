@@ -2,9 +2,7 @@ import React from "react";
 import styles from "./Convos.module.css";
 import Message from "../Message/Message";
 
-import { sendMessageActionCreator, updateNewMessageTextActionCreator } from "../../../redux/dialogs-reducer";
-
-const Convos = ({ state, userConvo, dispatch }) => {
+const Convos = ({ userConvo, updateNewMessageText, sendMessage }) => {
 
     const messagesElements = userConvo.messages.map((message) => {
         return (<Message id={message.id} text={message.text} senderId={message.senderId} key={message.id} />)
@@ -12,14 +10,13 @@ const Convos = ({ state, userConvo, dispatch }) => {
 
     let newMessageElement = React.createRef();
 
-    let sendMessage = () => {
-        dispatch(sendMessageActionCreator(userConvo.userId));
-        newMessageElement.current.value = '';
+    let onSendMessageClick = () => {
+        sendMessage(userConvo.userId);
     }
 
     let onMessageChange = () => {
         let text = newMessageElement.current.value;
-        dispatch(updateNewMessageTextActionCreator(text));
+        updateNewMessageText(text);
     }
 
     return (
@@ -28,7 +25,7 @@ const Convos = ({ state, userConvo, dispatch }) => {
             <div className={styles.messageInput}>
                 <textarea ref={newMessageElement} onChange={onMessageChange} placeholder="Enter your message here..."></textarea>
                 {/* TODO: fix to add.svg */}
-                <img src="../add.svg" alt="" height={"40px"} onClick={sendMessage} className={styles.addButton} />
+                <img src="../add.svg" alt="" height={"40px"} onClick={onSendMessageClick} className={styles.addButton} />
             </div>
         </div>
     )

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Dialogs.module.css";
 
 import DialogUser from "./Dialog/DialogUser";
-import Convos from "./Convos/Convos";
+import ConvosContainer from "./Convos/ConvosContainer";
 import { useParams } from "react-router-dom";
 
 const Dialogs = ({ state, dispatch }) => {
@@ -20,7 +20,7 @@ const Dialogs = ({ state, dispatch }) => {
                 {dialogElements}
             </div>
             <div className={styles.content}>
-                {userConvo && (<Convos userConvo={userConvo} state={state} dispatch={dispatch}/>)}
+                {userConvo && (<ConvosContainer userConvo={userConvo} state={state} dispatch={dispatch}/>)}
             </div>
         </div>
     )
