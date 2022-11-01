@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-const MyPosts = ({addPost, updateNewPostText, posts, newPostText}) => {
+const MyPosts = ({addPost, updateNewPostText, posts}) => {
 
     let postsElements = posts.map(
         post => <Post key={post.id} post={post} />

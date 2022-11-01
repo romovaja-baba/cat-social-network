@@ -1,19 +1,25 @@
-import React from "react";
 import Convos from "./Convos";
 
 import { sendMessageActionCreator, updateNewMessageTextActionCreator } from "../../../redux/dialogs-reducer";
+import { connect } from "react-redux";
 
-const ConvosContainer = ({ state, userConvo, dispatch }) => {
-
-    let onSendMessageClick = () => {
-        dispatch(sendMessageActionCreator(userConvo.userId));
+let mapStateToProps = (state, ownProps) => {
+    return {
+        userConvo: ownProps.userConvo
     }
-
-    let onMessageChange = (body) => {
-        dispatch(updateNewMessageTextActionCreator(body));
-    }
-
-    return <Convos updateNewMessageText={onMessageChange} sendMessage={onSendMessageClick} userConvo={userConvo}/>
 };
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        updateNewMessageText: (body) => {
+            dispatch(updateNewMessageTextActionCreator(body))
+        },
+        sendMessage: (userConvo) => {
+            dispatch(sendMessageActionCreator(userConvo.userId))
+        }
+    }
+}
+
+const ConvosContainer = connect(mapStateToProps, mapDispatchToProps)(Convos);
 
 export default ConvosContainer;

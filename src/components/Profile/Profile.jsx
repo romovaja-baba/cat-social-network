@@ -3,13 +3,13 @@ import styles from './Profile.module.css';
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-const Profile = ({ state, dispatch }) => {
+const Profile = (props) => {
     return (
         <div className={styles.container}>
 
             <ProfileInfo />
 
-            <MyPostsContainer state={state} dispatch={dispatch} />
+            <MyPostsContainer store={props.store} />
 
         </div>
     )

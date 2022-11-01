@@ -6,14 +6,14 @@ import './App.css';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 import Profile from './components/Profile/Profile';
-import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import Settings from './components/Settings/Settings';
 import Music from './components/Music/Music';
-import Feed from './components/Feed/Feed';
-import SideBar from './components/SideBar/SideBar';
+import FeedContainer from './components/Feed/FeedContainer';
+import SideBarContainer from './components/SideBar/SideBarContainer';
 
 
-const App = ({ state, dispatch }) => {
+const App = () => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
@@ -25,15 +25,15 @@ const App = ({ state, dispatch }) => {
         <div className='container'>
           <div className="side-container">
             <Nav />
-            <SideBar state={state} />
+            <SideBarContainer />
           </div>
 
           <div className='content'>
             <Routes>
-              <Route path="/feed" element={<Feed state={state} />} />
-              <Route path="/profile" element={<Profile state={state} dispatch={dispatch}/>} />
-              <Route path="/dialogs" element={<Dialogs state={state} />} />
-              <Route path="/dialogs/:id" element={<Dialogs state={state} dispatch={dispatch}/>} />
+              <Route path="/feed" element={<FeedContainer />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/dialogs" element={<DialogsContainer />} />
+              <Route path="/dialogs/:id" element={<DialogsContainer />} />
               <Route path="/music" element={<Music />} />
               <Route path="/settings" element={<Settings />} />
             </Routes>
