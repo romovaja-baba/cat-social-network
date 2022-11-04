@@ -14,39 +14,40 @@ let initialState = {
         {
             userId: 1,
             messages: [
-                { id: 1, text: "hey dude", senderId: 1 },
-                { id: 2, text: "yo whatsup", senderId: 0 },
-                { id: 3, text: "wanna play elder scrolls tonight?", senderId: 1 },
-                { id: 4, text: "np", senderId: 0 }
+                { id: 1, text: "y1", senderId: 1 },
+                { id: 2, text: "m1", senderId: 0 },
+                { id: 3, text: "y2?", senderId: 1 },
+                { id: 4, text: "m2", senderId: 0 }
             ]
         },
         {
             userId: 2,
             messages: [
-                { id: 1, text: "hiii how u like to eat out tonight?", senderId: 1 },
-                { id: 2, text: "ofc!!", senderId: 0 },
-                { id: 3, text: "you treat me to dinner then ;)", senderId: 1 },
-                { id: 4, text: "...", senderId: 0 }
+                { id: 1, text: "y1", senderId: 1 },
+                { id: 2, text: "m1", senderId: 0 },
+                { id: 3, text: "y2", senderId: 1 },
+                { id: 4, text: "m2", senderId: 0 }
             ]
         },
         {
             userId: 3,
             messages: [
-                { id: 1, text: "dont call me, im busy", senderId: 1 },
+                { id: 1, text: "y1", senderId: 1 },
             ]
         },
         {
             userId: 4,
             messages: [
-                { id: 1, text: "heeey rmbr me?~~~", senderId: 1 }
+                { id: 1, text: "y1", senderId: 1 },
+                { id: 2, text: "m1", senderId: 0 }
             ]
         },
         {
             userId: 5,
             messages: [
-                { id: 1, text: "i know your password, now send me 1ml rupees or i leak all ur photos", senderId: 1 },
-                { id: 2, text: "ooh nice i forgot it long ago", senderId: 0 },
-                { id: 3, text: "get help", senderId: 1 }
+                { id: 1, text: "y1", senderId: 1 },
+                { id: 2, text: "m1", senderId: 0 },
+                { id: 3, text: "y1", senderId: 1 }
             ]
         },
 
@@ -63,15 +64,26 @@ const dialogsReducer = (state = initialState, action) => {
                 senderId: 0
             };
             if (newMessage.text) {
-                state.convosData.find(convo => convo.userId === action.userId).messages.push(newMessage);
-                state.newMessageText = '';
+                return {
+                    ...state,
+                    convosData: state.convosData.map((convo) => {
+                        if (convo.userId === action.userId) {
+                            return { ...convo, messages: [...convo.messages, newMessage] };
+                        }
+                        return convo;
+                    }),
+                    newMessageText: ''
+                };
             } else {
                 alert('Please type a message!')
             };
-            return state;
+            break;
+
         case UPDATE_NEW_MESSAGE_TEXT:
-            state.newMessageText = action.newText;
-            return state;
+            return {
+                ...state,
+                newMessageText: action.newText
+            };
         default:
             return state;
     };

@@ -7,7 +7,9 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = () => { }
+let mapDispatchToProps = (dispatch) => { 
+    return {}
+}
 
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 export default DialogsContainer

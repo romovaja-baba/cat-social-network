@@ -9,18 +9,10 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-let rerenderEntireTree = (store) => {
-    root.render(
-        <React.StrictMode>
-            <Provider store={store}>
-                <App />
-            </Provider>
-        </React.StrictMode>
-    )
-};
-rerenderEntireTree(store);
-
-store.subscribe(() => {
-    // let state = store.getState();
-    rerenderEntireTree(store);
-}); 
+root.render(
+    <React.StrictMode>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </React.StrictMode>
+)

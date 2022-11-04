@@ -8,7 +8,7 @@ let mapStateToProps = (state) => {
 }
 
 let mapDispatchToProps = () => {
-
+    return {}
 }
 
 const SideBarContainer = connect(mapStateToProps, mapDispatchToProps)(SideBar);

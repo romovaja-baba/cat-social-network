@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 
 let mapStateToProps = (state, ownProps) => {
     return {
-        userConvo: ownProps.userConvo
+        userConvo: ownProps.userConvo,
+        newMessageText: state.dialogsPage.newMessageText
     }
 };
 

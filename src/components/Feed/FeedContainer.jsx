@@ -7,7 +7,9 @@ let mapStateToProps = (state) => {
     }
 }
 
-let maoDispatchToProps = () => {}
+let maoDispatchToProps = () => {
+    return {}
+}
 
 const FeedContainer = connect(mapStateToProps, maoDispatchToProps)(Feed);
 export default FeedContainer

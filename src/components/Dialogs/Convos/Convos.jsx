@@ -2,7 +2,8 @@ import React from "react";
 import styles from "./Convos.module.css";
 import Message from "../Message/Message";
 
-const Convos = ({ userConvo, updateNewMessageText, sendMessage }) => {
+const Convos = ({ userConvo, newMessageText, updateNewMessageText, sendMessage }) => {
+    console.log(newMessageText);
 
     const messagesElements = userConvo.messages.map((message) => {
         return (<Message id={message.id} text={message.text} senderId={message.senderId} key={message.id} />)
@@ -11,7 +12,7 @@ const Convos = ({ userConvo, updateNewMessageText, sendMessage }) => {
     let newMessageElement = React.createRef();
 
     let onSendMessageClick = () => {
-        sendMessage(userConvo.userId);
+        sendMessage(userConvo);
     }
 
     let onMessageChange = () => {
@@ -23,7 +24,11 @@ const Convos = ({ userConvo, updateNewMessageText, sendMessage }) => {
         <div className={styles.content}>
             <div className={styles.messagesArea}>{messagesElements}</div>
             <div className={styles.messageInput}>
-                <textarea ref={newMessageElement} onChange={onMessageChange} placeholder="Enter your message here..."></textarea>
+                <textarea
+                    ref={newMessageElement}
+                    onChange={onMessageChange}
+                    value={newMessageText}
+                    placeholder="Enter your message here..."/>
                 {/* TODO: fix to add.svg */}
                 <img src="../add.svg" alt="" height={"40px"} onClick={onSendMessageClick} className={styles.addButton} />
             </div>
