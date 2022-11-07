@@ -21,6 +21,10 @@ body {
   color: #023047;
 }
 
+button {
+  font-family: 'Poppins', sans-serif;
+}
+
 .app-wrapper {
   display: flex;
   flex-direction: column;

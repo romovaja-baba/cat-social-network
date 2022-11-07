@@ -13,6 +13,7 @@ const Nav = () => {
     return (
         <nav className={styles.container}>
             <div className={styles.item}><NavLink to="/feed" className={SelectedLink()}>Feed</NavLink></div>
+            <div className={styles.item}><NavLink to="/users" className={SelectedLink()}>Find Users</NavLink></div>
             <div className={styles.item}><NavLink to="/profile" className={SelectedLink()}>Profile</NavLink></div>
             <div className={styles.item}><NavLink to="/dialogs" className={SelectedLink()}>Messages</NavLink></div>
             <div className={styles.item}><NavLink to="/music" className={SelectedLink()} >Music</NavLink></div>

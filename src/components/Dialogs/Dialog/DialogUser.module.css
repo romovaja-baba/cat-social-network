@@ -23,6 +23,7 @@
 }
 
 .listItem img {
+    width: 55px;
     min-width: 55px;
     border-radius: 45%;
     object-fit: cover;

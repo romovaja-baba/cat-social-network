@@ -11,7 +11,7 @@ import Settings from './components/Settings/Settings';
 import Music from './components/Music/Music';
 import FeedContainer from './components/Feed/FeedContainer';
 import SideBarContainer from './components/SideBar/SideBarContainer';
-
+import UsersContainer from './components/Users/UsersContainer';
 
 const App = () => {
   return (
@@ -31,6 +31,7 @@ const App = () => {
           <div className='content'>
             <Routes>
               <Route path="/feed" element={<FeedContainer />} />
+              <Route path="/users" element={<UsersContainer/>} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/dialogs" element={<DialogsContainer />} />
               <Route path="/dialogs/:id" element={<DialogsContainer />} />
