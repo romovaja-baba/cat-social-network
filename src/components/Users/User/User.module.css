@@ -1,4 +1,6 @@
 .listItem {
+    max-width: 850px;
+
     padding: 10px;
 
     display: flex;
@@ -9,10 +11,13 @@
     white-space: nowrap;
     overflow: hidden;
     border-radius: 10px;
+
+    border: 3.5px solid #fff;
 }
 
 .listItem:hover {
-    background-color: #f0f0f0;
+    border: 3.5px solid #FFB703;
+    cursor: pointer;
 }
 
 .listItem a {
@@ -73,6 +78,15 @@
     display: flex;
     justify-content: space-between;
     
+}
+
+.mainInfo {
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+.status {
+    widows: 100%;
 }
 
 .name {
