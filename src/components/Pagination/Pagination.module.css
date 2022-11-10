@@ -1,0 +1,23 @@
+.selectedPage {
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-decoration-color: #FFB703;
+}
+
+.pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.pages span {
+    cursor: pointer;
+}
+
+.disabled {
+    opacity: 0;
+}

@@ -65,9 +65,7 @@
 .followButton {
     background-color: #FFB703;
     border: 2px solid #FFB703;
-
 }
-
 
 .content {
     background-color: #f0f0f0;
@@ -82,7 +80,8 @@
 
 .mainInfo {
     width: 100%;
-    overflow-wrap: break-word;
+    overflow:scrollxs;
+    overflow-wrap:break-word;
 }
 
 .status {
