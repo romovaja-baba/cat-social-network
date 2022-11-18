@@ -18,6 +18,15 @@
     cursor: pointer;
 }
 
+.arrows {
+    height: 45px;
+    width: 45px;
+}
+
+.arrowsContainer {
+    height: 45px;
+}
+
 .disabled {
     opacity: 0;
 }

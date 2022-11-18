@@ -1,5 +1,5 @@
-const SEND_MESSAGE = "SEND-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+const SEND_MESSAGE = "SEND_MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE_NEW_MESSAGE_TEXT";
 
 let initialState = {
     dialogUserData: [
@@ -89,7 +89,7 @@ const dialogsReducer = (state = initialState, action) => {
     };
 };
 
-export const sendMessageActionCreator = (userId) => ({ type: SEND_MESSAGE, userId: userId });
-export const updateNewMessageTextActionCreator = (text) => ({ type: UPDATE_NEW_MESSAGE_TEXT, newText: text });
+export const sendMessage = (userId) => ({ type: SEND_MESSAGE, userId: userId });
+export const updateNewMessageText = (text) => ({ type: UPDATE_NEW_MESSAGE_TEXT, newText: text });
 
 export default dialogsReducer;

@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Post.module.css";
+import heartImage from "../../../../images/heart.png"
 
 const Post = ({ post }) => {
 
@@ -14,7 +15,7 @@ const Post = ({ post }) => {
             </div>
             <div className={styles.postLike}>
                 {post.likeCount}
-                <img height={"20px"} src="./heart.png" alt="" />
+                <img height={"20px"} src={heartImage} alt="" />
             </div>
         </div>
     );

@@ -1,5 +1,7 @@
 import React from "react";
-import styles from "./Pagination.module.css"
+import styles from "./Pagination.module.css";
+import leftArrow from "../../images/left-arrow.svg";
+import rightArrow from "../../images/right-arrow.svg";
 
 import { usePagination } from "./usePagination";
 
@@ -11,9 +13,7 @@ const Pagination = ({ onPageChanged, totalCount, siblingCount = 1, currentPage, 
         siblingCount || 1,
         currentPage || 1
     );
-
-    console.log(paginationRange)
-
+    
     if (currentPage === 0 || paginationRange.length < 2) return null;
 
     const onNext = () => { onPageChanged(currentPage + 1); }
@@ -22,10 +22,8 @@ const Pagination = ({ onPageChanged, totalCount, siblingCount = 1, currentPage, 
 
     return (
         <div className={styles.pages}>
-            <span
-                onClick={() => onPrevious()}
-                className={currentPage === 1 && styles.disabled}>
-                {"<<"}
+            <span className={currentPage === 1 ? styles.disabled : styles.arrowsContainer}>
+                <img className={styles.arrows} src={leftArrow} onClick={() => onPrevious()} alt=""/>
             </span>
             {paginationRange.map(range => {
                 return (
@@ -36,10 +34,8 @@ const Pagination = ({ onPageChanged, totalCount, siblingCount = 1, currentPage, 
                     </span>
                 )
             })}
-            <span
-                onClick={() => onNext()}
-                className={currentPage === lastPage && styles.disabled}>
-                {">>"}
+            <span className={currentPage === lastPage ? styles.disabled: styles.arrowsContainer}>
+                <img className={styles.arrows} src={rightArrow} onClick={() => onNext()}  alt=""/>
             </span>
         </div>
     )

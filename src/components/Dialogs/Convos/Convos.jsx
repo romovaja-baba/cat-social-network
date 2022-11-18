@@ -1,10 +1,9 @@
 import React from "react";
 import styles from "./Convos.module.css";
 import Message from "../Message/Message";
+import addImage from "../../../images/add.svg"
 
 const Convos = ({ userConvo, newMessageText, updateNewMessageText, sendMessage }) => {
-    console.log(newMessageText);
-
     const messagesElements = userConvo.messages.map((message) => {
         return (<Message id={message.id} text={message.text} senderId={message.senderId} key={message.id} />)
     })
@@ -12,7 +11,7 @@ const Convos = ({ userConvo, newMessageText, updateNewMessageText, sendMessage }
     let newMessageElement = React.createRef();
 
     let onSendMessageClick = () => {
-        sendMessage(userConvo);
+        sendMessage(userConvo.userId);
     }
 
     let onMessageChange = () => {
@@ -30,7 +29,7 @@ const Convos = ({ userConvo, newMessageText, updateNewMessageText, sendMessage }
                     value={newMessageText}
                     placeholder="Enter your message here..."/>
                 {/* TODO: fix to add.svg */}
-                <img src="../add.svg" alt="" height={"40px"} onClick={onSendMessageClick} className={styles.addButton} />
+                <img src={addImage} alt="" height={"40px"} onClick={onSendMessageClick} className={styles.addButton} />
             </div>
         </div>
     )

@@ -1,14 +1,22 @@
 import React from "react";
+import Preloader from "../../common/Preloader/Preloader";
 import styles from "./ProfileInfo.module.css";
 
-const ProfileInfo = () => {
+import defaultProfilePicture from "../../../images/defaultPP.jpg"
+
+const ProfileInfo = ({ profile }) => {
+
+    if (!profile) {
+        return <Preloader />
+    }
+
     return (
         <div className={styles.mainInfo}>
             <div className={styles.profilePicture}>
-                <img height={"200px"} alt="" src="https://us.123rf.com/450wm/nengloveyou/nengloveyou1404/nengloveyou140400107/27500065-portrait-thai-yellow-cat-brown-eyed-expressive-look-isolated-on-white.jpg?ver=6" />
+                <img height={"200px"} alt="" src={profile.photos.large || defaultProfilePicture}/>
             </div>
             <div className={styles.profileName}>
-                Catmond Purrvic
+                {profile.fullName}
             </div>
         </div>
     )

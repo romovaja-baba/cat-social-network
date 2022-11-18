@@ -1,6 +1,6 @@
 import Convos from "./Convos";
 
-import { sendMessageActionCreator, updateNewMessageTextActionCreator } from "../../../redux/dialogs-reducer";
+import { sendMessage, updateNewMessageText } from "../../../redux/dialogs-reducer";
 import { connect } from "react-redux";
 
 let mapStateToProps = (state, ownProps) => {
@@ -10,17 +10,6 @@ let mapStateToProps = (state, ownProps) => {
     }
 };
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        updateNewMessageText: (body) => {
-            dispatch(updateNewMessageTextActionCreator(body))
-        },
-        sendMessage: (userConvo) => {
-            dispatch(sendMessageActionCreator(userConvo.userId))
-        }
-    }
-}
-
-const ConvosContainer = connect(mapStateToProps, mapDispatchToProps)(Convos);
+const ConvosContainer = connect(mapStateToProps, {sendMessage, updateNewMessageText})(Convos);
 
 export default ConvosContainer;

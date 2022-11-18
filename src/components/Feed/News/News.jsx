@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./News.module.css";
+import heartImage from "../../../images/heart.png"
 
 const News = ({news}) => {
     return (
@@ -10,7 +11,7 @@ const News = ({news}) => {
             </div>
             <div className={styles.reaction}>
                 <div>{news.likeCount}</div>
-                <img height={"20px"} width={"20px"} src="./heart.png" alt="" />
+                <img height={"20px"} width={"20px"} src={heartImage} alt="" />
             </div>
         </div>
     )

@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import addImage from "../../../images/add.svg"
 
 const MyPosts = ({addPost, updateNewPostText, posts, newPostText}) => {
 
@@ -23,7 +24,7 @@ const MyPosts = ({addPost, updateNewPostText, posts, newPostText}) => {
         <div className={styles.postsArea}>
             <div className={styles.newPost}>
                 <textarea ref={newPostElement} value={newPostText} onChange={onPostChange} placeholder="What's on your meownd?" />
-                <img height="40px" src="add.svg" alt="" className={styles.addButton} onClick={onAddPost}/>
+                <img height="40px" src={addImage} alt="" className={styles.addButton} onClick={onAddPost}/>
             </div>
 
             <div className={styles.posts}>
