@@ -67,6 +67,17 @@
     border: 2px solid #FFB703;
 }
 
+.disabledButton {
+    width: 80px;
+    font-size: 14px;
+    padding: 7px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: none;
+    background-color: #fff;
+    border: 2px solid #f0f0f0;
+}
+
 .content {
     background-color: #f0f0f0;
     width: 100%;

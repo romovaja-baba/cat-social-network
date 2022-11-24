@@ -8,29 +8,27 @@ import {
 } from "../../redux/users-reducer";
 import { connect } from "react-redux";
 import { useEffect } from "react";
-import axios from "axios";
 
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
+import { usersAPI } from "../../api/api";
 
 const UsersAPIComponent = ({ users, follow, unfollow, setUsers, pageSize,
     totalUserCount, currentPage, isFetching, setCurrentPage, setTotalUserCount, setFetching }) => {
 
     useEffect(() => {
         if (users.length) return;
-        onPageChanged();
+        onPageChanged(currentPage);
     });
 
-    let onPageChanged = (pageNumber) => {
+    let onPageChanged = (currentPage) => {
         setFetching(true);
-        setCurrentPage(pageNumber);
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`)
-            .then((response) => {
-                setFetching(false);
-                setUsers(response.data.items);
-                setTotalUserCount(response.data.totalCount)
-            })
+        setCurrentPage(currentPage);
+        usersAPI.getUsers(currentPage, pageSize)
+        .then((data) => {
+            setFetching(false);
+            setUsers(data.items);
+            setTotalUserCount(data.totalCount)})
     }
 
     return (
