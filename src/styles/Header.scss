@@ -1,0 +1,22 @@
+@use 'base' as base;
+
+.header-area {
+  background-color: base.$yellow;
+  overflow: hidden;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .header-title {
+    @include base.app-logo;
+  }
+
+  .header-login {
+    @include base.basic-item-title;
+
+    a {
+      @include base.no-decoration-links;
+    }
+  }
+}

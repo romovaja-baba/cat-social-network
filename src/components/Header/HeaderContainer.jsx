@@ -16,7 +16,6 @@ const HeaderAPIContainer = ({ isLoggedIn, login, setAuthUserData }) => {
                 }
             })
     }, [setAuthUserData])
-
     return (
         <Header isLoggedIn={isLoggedIn} login={login} />
     )

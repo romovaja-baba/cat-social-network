@@ -1,0 +1,10 @@
+@use 'base' as base;
+
+.users-area {
+    @include base.basic-container;
+    gap: 50px;
+
+    .items-area {
+        @include base.basic-item-list;
+    }
+}

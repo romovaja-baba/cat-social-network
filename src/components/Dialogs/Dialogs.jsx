@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./Dialogs.module.css";
-
 import DialogUser from "./Dialog/DialogUser";
 import ConvosContainer from "./Convos/ConvosContainer";
 import { useParams } from "react-router-dom";
+
+import "../../styles/Dialogs.scss";
 
 const Dialogs = ({dialogsPage}) => {
 
@@ -15,11 +15,11 @@ const Dialogs = ({dialogsPage}) => {
         <DialogUser name={dialog.name} id={dialog.id} key={dialog.id} profilePicture={dialog.profilePicture} />);
 
     return (
-        <div className={styles.container}>
-            <div className={styles.list}>
+        <div className="dialogs-area">
+            <div className="dialogs-users-list">
                 {dialogElements}
             </div>
-            <div className={styles.content}>
+            <div className="dialogs-messages-area">
                 {userConvo && (<ConvosContainer userConvo={userConvo}/>)}
             </div>
         </div>

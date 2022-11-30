@@ -1,0 +1,54 @@
+@use 'base' as base;
+
+.usercard-area {
+    @include base.basic-item;
+
+    .usercard-left-side {
+        width: 85px;
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            @include base.small-profile-picture;
+        }
+
+        .follow-button,
+        .unfollow-button {
+            @include base.small-button;
+
+            &:hover {
+                @include base.pointer-cursor;
+            }
+        }
+
+        .follow-button {
+            background-color: base.$yellow;
+        }
+
+        .disabled-button {
+            @include base.disabled-button;
+        }
+    }
+
+    .usercard-content {
+        background-color: base.$light-gray;
+        width: 100%;
+        min-height: 100px;
+        padding: 10px 15px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 15px;
+        
+        .usercard-name {
+            @include base.basic-item-title;
+        }
+        .usercard-status {
+            @include base.basic-item-description;
+        }
+    }
+}

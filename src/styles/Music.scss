@@ -1,0 +1,17 @@
+@use 'base' as base;
+
+.music-area {
+    @include base.basic-container;
+
+    .music-list {
+        @include base.basic-item-list;
+
+        .music-item {
+            @include base.basic-item;
+
+            .music-title {
+                @include base.basic-item-title;
+            }
+        }
+    }
+}

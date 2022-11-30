@@ -1,12 +1,10 @@
 import React from "react";
-import styles from "./Message.module.css";
+import "../../../styles/Dialogs.scss";
 
-const Message = ({text, senderId}) => {
+const Message = ({ text, senderId }) => {
     return (
-        <div className={senderId === 0 ? styles.myself : styles.others}>
-            <div className={styles.message}>
-                {text}
-            </div>
+        <div className={senderId === 0 ? "message-myself message-item" : "message-others message-item"}>
+            {text}
         </div>
     )
 };

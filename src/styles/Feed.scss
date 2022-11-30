@@ -1,0 +1,26 @@
+@use 'base' as base;
+
+.feed-area {
+    @include base.basic-container;
+
+    .feed-list {
+        @include base.basic-item-list;
+
+        .news-item {
+            @include base.basic-item;
+            justify-content: space-between;
+
+            .news-maininfo {
+                .news-title {
+                    @include base.basic-item-title;
+                }
+                .news-text {
+                    @include base.basic-item-description;
+                }
+            }
+            .news-reaction {
+                @include base.reaction;
+            }
+        }
+    }
+}

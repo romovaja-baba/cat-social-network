@@ -1,7 +1,8 @@
 import React from "react";
-import styles from "./Convos.module.css";
 import Message from "../Message/Message";
 import addImage from "../../../images/add.svg"
+
+import "../../../styles/Dialogs.scss";
 
 const Convos = ({ userConvo, newMessageText, updateNewMessageText, sendMessage }) => {
     const messagesElements = userConvo.messages.map((message) => {
@@ -20,16 +21,15 @@ const Convos = ({ userConvo, newMessageText, updateNewMessageText, sendMessage }
     }
 
     return (
-        <div className={styles.content}>
-            <div className={styles.messagesArea}>{messagesElements}</div>
-            <div className={styles.messageInput}>
+        <div className="convo-area">
+            <div className="convo-messages-area">{messagesElements}</div>
+            <div className="convo-input">
                 <textarea
                     ref={newMessageElement}
                     onChange={onMessageChange}
                     value={newMessageText}
                     placeholder="Enter your message here..."/>
-                {/* TODO: fix to add.svg */}
-                <img src={addImage} alt="" height={"40px"} onClick={onSendMessageClick} className={styles.addButton} />
+                <img src={addImage} alt="" height={"40px"} onClick={onSendMessageClick} className="convo-addbutton" />
             </div>
         </div>
     )

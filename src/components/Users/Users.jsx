@@ -1,25 +1,23 @@
-import styles from "./Users.module.css";
-
+import "../../styles/Users.scss";
 import Pagination from "../Pagination/Pagination";
 import User from "./User/User"
 
 const Users = ({users, totalUserCount, pageSize, currentPage, onPageChanged, follow, unfollow}) => {
 
     let pages = [];
-
     for (let i = 1; i <= Math.ceil(totalUserCount / pageSize); i++) {
         pages.push(i)
     }
 
     return (
-        <div className={styles.usersArea}>
+        <div className="users-area">
             <Pagination
                 onPageChanged={onPageChanged}
                 totalCount={totalUserCount}
                 currentPage={currentPage}
                 pageSize={pageSize}
             />
-            <div className={styles.itemsArea}>
+            <div className="items-area">
                 {users.map(user =>
                     <User
                         user={user}
@@ -27,8 +25,6 @@ const Users = ({users, totalUserCount, pageSize, currentPage, onPageChanged, fol
                         follow={follow}
                         unfollow={unfollow} />
                 )}
-            </div>
-            <div className={styles.buttonArea}>
             </div>
         </div>
     )

@@ -1,0 +1,85 @@
+@use 'base' as base;
+
+.dialogs-area {
+    @include base.basic-container;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+
+    .dialogs-users-list {
+        @include base.basic-item-list;
+        gap: 5px;
+
+        .dialog-user-area {
+            display: flex;
+            gap: 10px;
+            min-width: 200px;
+            max-width: 250px;
+            padding: 10px;
+
+            .dialog-user-item {
+                @include base.basic-item;
+                @include base.no-decoration-links;
+                background-color: base.$white;
+            }
+
+            .active-dialog {
+                background: base.$light-gray;
+            }
+
+            img {
+                @include base.small-profile-picture
+            }
+        }
+    }
+
+    .dialogs-messages-area {
+        border-left: 2px solid base.$light-gray;
+        width: 100%;
+
+        .convo-area {
+            min-width: 500px;
+            min-height: 500px;
+            max-height: 500px;
+            padding: 20px 20px 20px 30px;
+            background-color: base.$white;
+            border-radius: base.$border-radius;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 10px;
+
+            .convo-messages-area {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                overflow-y: scroll;
+
+                .message-item {
+                    @include base.message-item;
+                }
+
+                .message-myself {
+                    align-self: flex-end;
+                }
+            }
+
+            .convo-input {
+                display: flex;
+
+                textarea {
+                    @include base.textarea;
+                }
+
+                .convo-addbutton {
+                    align-self: center;
+                    border: none;
+                    outline: none;
+                    background-color: inherit;
+                    border-radius: 10px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

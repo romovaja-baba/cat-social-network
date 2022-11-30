@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import './App.css';
+import "./styles/App.scss"
 
 import Nav from './components/Nav/Nav';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
@@ -22,13 +22,13 @@ const App = () => {
         </div>
 
 
-        <div className='container'>
-          <div className="side-container">
+        <div className='app-container'>
+          <div className="app-side-container">
             <Nav />
             <SideBarContainer />
           </div>
 
-          <div className='content'>
+          <div className='app-content'>
             <Routes>
               <Route path="/feed" element={<FeedContainer />} />
               <Route path="/users" element={<UsersContainer/>} />

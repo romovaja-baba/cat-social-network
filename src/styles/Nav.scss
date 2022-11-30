@@ -1,0 +1,18 @@
+@use 'base' as base;
+
+.nav-area {
+    @include base.basic-container;
+    width: base.$sidebar-width;
+
+    a {
+        @include base.no-decoration-links;
+    }
+
+    .nav-item {
+        @include base.nav-item;
+    }
+
+    .active-nav-item {
+        @include base.active-nav-item
+    }
+}

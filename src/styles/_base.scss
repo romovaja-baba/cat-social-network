@@ -1,0 +1,157 @@
+$yellow: #FFB703;
+$white: #fff;
+$light-gray: #f0f0f0;
+$blue: #023047;
+$black: #000;
+
+$font-poppins: 'Poppins', sans-serif;
+$font-josefin: 'Josefin Sans', sans-serif;
+
+$basic-width: 850px;
+$sidebar-width: 225px;
+$border-radius: 15px;
+
+@mixin no-decoration-links {
+    text-decoration: none;
+    color: $blue;
+}
+
+@mixin pointer-cursor {
+    cursor: pointer;
+}
+
+@mixin yellow-border {
+    border: 3.5px solid $yellow;
+}
+
+@mixin app-logo {
+    font-family: $font-josefin;
+    font-size: 30px;
+    font-weight: 700;
+    color: #023047;
+}
+
+@mixin basic-container {
+    margin-bottom: 80px;
+    width: 100%;
+    width: $basic-width;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@mixin basic-item-list {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@mixin basic-item-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+@mixin basic-item-description {}
+
+@mixin basic-item {
+    background-color: $light-gray;
+    max-width: $basic-width;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: $border-radius;
+    border: 3.5px solid $white;
+
+    &:hover {
+        @include pointer-cursor;
+        @include yellow-border;
+    }
+}
+
+@mixin nav-item {
+    max-width: $sidebar-width;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px;
+    border-radius: $border-radius;
+}
+
+@mixin active-nav-item {
+    @include nav-item;
+    background-color: $yellow;
+}
+
+@mixin message-item {
+    font-size: 14px;
+    width: fit-content;
+
+    padding: 10px 15px;
+    background-color: $light-gray;
+    border-radius: $border-radius;
+}
+
+@mixin reaction {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    align-self: flex-end;
+    gap: 5px;
+}
+
+@mixin button {
+    font-size: 14px;
+    box-shadow: none;
+    border: 2px solid $yellow;
+    font-family: $font-poppins;
+    border-radius: 10px;
+    width: 120px;
+    padding: 10px;
+    background-color: $yellow;
+}
+
+@mixin textarea {
+    min-width: 100%;
+    padding: 10px;
+    height: 100%;
+    border: 2px solid $light-gray;
+    outline: none;
+    border-radius: $border-radius;
+    overflow: hidden;
+    font-size: 14px;
+    resize: none;
+
+    &:focus {
+        border: 2px solid $yellow;
+        outline: none;
+    }
+}
+
+@mixin small-button {
+    font-size: 14px;
+    box-shadow: none;
+    border: 2px solid $yellow;
+    font-family: $font-poppins;
+    border-radius: 10px;
+    width: 80px;
+    padding: 7px;
+    background-color: $white;
+}
+
+@mixin disabled-button {
+    @include small-button;
+    border: 2px solid $light-gray;
+}
+
+@mixin small-profile-picture {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    border-radius: 45%;
+    object-fit: cover;
+}

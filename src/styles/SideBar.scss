@@ -1,0 +1,23 @@
+@use 'base' as base;
+
+.sidebar-area {
+    @include base.basic-container;
+    width: base.$sidebar-width;
+    justify-content: center;
+
+    .sidebar-title { @include base.basic-item-title }
+
+    .sidebar-list {
+
+        @include base.basic-item-list;
+        gap: 0;
+
+        .sidebar-item {
+            @include base.basic-item;
+            width: base.$sidebar-width;
+
+            img { @include base.small-profile-picture; }
+            a { @include base.no-decoration-links }
+        }
+    }
+}
