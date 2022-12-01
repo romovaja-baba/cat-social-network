@@ -1,8 +1,8 @@
 import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
-import styles from "./ProfileInfo.module.css";
+import defaultProfilePicture from "../../../images/defaultPP.jpg";
 
-import defaultProfilePicture from "../../../images/defaultPP.jpg"
+import "../../../styles/Profile.scss";
 
 const ProfileInfo = ({ profile }) => {
 
@@ -11,11 +11,11 @@ const ProfileInfo = ({ profile }) => {
     }
 
     return (
-        <div className={styles.mainInfo}>
-            <div className={styles.profilePicture}>
-                <img height={"200px"} alt="" src={profile.photos.large || defaultProfilePicture}/>
+        <div className="profile-maininfo-area">
+            <div className="profile-maininfo-profilepicture">
+                <img alt="" src={profile.photos.large || defaultProfilePicture}/>
             </div>
-            <div className={styles.profileName}>
+            <div className="profile-maininfo-name">
                 {profile.fullName}
             </div>
         </div>

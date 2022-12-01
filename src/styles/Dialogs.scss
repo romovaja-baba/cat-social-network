@@ -54,11 +54,9 @@
                 flex-direction: column;
                 gap: 10px;
                 overflow-y: scroll;
-
                 .message-item {
                     @include base.message-item;
                 }
-
                 .message-myself {
                     align-self: flex-end;
                 }
@@ -70,14 +68,8 @@
                 textarea {
                     @include base.textarea;
                 }
-
                 .convo-addbutton {
-                    align-self: center;
-                    border: none;
-                    outline: none;
-                    background-color: inherit;
-                    border-radius: 10px;
-                    cursor: pointer;
+                    @include base.add-button;
                 }
             }
         }

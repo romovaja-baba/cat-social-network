@@ -1,0 +1,58 @@
+@use 'base' as base;
+
+.profile-area {
+    @include base.basic-container;
+
+    .profile-maininfo-area {
+        @include base.title-page;
+
+        .profile-maininfo-profilepicture img {
+            @include base.big-profile-picture;
+        }
+        .profile-maininfo-name {
+            @include base.title-page-name;
+        }
+    };
+
+
+    .posts-area {
+        @include base.basic-container;
+        gap: 30px;
+
+        .posts-newpost {
+            @include base.textarea-container;
+
+            textarea {
+                @include base.textarea;
+            }
+            .posts-addbutton {
+                @include base.add-button;
+            }
+        }
+
+        .posts-list {
+            @include base.basic-item-list;
+            flex-direction: column-reverse;
+            gap: 45px;
+
+            .post-item {
+                @include base.post-item;
+
+                .post-item-body {
+                    @include base.post-item-body;
+                    .post-item-user {
+                        .post-item-profilepicture {
+                            @include base.small-profile-picture;
+                        }
+                    }
+                    .post-item-text {
+                        @include base.post-item-text;
+                    }
+                }
+                .post-item-reaction {
+                    @include base.reaction;
+                }
+            }
+        }
+    }
+}

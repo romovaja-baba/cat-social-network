@@ -10,6 +10,7 @@ $font-josefin: 'Josefin Sans', sans-serif;
 $basic-width: 850px;
 $sidebar-width: 225px;
 $border-radius: 15px;
+$bold: 600;
 
 @mixin no-decoration-links {
     text-decoration: none;
@@ -28,12 +29,53 @@ $border-radius: 15px;
     font-family: $font-josefin;
     font-size: 30px;
     font-weight: 700;
-    color: #023047;
+    color: $blue;
+}
+
+@mixin title-page {
+    display: flex;
+    justify-content: flex-start;
+    gap: 50px;
+    padding: 30px;
+    background-size: cover;
+    border-radius: $border-radius;
+    overflow: hidden;
+}
+
+@mixin title-page-name {
+    color: $black;
+    font-size: 30px;
+    font-weight: $bold;
+}
+
+@mixin post-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: auto;
+    border-bottom: 1px solid $light-gray;
+    padding-bottom: 25px;
+}
+
+@mixin post-item-body {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@mixin post-item-text {
+    width: auto;
+    padding: 10px;
+    margin-left: 50px;
+    font-size: 15px;
+    align-self: center;
+    background-color: $light-gray;
+    border-radius: $border-radius;
 }
 
 @mixin basic-container {
     margin-bottom: 80px;
-    width: 100%;
     width: $basic-width;
     display: flex;
     flex-direction: column;
@@ -49,7 +91,7 @@ $border-radius: 15px;
 
 @mixin basic-item-title {
     font-size: 18px;
-    font-weight: 600;
+    font-weight: $bold;
 }
 
 @mixin basic-item-description {}
@@ -76,7 +118,7 @@ $border-radius: 15px;
 @mixin nav-item {
     max-width: $sidebar-width;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: $bold;
     padding: 8px;
     border-radius: $border-radius;
 }
@@ -113,6 +155,13 @@ $border-radius: 15px;
     width: 120px;
     padding: 10px;
     background-color: $yellow;
+}
+
+@mixin textarea-container {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 @mixin textarea {
@@ -154,4 +203,23 @@ $border-radius: 15px;
     min-width: 55px;
     border-radius: 45%;
     object-fit: cover;
+}
+
+@mixin big-profile-picture {
+    width: 200px;
+    height: 200px;
+    min-width: 200px;
+    border-radius: 45%;
+    object-fit: cover;
+}
+
+@mixin add-button {
+    height: 40px;
+    width: 40px;
+    align-self: center;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    border-radius: 10px;
+    cursor: pointer;
 }

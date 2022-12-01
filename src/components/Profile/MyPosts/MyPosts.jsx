@@ -1,7 +1,8 @@
 import React from "react";
-import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import addImage from "../../../images/add.svg"
+
+import "../../../styles/Profile.scss";
 
 const MyPosts = ({addPost, updateNewPostText, posts, newPostText}) => {
 
@@ -21,13 +22,13 @@ const MyPosts = ({addPost, updateNewPostText, posts, newPostText}) => {
     };
 
     return (
-        <div className={styles.postsArea}>
-            <div className={styles.newPost}>
+        <div className="posts-area">
+            <div className="posts-newpost">
                 <textarea ref={newPostElement} value={newPostText} onChange={onPostChange} placeholder="What's on your meownd?" />
-                <img height="40px" src={addImage} alt="" className={styles.addButton} onClick={onAddPost}/>
+                <img src={addImage} alt="" className="posts-addbutton" onClick={onAddPost}/>
             </div>
 
-            <div className={styles.posts}>
+            <div className="posts-list">
                 {postsElements}
             </div>
         </div>
