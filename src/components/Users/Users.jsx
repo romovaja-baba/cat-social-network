@@ -2,12 +2,7 @@ import "../../styles/Users.scss";
 import Pagination from "../Pagination/Pagination";
 import User from "./User/User"
 
-const Users = ({users, totalUserCount, pageSize, currentPage, onPageChanged, follow, unfollow}) => {
-
-    let pages = [];
-    for (let i = 1; i <= Math.ceil(totalUserCount / pageSize); i++) {
-        pages.push(i)
-    }
+const Users = ({users, totalUserCount, pageSize, currentPage, onPageChanged, followUser, unfollowUser}) => {
 
     return (
         <div className="users-area">
@@ -17,13 +12,13 @@ const Users = ({users, totalUserCount, pageSize, currentPage, onPageChanged, fol
                 currentPage={currentPage}
                 pageSize={pageSize}
             />
-            <div className="items-area">
+            <div className="users-items-area">
                 {users.map(user =>
                     <User
                         user={user}
                         key={user.id}
-                        follow={follow}
-                        unfollow={unfollow} />
+                        followUser={followUser}
+                        unfollowUser={unfollowUser}/>
                 )}
             </div>
         </div>

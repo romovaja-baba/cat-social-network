@@ -1,26 +1,18 @@
 import Profile from "./Profile";
 
-import { usersAPI } from "../../api/api";
-import { setUserProfile } from "../../redux/profile-reducer";
+import { getUserProfile } from "../../redux/profile-reducer";
 
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
 import { useEffect } from "react";
 
 
-const ProfileAPIComponent = ({ profile, setUserProfile }) => {
+const ProfileAPIComponent = ({ profile, getUserProfile }) => {
 
     let { id } = useParams();
-    let [user, setUser] = useState(null);
-
     useEffect(() => {
-        usersAPI.getUserProfile(id)
-            .then((data) => {
-                setUserProfile(data);
-                setUser(id);
-            })
-    }, [user, setUser, id, setUserProfile])
+        getUserProfile(id);
+    });
 
     return (
         <Profile profile={profile} />
@@ -33,6 +25,6 @@ let mapStateToProps = (state) => {
     }
 };
 
-const ProfileContainer = connect(mapStateToProps, { setUserProfile })(ProfileAPIComponent);
+const ProfileContainer = connect(mapStateToProps, { getUserProfile })(ProfileAPIComponent);
 
 export default ProfileContainer;

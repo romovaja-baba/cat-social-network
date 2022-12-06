@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/SideBar.scss";
 import { NavLink } from "react-router-dom";
 
-const SideBar = ({friends}) => {
+const SideBar = ({ friends }) => {
 
     const friendsElements = friends.map((friend) => {
         return <div key={friend.id} className="sidebar-item">

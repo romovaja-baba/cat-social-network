@@ -1,14 +1,9 @@
 import { NavLink } from "react-router-dom";
-import { usersAPI } from "../../../api/api";
-import { useState } from "react";
 import defaultProfilePicture from "../../../images/defaultPP.jpg";
 
 import "../../../styles/UserCard.scss";
 
-const User = ({ user, follow, unfollow }) => {
-
-    let [disabled, setDisabled] = useState(false);
-
+const User = ({ user, followUser, unfollowUser }) => {
     return (
         <div className="usercard-area">
             <div className="usercard-left-side">
@@ -16,25 +11,13 @@ const User = ({ user, follow, unfollow }) => {
                     <img src={user.photos.small || defaultProfilePicture} alt="" />
                 </NavLink>
                 {user.followed ?
-                    <button className={disabled ? "disabled-button" : "unfollow-button"}
+                    <button className={"unfollow-button"}
                         onClick={() => {
-                            setDisabled(true);
-                            usersAPI.unfollowUser(user.id).then((data) => {
-                                if (data.resultCode === 0) {
-                                    unfollow(user.id)
-                                }
-                                setDisabled(false);
-                            })
+                            unfollowUser(user.id);
                         }}>Unfollow</button> :
-                    <button className={disabled ? "disabled-button" : "follow-button"}
+                    <button className={"follow-button"}
                         onClick={() => {
-                            setDisabled(true);
-                            usersAPI.followUser(user.id).then((data) => {
-                                if (data.resultCode === 0) {
-                                    follow(user.id)
-                                }
-                                setDisabled(false);
-                            });
+                            followUser(user.id);
                         }}>Follow</button>
                 }
             </div>

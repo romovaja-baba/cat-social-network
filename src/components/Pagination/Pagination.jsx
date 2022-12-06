@@ -1,9 +1,8 @@
-import React from "react";
-import styles from "./Pagination.module.css";
 import leftArrow from "../../images/left-arrow.svg";
 import rightArrow from "../../images/right-arrow.svg";
-
 import { usePagination } from "./usePagination";
+
+import "../../styles/Pagination.scss";
 
 const Pagination = ({ onPageChanged, totalCount, siblingCount = 1, currentPage, pageSize }) => {
 
@@ -21,26 +20,24 @@ const Pagination = ({ onPageChanged, totalCount, siblingCount = 1, currentPage, 
     let lastPage = paginationRange[paginationRange.length - 1];
 
     return (
-        <div className={styles.pages}>
-            <span className={currentPage === 1 ? styles.disabled : styles.arrowsContainer}>
-                <img className={styles.arrows} src={leftArrow} onClick={() => onPrevious()} alt=""/>
-            </span>
+        <div className="pagination-area">
+            <div className={currentPage === 1 ? "pagination-arrows disabled" : "pagination-arrows"}>
+                <img src={leftArrow} onClick={() => onPrevious()} alt=""/>
+            </div>
             {paginationRange.map(range => {
                 return (
-                    <span
+                    <div
                         onClick={() => onPageChanged(range)}
-                        className={currentPage === range && styles.selectedPage}>
+                        className={currentPage === range ? "pagination-page selected" : "pagination-page"}>
                         {range}
-                    </span>
+                    </div>
                 )
             })}
-            <span className={currentPage === lastPage ? styles.disabled: styles.arrowsContainer}>
-                <img className={styles.arrows} src={rightArrow} onClick={() => onNext()}  alt=""/>
-            </span>
+            <div className={currentPage === lastPage ? "pagination-arrows disabled" : "pagination-arrows"}>
+                <img src={rightArrow} onClick={() => onNext()}  alt=""/>
+            </div>
         </div>
     )
-
-
 };
 
 export default Pagination;

@@ -4,7 +4,7 @@
     @include base.basic-container;
     gap: 50px;
 
-    .items-area {
+    .users-items-area {
         @include base.basic-item-list;
     }
 }

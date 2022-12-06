@@ -1,3 +1,5 @@
+import { usersAPI } from "../api/api";
+
 let FOLLOW = "FOLLOW";
 let UNFOLLOW = "UNFOLLOW";
 let SET_USERS = "SET_USERS";
@@ -18,7 +20,7 @@ const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USERS:
             return {
-                ...state, 
+                ...state,
                 usersData: action.users
             }
         case FOLLOW:
@@ -63,8 +65,41 @@ const usersReducer = (state = initialState, action) => {
 export const follow = (userId) => ({ type: FOLLOW, userId });
 export const unfollow = (userId) => ({ type: UNFOLLOW, userId });
 export const setUsers = (users) => ({ type: SET_USERS, users });
-export const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, page});
-export const setTotalUserCount = (totalCount) => ({type: SET_TOTAL_USER_COUNT, totalCount});
-export const setFetching = (isFetching) => ({type: SET_FETCHING, isFetching})
+export const setCurrentPage = (page) => ({ type: SET_CURRENT_PAGE, page });
+export const setTotalUserCount = (totalCount) => ({ type: SET_TOTAL_USER_COUNT, totalCount });
+export const setFetching = (isFetching) => ({ type: SET_FETCHING, isFetching })
 
+
+export const getUsers = (currentPage, pageSize) => {
+    return (dispatch) => {
+        dispatch(setFetching(true));
+        dispatch(setCurrentPage(currentPage));
+        usersAPI.getUsers(currentPage, pageSize)
+            .then((data) => {
+                dispatch(setFetching(false));
+                dispatch(setUsers(data.items));
+                dispatch(setTotalUserCount(data.totalCount))
+            })
+    }
+};
+export const unfollowUser = (userId) => {
+    return (dispatch) => {
+        usersAPI.unfollowUser(userId)
+            .then((data) => {
+                if (data.resultCode === 0) {
+                    dispatch(unfollow(userId))
+                }
+            })
+    }
+};
+export const followUser = (userId) => {
+    return (dispatch) => {
+        usersAPI.followUser(userId)
+            .then((data) => {
+                if (data.resultCode === 0) {
+                    dispatch(follow(userId))
+                }
+            })
+    }
+}; 
 export default usersReducer;

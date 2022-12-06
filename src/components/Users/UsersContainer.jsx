@@ -1,20 +1,11 @@
-import {
-    follow,
-    unfollow,
-    setUsers,
-    setCurrentPage,
-    setTotalUserCount,
-    setFetching
-} from "../../redux/users-reducer";
+import { getUsers, followUser, unfollowUser } from "../../redux/users-reducer";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
-import { usersAPI } from "../../api/api";
 
-const UsersAPIComponent = ({ users, follow, unfollow, setUsers, pageSize,
-    totalUserCount, currentPage, isFetching, setCurrentPage, setTotalUserCount, setFetching }) => {
+const UsersAPIComponent = ({ users, pageSize, totalUserCount, currentPage, isFetching, getUsers, followUser, unfollowUser }) => {
 
     useEffect(() => {
         if (users.length) return;
@@ -22,13 +13,7 @@ const UsersAPIComponent = ({ users, follow, unfollow, setUsers, pageSize,
     });
 
     let onPageChanged = (currentPage) => {
-        setFetching(true);
-        setCurrentPage(currentPage);
-        usersAPI.getUsers(currentPage, pageSize)
-        .then((data) => {
-            setFetching(false);
-            setUsers(data.items);
-            setTotalUserCount(data.totalCount)})
+        getUsers(currentPage, pageSize)
     }
 
     return (
@@ -41,10 +26,9 @@ const UsersAPIComponent = ({ users, follow, unfollow, setUsers, pageSize,
                     pageSize={pageSize}
                     currentPage={currentPage}
                     onPageChanged={onPageChanged}
-                    follow={follow}
-                    unfollow={unfollow}
+                    followUser={followUser}
+                    unfollowUser={unfollowUser}
                 />}
-
         </>
     )
 };
@@ -60,14 +44,7 @@ const mapStateToProps = (state) => {
 };
 
 const UsersContainer = connect(
-    mapStateToProps, {
-    follow,
-    unfollow,
-    setUsers,
-    setCurrentPage,
-    setTotalUserCount,
-    setFetching
-})
+    mapStateToProps, { getUsers, followUser, unfollowUser })
     (UsersAPIComponent);
 
 export default UsersContainer;
