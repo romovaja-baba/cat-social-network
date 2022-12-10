@@ -4,13 +4,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import "./styles/App.scss"
 
 import Nav from './components/Nav/Nav';
-import DialogsContainer from './components/Dialogs/DialogsContainer';
+import Dialogs from './components/Dialogs/Dialogs';
 import Settings from './components/Settings/Settings';
 import Music from './components/Music/Music';
-import FeedContainer from './components/Feed/FeedContainer';
-import SideBarContainer from './components/SideBar/SideBarContainer';
+import Feed from './components/Feed/Feed';
+import SideBar from './components/SideBar/SideBar';
 import UsersContainer from './components/Users/UsersContainer';
-import ProfileContainer from './components/Profile/ProfileContainer';
+import Profile from './components/Profile/Profile';
 import HeaderContainer from './components/Header/HeaderContainer';
 
 const App = () => {
@@ -25,17 +25,17 @@ const App = () => {
         <div className='app-container'>
           <div className="app-side-container">
             <Nav />
-            <SideBarContainer />
+            <SideBar />
           </div>
 
           <div className='app-content'>
             <Routes>
-              <Route path="/feed" element={<FeedContainer />} />
+              <Route path="/feed" element={<Feed />} />
               <Route path="/users" element={<UsersContainer/>} />
-              <Route path="/profile/:id" element={<ProfileContainer />} />
-              <Route path="/profile" element={<ProfileContainer />} />
-              <Route path="/dialogs" element={<DialogsContainer />} />
-              <Route path="/dialogs/:id" element={<DialogsContainer />} />
+              <Route path="/profile/:id" element={<Profile />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/dialogs" element={<Dialogs />} />
+              <Route path="/dialogs/:id" element={<Dialogs />} />
               <Route path="/music" element={<Music />} />
               <Route path="/settings" element={<Settings />} />
             </Routes>

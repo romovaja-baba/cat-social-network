@@ -1,9 +1,11 @@
 import React from "react";
 import "../../styles/SideBar.scss";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const SideBar = ({ friends }) => {
+const SideBar = () => {
 
+    const friends = useSelector(state => state.sideBarPage.friendsData);
     const friendsElements = friends.map((friend) => {
         return <div key={friend.id} className="sidebar-item">
             <img alt={friend.name} src={friend.profilePicture} />

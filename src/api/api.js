@@ -14,7 +14,7 @@ export const usersAPI = {
             .then(response => { return response.data })
     },
     getUserProfile(id, myProfile = 26803) {
-        return instance.get(`https://social-network.samuraijs.com/api/1.0/profile/${id || myProfile}`)
+        return instance.get(`profile/${id || myProfile}`)
             .then(response => { return response.data })
     },
     followUser(userId) {

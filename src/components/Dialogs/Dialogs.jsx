@@ -1,17 +1,20 @@
 import React from "react";
 import DialogUser from "./Dialog/DialogUser";
-import ConvosContainer from "./Convos/ConvosContainer";
+import Convos from "./Convos/Convos";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import "../../styles/Dialogs.scss";
 
-const Dialogs = ({dialogsPage}) => {
+const Dialogs = () => {
 
     const { id } = useParams();
 
-    let userConvo = dialogsPage.convosData.find(convo => convo.userId === parseInt(id));
+    const convosData = useSelector(state => state.dialogsPage.convosData);
+    const dialogUserData = useSelector(state => state.dialogsPage.dialogUserData);
 
-    let dialogElements = dialogsPage.dialogUserData.map(dialog =>
+    let userConvo = convosData.find(convo => convo.userId === parseInt(id));
+    let dialogElements = dialogUserData.map(dialog =>
         <DialogUser name={dialog.name} id={dialog.id} key={dialog.id} profilePicture={dialog.profilePicture} />);
 
     return (
@@ -20,7 +23,7 @@ const Dialogs = ({dialogsPage}) => {
                 {dialogElements}
             </div>
             <div className="dialogs-messages-area">
-                {userConvo && (<ConvosContainer userConvo={userConvo}/>)}
+                {userConvo && (<Convos userConvo={userConvo}/>)}
             </div>
         </div>
     )

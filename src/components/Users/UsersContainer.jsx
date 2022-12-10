@@ -1,50 +1,37 @@
 import { getUsers, followUser, unfollowUser } from "../../redux/users-reducer";
-import { connect } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 
-const UsersAPIComponent = ({ users, pageSize, totalUserCount, currentPage, isFetching, getUsers, followUser, unfollowUser }) => {
+const UsersContainer = () => {
+
+    const { usersData, pageSize, totalUserCount, currentPage, isFetching } = useSelector((state) => {
+        return state.usersPage
+    }, shallowEqual);
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        if (users.length) return;
-        onPageChanged(currentPage);
+        if (!usersData.length) dispatch(getUsers(currentPage, pageSize));
     });
-
-    let onPageChanged = (currentPage) => {
-        getUsers(currentPage, pageSize)
-    }
 
     return (
         <>
             {isFetching ?
                 <Preloader /> :
                 <Users
-                    users={users}
+                    users={usersData}
                     totalUserCount={totalUserCount}
                     pageSize={pageSize}
                     currentPage={currentPage}
-                    onPageChanged={onPageChanged}
+                    onPageChanged={(currentPage) => dispatch(getUsers(currentPage, pageSize))}
                     followUser={followUser}
                     unfollowUser={unfollowUser}
                 />}
         </>
     )
 };
-
-const mapStateToProps = (state) => {
-    return {
-        users: state.usersPage.usersData,
-        pageSize: state.usersPage.pageSize,
-        totalUserCount: state.usersPage.totalUserCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
-    }
-};
-
-const UsersContainer = connect(
-    mapStateToProps, { getUsers, followUser, unfollowUser })
-    (UsersAPIComponent);
 
 export default UsersContainer;
