@@ -5,9 +5,9 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import "../../styles/Dialogs.scss";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 const Dialogs = () => {
-
     const { id } = useParams();
 
     const convosData = useSelector(state => state.dialogsPage.convosData);
@@ -23,10 +23,10 @@ const Dialogs = () => {
                 {dialogElements}
             </div>
             <div className="dialogs-messages-area">
-                {userConvo && (<Convos userConvo={userConvo}/>)}
+                {userConvo && (<Convos userConvo={userConvo} />)}
             </div>
         </div>
     )
 };
 
-export default Dialogs;
+export default withAuthRedirect(Dialogs);

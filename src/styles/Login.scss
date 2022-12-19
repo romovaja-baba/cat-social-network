@@ -1,0 +1,9 @@
+@use 'base' as base;
+
+.login-container {
+    @include base.basic-container;
+
+    .login-title {
+        @include base.basic-item-title
+    }
+}

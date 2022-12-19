@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import "./styles/App.scss"
 
 import Nav from './components/Nav/Nav';
@@ -12,8 +11,10 @@ import SideBar from './components/SideBar/SideBar';
 import UsersContainer from './components/Users/UsersContainer';
 import Profile from './components/Profile/Profile';
 import HeaderContainer from './components/Header/HeaderContainer';
+import Login from './components/Login/Login';
 
 const App = () => {
+
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
@@ -30,6 +31,7 @@ const App = () => {
 
           <div className='app-content'>
             <Routes>
+              <Route path="/login" element={<Login/>} />
               <Route path="/feed" element={<Feed />} />
               <Route path="/users" element={<UsersContainer/>} />
               <Route path="/profile/:id" element={<Profile />} />

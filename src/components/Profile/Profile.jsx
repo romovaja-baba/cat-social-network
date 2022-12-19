@@ -1,11 +1,12 @@
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-import { getUserProfile } from "../../redux/profile-reducer";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+
+import { getUserProfile } from "../../redux/profile-reducer";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 const Profile = () => {
 
@@ -23,4 +24,4 @@ const Profile = () => {
     )
 };
 
-export default Profile;
+export default withAuthRedirect(Profile);
