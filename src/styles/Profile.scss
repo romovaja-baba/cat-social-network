@@ -9,11 +9,29 @@
         .profile-maininfo-profilepicture img {
             @include base.big-profile-picture;
         }
-        .profile-maininfo-name {
-            @include base.title-page-name;
-        }
-    };
 
+        .profile-maininfo {
+            display: flex;
+            flex-direction: column;
+
+            .profile-maininfo-name {
+                @include base.title-page-name;
+            }
+
+            .profile-status-area {
+
+                .profile-status-text {
+                    &:hover {
+                        background-color: base.$light-gray;
+                    }
+                }
+
+                input {
+                    @include base.textarea
+                }
+            }
+        }
+    }
 
     .posts-area {
         @include base.basic-container;
@@ -25,6 +43,7 @@
             textarea {
                 @include base.textarea;
             }
+
             .posts-addbutton {
                 @include base.add-button;
             }
@@ -40,15 +59,18 @@
 
                 .post-item-body {
                     @include base.post-item-body;
+
                     .post-item-user {
                         .post-item-profilepicture {
                             @include base.small-profile-picture;
                         }
                     }
+
                     .post-item-text {
                         @include base.post-item-text;
                     }
                 }
+
                 .post-item-reaction {
                     @include base.reaction;
                 }

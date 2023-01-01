@@ -28,6 +28,7 @@ const Pagination = ({ onPageChanged, totalCount, siblingCount = 1, currentPage, 
                 return (
                     <div
                         onClick={() => onPageChanged(range)}
+                        key={range}
                         className={currentPage === range ? "pagination-page selected" : "pagination-page"}>
                         {range}
                     </div>

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 const HeaderContainer = () => {
     
     const dispatch = useDispatch();
-    useEffect(() => dispatch(authMe()));
+    useEffect(() => dispatch(authMe()), [dispatch]);
 
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
     const login = useSelector(state => state.auth.login)

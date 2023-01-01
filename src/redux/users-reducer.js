@@ -75,18 +75,18 @@ export const getUsers = (currentPage, pageSize) => {
         dispatch(setFetching(true));
         dispatch(setCurrentPage(currentPage));
         usersAPI.getUsers(currentPage, pageSize)
-            .then((data) => {
+            .then((response) => {
                 dispatch(setFetching(false));
-                dispatch(setUsers(data.items));
-                dispatch(setTotalUserCount(data.totalCount))
+                dispatch(setUsers(response.data.items));
+                dispatch(setTotalUserCount(response.data.totalCount))
             })
     }
 };
 export const unfollowUser = (userId) => {
     return (dispatch) => {
         usersAPI.unfollowUser(userId)
-            .then((data) => {
-                if (data.resultCode === 0) {
+            .then((response) => {
+                if (response.data.resultCode === 0) {
                     dispatch(unfollow(userId))
                 }
             })
@@ -95,8 +95,8 @@ export const unfollowUser = (userId) => {
 export const followUser = (userId) => {
     return (dispatch) => {
         usersAPI.followUser(userId)
-            .then((data) => {
-                if (data.resultCode === 0) {
+            .then((response) => {
+                if (response.data.resultCode === 0) {
                     dispatch(follow(userId))
                 }
             })

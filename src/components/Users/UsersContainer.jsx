@@ -15,7 +15,7 @@ const UsersContainer = () => {
 
     useEffect(() => {
         if (!usersData.length) dispatch(getUsers(currentPage, pageSize));
-    });
+    }, [currentPage, dispatch, pageSize, usersData.length]);
 
     return (
         <>

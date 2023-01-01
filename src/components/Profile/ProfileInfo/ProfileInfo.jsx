@@ -3,6 +3,7 @@ import Preloader from "../../common/Preloader/Preloader";
 import defaultProfilePicture from "../../../images/defaultPP.jpg";
 
 import "../../../styles/Profile.scss";
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = ({ profile }) => {
 
@@ -13,10 +14,11 @@ const ProfileInfo = ({ profile }) => {
     return (
         <div className="profile-maininfo-area">
             <div className="profile-maininfo-profilepicture">
-                <img alt="" src={profile.photos.large || defaultProfilePicture}/>
+                <img alt="" src={profile.photos.large || defaultProfilePicture} />
             </div>
-            <div className="profile-maininfo-name">
-                {profile.fullName}
+            <div className="profile-maininfo">
+                <div className="profile-maininfo-name">{profile.fullName}</div>
+                <ProfileStatus />
             </div>
         </div>
     )
