@@ -1,0 +1,7 @@
+@use 'base' as base;
+
+@mixin input-error {
+    font-size: 12px;
+    color: base.$red;
+    align-self: center;
+}

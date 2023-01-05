@@ -11,10 +11,11 @@ import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 const Profile = () => {
 
     const profile = useSelector(state => state.profilePage.profile, shallowEqual);
+    const myProfileId = useSelector(state => state.auth.id);
     const dispatch = useDispatch();
 
     let { id } = useParams();
-    useEffect(() => dispatch(getUserProfile(id)), [dispatch, id]);
+    useEffect(() => dispatch(getUserProfile(id || myProfileId)), [dispatch, id, myProfileId]);
 
     return (
         <div className="profile-area">

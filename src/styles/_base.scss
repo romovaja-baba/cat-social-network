@@ -3,6 +3,7 @@ $white: #fff;
 $light-gray: #f0f0f0;
 $blue: #023047;
 $black: #000;
+$red: rgb(234, 59, 59);
 
 $font-poppins: 'Poppins', sans-serif;
 $font-josefin: 'Josefin Sans', sans-serif;
@@ -17,12 +18,25 @@ $bold: 600;
     color: $blue;
 }
 
+@mixin error-message {
+    align-self: center;
+}
+
 @mixin pointer-cursor {
     cursor: pointer;
 }
 
 @mixin yellow-border {
     border: 3.5px solid $yellow;
+}
+
+@mixin red-border {
+    border: 2px solid $red;
+
+    &:focus {
+        border: 2px solid $red;
+        outline: none;
+    }
 }
 
 @mixin app-logo {
@@ -146,17 +160,6 @@ $bold: 600;
     gap: 5px;
 }
 
-@mixin button {
-    font-size: 14px;
-    box-shadow: none;
-    border: 2px solid $yellow;
-    font-family: $font-poppins;
-    border-radius: 10px;
-    width: 120px;
-    padding: 10px;
-    background-color: $yellow;
-}
-
 @mixin textarea-container {
     min-height: 70px;
     display: flex;
@@ -181,22 +184,6 @@ $bold: 600;
     }
 }
 
-@mixin small-button {
-    font-size: 14px;
-    box-shadow: none;
-    border: 2px solid $yellow;
-    font-family: $font-poppins;
-    border-radius: 10px;
-    width: 80px;
-    padding: 7px;
-    background-color: $white;
-}
-
-@mixin disabled-button {
-    @include small-button;
-    border: 2px solid $light-gray;
-}
-
 @mixin small-profile-picture {
     width: 55px;
     height: 55px;
@@ -211,15 +198,4 @@ $bold: 600;
     min-width: 200px;
     border-radius: 45%;
     object-fit: cover;
-}
-
-@mixin add-button {
-    height: 40px;
-    width: 40px;
-    align-self: center;
-    border: none;
-    outline: none;
-    background-color: inherit;
-    border-radius: 10px;
-    cursor: pointer;
 }

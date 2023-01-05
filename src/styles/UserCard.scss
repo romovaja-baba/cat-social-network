@@ -1,4 +1,5 @@
 @use 'base' as base;
+@use 'buttons' as buttons;
 
 .usercard-area {
     @include base.basic-item;
@@ -17,11 +18,7 @@
 
         .follow-button,
         .unfollow-button {
-            @include base.small-button;
-
-            &:hover {
-                @include base.pointer-cursor;
-            }
+            @include buttons.small-button;
         }
 
         .follow-button {
@@ -29,7 +26,7 @@
         }
 
         .disabled-button {
-            @include base.disabled-button;
+            @include buttons.disabled-button;
         }
     }
 

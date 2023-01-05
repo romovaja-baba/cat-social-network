@@ -1,4 +1,6 @@
 @use 'base' as base;
+@use 'buttons' as buttons;
+@use 'errors' as errors;
 
 .dialogs-area {
     @include base.basic-container;
@@ -49,6 +51,10 @@
             justify-content: flex-end;
             gap: 10px;
 
+            .message-input-error {
+                @include errors.input-error;
+            }
+
             .convo-messages-area {
                 display: flex;
                 flex-direction: column;
@@ -68,8 +74,17 @@
                 textarea {
                     @include base.textarea;
                 }
+
+                .red-border {
+                    @include base.red-border;
+                }
+
                 .convo-addbutton {
-                    @include base.add-button;
+                    @include buttons.add-button;
+                }
+
+                button {
+                    @include buttons.clean-button;
                 }
             }
         }

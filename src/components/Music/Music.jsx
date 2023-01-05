@@ -1,5 +1,7 @@
 import React from "react";
-import playButtonImage from "../../images/play-button.png"
+import playButtonImage from "../../images/play-button.png";
+
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 import "../../styles/Music.scss"
 
@@ -16,4 +18,4 @@ const Music = () => {
     )
 };
 
-export default Music;
+export default withAuthRedirect(Music);

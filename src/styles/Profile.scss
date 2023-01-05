@@ -1,4 +1,6 @@
 @use 'base' as base;
+@use 'buttons' as buttons;
+@use 'errors' as errors;
 
 .profile-area {
     @include base.basic-container;
@@ -40,13 +42,25 @@
         .posts-newpost {
             @include base.textarea-container;
 
+            .red-border {
+                @include base.red-border;
+            }
+
             textarea {
                 @include base.textarea;
             }
 
             .posts-addbutton {
-                @include base.add-button;
+                @include buttons.add-button;
             }
+
+            button {
+                @include buttons.clean-button;
+            }
+        }
+
+        .post-input-error {
+            @include errors.input-error;
         }
 
         .posts-list {

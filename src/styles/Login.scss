@@ -1,9 +1,55 @@
 @use 'base' as base;
+@use 'buttons' as buttons;
+@use 'errors' as errors;
 
 .login-container {
     @include base.basic-container;
 
     .login-title {
-        @include base.basic-item-title
+        @include base.basic-item-title;
+        font-size: 30px;
+        align-self: center;
+    }
+
+    .login-form-area {
+        align-self: center;
+
+        form {
+            @include base.basic-item-list;
+            align-items: center;
+
+            .login-input-area {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .login-item {
+                    @include base.textarea;
+                    min-width: 202px;
+                    align-self: center;
+                }
+
+                .red-border {
+                    @include base.red-border
+                }
+
+                .login-input-error {
+                    @include errors.input-error;
+                }
+            }
+
+
+
+            .login-remember-me {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .login-submit-button {
+                @include buttons.button;
+            }
+        }
     }
 }

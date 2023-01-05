@@ -1,5 +1,4 @@
 const SEND_MESSAGE = "SEND_MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE_NEW_MESSAGE_TEXT";
 
 let initialState = {
     dialogUserData: [
@@ -10,49 +9,49 @@ let initialState = {
         { id: 5, name: "Hecker", profilePicture: "http://localhost:3000/hecker-cat.jpg" }
     ],
 
-    convosData: [
-        {
-            userId: 1,
-            messages: [
-                { id: 1, text: "y1", senderId: 1 },
-                { id: 2, text: "m1", senderId: 0 },
-                { id: 3, text: "y2?", senderId: 1 },
-                { id: 4, text: "m2", senderId: 0 }
-            ]
-        },
-        {
-            userId: 2,
-            messages: [
-                { id: 1, text: "y1", senderId: 1 },
-                { id: 2, text: "m1", senderId: 0 },
-                { id: 3, text: "y2", senderId: 1 },
-                { id: 4, text: "m2", senderId: 0 }
-            ]
-        },
-        {
-            userId: 3,
-            messages: [
-                { id: 1, text: "y1", senderId: 1 },
-            ]
-        },
-        {
-            userId: 4,
-            messages: [
-                { id: 1, text: "y1", senderId: 1 },
-                { id: 2, text: "m1", senderId: 0 }
-            ]
-        },
-        {
-            userId: 5,
-            messages: [
-                { id: 1, text: "y1", senderId: 1 },
-                { id: 2, text: "m1", senderId: 0 },
-                { id: 3, text: "y1", senderId: 1 }
-            ]
-        },
+    convosData:
+        [
+            {
+                userId: 1,
+                messages: [
+                    { id: 1, text: "y1", senderId: 1 },
+                    { id: 2, text: "m1", senderId: 0 },
+                    { id: 3, text: "y2?", senderId: 1 },
+                    { id: 4, text: "m2", senderId: 0 }
+                ]
+            },
+            {
+                userId: 2,
+                messages: [
+                    { id: 1, text: "y1", senderId: 1 },
+                    { id: 2, text: "m1", senderId: 0 },
+                    { id: 3, text: "y2", senderId: 1 },
+                    { id: 4, text: "m2", senderId: 0 }
+                ]
+            },
+            {
+                userId: 3,
+                messages: [
+                    { id: 1, text: "y1", senderId: 1 },
+                ]
+            },
+            {
+                userId: 4,
+                messages: [
+                    { id: 1, text: "y1", senderId: 1 },
+                    { id: 2, text: "m1", senderId: 0 }
+                ]
+            },
+            {
+                userId: 5,
+                messages: [
+                    { id: 1, text: "y1", senderId: 1 },
+                    { id: 2, text: "m1", senderId: 0 },
+                    { id: 3, text: "y1", senderId: 1 }
+                ]
+            },
 
-    ],
-    newMessageText: ''
+        ],
 };
 
 const dialogsReducer = (state = initialState, action) => {
@@ -60,36 +59,23 @@ const dialogsReducer = (state = initialState, action) => {
         case SEND_MESSAGE:
             let newMessage = {
                 id: 10,
-                text: state.newMessageText,
-                senderId: 0
+                text: action.newMessageText,
+                senderId: 0,
             };
-            if (newMessage.text) {
-                return {
-                    ...state,
-                    convosData: state.convosData.map((convo) => {
-                        if (convo.userId === action.userId) {
-                            return { ...convo, messages: [...convo.messages, newMessage] };
-                        }
-                        return convo;
-                    }),
-                    newMessageText: ''
-                };
-            } else {
-                alert('Please type a message!')
-            };
-            break;
-
-        case UPDATE_NEW_MESSAGE_TEXT:
             return {
                 ...state,
-                newMessageText: action.newText
+                convosData: state.convosData.map((convo) => {
+                    if (convo.userId === action.userId) {
+                        return { ...convo, messages: [...convo.messages, newMessage] };
+                    }
+                    return convo;
+                })
             };
         default:
             return state;
     };
 };
 
-export const sendMessage = (userId) => ({ type: SEND_MESSAGE, userId: userId });
-export const updateNewMessageText = (text) => ({ type: UPDATE_NEW_MESSAGE_TEXT, newText: text });
+export const sendMessage = (userId, newMessageText) => ({ type: SEND_MESSAGE, userId, newMessageText });
 
 export default dialogsReducer;

@@ -1,11 +1,19 @@
-import React from "react";
-import catLogo from "../../images/cat.png"
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { authMe } from "../../redux/auth-reducer";
+
+import catLogo from "../../images/cat.png"
 
 import "../../styles/Header.scss";
 
-const Header = ({ isLoggedIn, login }) => {
-  
+const Header = () => {
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const login = useSelector(state => state.auth.login)
+
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(authMe()), [dispatch, isLoggedIn]);
+
   return (
     <header className="header-area">
       <div className="header-logo">
@@ -15,10 +23,9 @@ const Header = ({ isLoggedIn, login }) => {
         MEOWGRAM
       </div>
       <div className="header-login">
-        {isLoggedIn ? 
-        <NavLink to={"/login"}>
-          {login}
-        </NavLink> : "LOGIN"}
+        {isLoggedIn ?
+          <NavLink to={"/profile"}>{login}</NavLink> :
+          <NavLink to={"/login"}>{"LOGIN"}</NavLink>}
       </div>
     </header>
   )

@@ -2,6 +2,8 @@ import { getUsers, followUser, unfollowUser } from "../../redux/users-reducer";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 
@@ -34,4 +36,4 @@ const UsersContainer = () => {
     )
 };
 
-export default UsersContainer;
+export default withAuthRedirect(UsersContainer);

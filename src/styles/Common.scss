@@ -1,0 +1,8 @@
+@use 'buttons' as buttons;
+
+.logout-btn-container {
+    .logout-btn {
+        @include buttons.button;
+        margin-top: 30px;
+    }
+}

@@ -10,7 +10,7 @@ import Feed from './components/Feed/Feed';
 import SideBar from './components/SideBar/SideBar';
 import UsersContainer from './components/Users/UsersContainer';
 import Profile from './components/Profile/Profile';
-import HeaderContainer from './components/Header/HeaderContainer';
+import Header from './components/Header/Header';
 import Login from './components/Login/Login';
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
     <BrowserRouter>
       <div className='app-wrapper'>
         <div>
-          <HeaderContainer />
+          <Header />
         </div>
 
 
