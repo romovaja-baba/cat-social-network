@@ -17,15 +17,14 @@ const LogoutButton = () => {
         <Navigate to="/login" />
     }
 
-    if (isLoggedIn) {
-        return (
-            <form className="logout-btn-container" onSubmit={handleSubmit(onSubmit)}>
-                <button className="logout-btn" type="submit">
-                    LOGOUT
-                </button>
-            </form>
-        )
-    } else return;
+    if (!isLoggedIn) return null;
+    return (
+        <form className="logout-btn-container" onSubmit={handleSubmit(onSubmit)}>
+            <button className="logout-btn" type="submit">
+                LOGOUT
+            </button>
+        </form>
+    )
 };
 
 export default LogoutButton;

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import "./styles/App.scss"
 
 import Nav from './components/Nav/Nav';
@@ -12,8 +13,18 @@ import UsersContainer from './components/Users/UsersContainer';
 import Profile from './components/Profile/Profile';
 import Header from './components/Header/Header';
 import Login from './components/Login/Login';
+import Preloader from './components/common/Preloader/Preloader';
+import { initialize } from './redux/app-reducer';
 
 const App = () => {
+  const initialization = useSelector(state => state.app.initialization);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!initialization) dispatch(initialize())
+  }, [dispatch, initialization])
+
+  if (!initialization) return <Preloader />;
 
   return (
     <BrowserRouter>
@@ -31,9 +42,9 @@ const App = () => {
 
           <div className='app-content'>
             <Routes>
-              <Route path="/login" element={<Login/>} />
+              <Route path="/login" element={<Login />} />
               <Route path="/feed" element={<Feed />} />
-              <Route path="/users" element={<UsersContainer/>} />
+              <Route path="/users" element={<UsersContainer />} />
               <Route path="/profile/:id" element={<Profile />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/dialogs" element={<Dialogs />} />

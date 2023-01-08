@@ -7,6 +7,7 @@ import feedReducer from "./feed-reducer";
 import sideBarReducer from "./sidebar-reducer";
 import usersReducer from "./users-reducer";
 import authReducer from "./auth-reducer";
+import appReducer from "./app-reducer";
 
 let reducers = combineReducers({
     profilePage: profileReducer,
@@ -14,7 +15,8 @@ let reducers = combineReducers({
     feedPage: feedReducer,
     sideBarPage: sideBarReducer,
     usersPage: usersReducer,
-    auth: authReducer
+    auth: authReducer,
+    app: appReducer
 });
 
 let store = configureStore({reducer: reducers}, applyMiddleware(thunk)); 
