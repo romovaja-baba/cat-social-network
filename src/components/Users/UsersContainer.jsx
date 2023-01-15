@@ -6,6 +6,10 @@ import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
+import Pagination from "../common/Pagination/Pagination";
+
+import "../../styles/Users.scss";
+import { useCallback } from "react";
 
 const UsersContainer = () => {
 
@@ -17,22 +21,28 @@ const UsersContainer = () => {
 
     useEffect(() => {
         if (!usersData.length) dispatch(getUsers(currentPage, pageSize));
-    }, [currentPage, dispatch, pageSize, usersData.length]);
+    }, [currentPage, dispatch, pageSize, usersData]);
+
+    const onPageChanged = useCallback((currentPage) => {
+        dispatch(getUsers(currentPage, pageSize));
+    }, [pageSize, dispatch]);
 
     return (
-        <>
-            {isFetching ?
-                <Preloader /> :
+        <div className="users-container">
+            <Pagination
+                onPageChanged={onPageChanged}
+                totalCount={totalUserCount}
+                currentPage={currentPage}
+                pageSize={pageSize}
+            />
+            {isFetching ? <Preloader /> :
                 <Users
                     users={usersData}
-                    totalUserCount={totalUserCount}
-                    pageSize={pageSize}
-                    currentPage={currentPage}
-                    onPageChanged={(currentPage) => dispatch(getUsers(currentPage, pageSize))}
                     followUser={followUser}
                     unfollowUser={unfollowUser}
-                />}
-        </>
+                />
+            }
+        </div>
     )
 };
 

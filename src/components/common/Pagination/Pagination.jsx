@@ -1,8 +1,9 @@
-import leftArrow from "../../images/left-arrow.svg";
-import rightArrow from "../../images/right-arrow.svg";
+import React from "react";
+import leftArrow from "../../../images/left-arrow.svg";
+import rightArrow from "../../../images/right-arrow.svg";
 import { usePagination } from "./usePagination";
 
-import "../../styles/Pagination.scss";
+import "../../../styles/Pagination.scss";
 
 const Pagination = ({ onPageChanged, totalCount, siblingCount = 1, currentPage, pageSize }) => {
 
@@ -12,7 +13,7 @@ const Pagination = ({ onPageChanged, totalCount, siblingCount = 1, currentPage, 
         siblingCount || 1,
         currentPage || 1
     );
-    
+
     if (currentPage === 0 || paginationRange.length < 2) return null;
 
     const onNext = () => { onPageChanged(currentPage + 1); }
@@ -22,7 +23,7 @@ const Pagination = ({ onPageChanged, totalCount, siblingCount = 1, currentPage, 
     return (
         <div className="pagination-area">
             <div className={currentPage === 1 ? "pagination-arrows disabled" : "pagination-arrows"}>
-                <img src={leftArrow} onClick={() => onPrevious()} alt=""/>
+                <img src={leftArrow} onClick={() => onPrevious()} alt="" />
             </div>
             {paginationRange.map(range => {
                 return (
@@ -35,10 +36,10 @@ const Pagination = ({ onPageChanged, totalCount, siblingCount = 1, currentPage, 
                 )
             })}
             <div className={currentPage === lastPage ? "pagination-arrows disabled" : "pagination-arrows"}>
-                <img src={rightArrow} onClick={() => onNext()}  alt=""/>
+                <img src={rightArrow} onClick={() => onNext()} alt="" />
             </div>
         </div>
     )
 };
 
-export default Pagination;
+export default React.memo(Pagination);

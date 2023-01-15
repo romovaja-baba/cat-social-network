@@ -1,5 +1,5 @@
 import { configureStore, combineReducers, applyMiddleware } from "@reduxjs/toolkit";
-import thunk from "redux-thunk"; //необязательно
+import thunk from "redux-thunk";
 
 import profileReducer from "./profile-reducer"
 import dialogsReducer from "./dialogs-reducer";
@@ -20,6 +20,5 @@ let reducers = combineReducers({
 });
 
 let store = configureStore({reducer: reducers}, applyMiddleware(thunk)); 
-//applymiddleware уже по умолчанию включены в toolkit
 
 export default store;

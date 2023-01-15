@@ -1,6 +1,6 @@
-import { authMeWithReturn } from "./auth-reducer";
+import { authMe } from "./auth-reducer";
 
-const INITIALIZATION_SUCCESS = 'INITIALIZATION_SUCCESS';
+const INITIALIZATION_SUCCESS = 'app/INITIALIZATION_SUCCESS';
 
 let initialState = {
     initialization: false
@@ -19,11 +19,9 @@ const appReducer = (state = initialState, action) => {
 
 export const initializationSuccess = () => ({ type: INITIALIZATION_SUCCESS });
 
-export const initialize = () => (dispatch) => {
-    let promise = dispatch(authMeWithReturn());
-    promise.then(() => {
-        dispatch(initializationSuccess());
-    })
+export const initialize = () => async (dispatch) => {
+    await dispatch(authMe());
+    dispatch(initializationSuccess());
 }
 
 export default appReducer;

@@ -8,27 +8,29 @@ import catLogo from "../../images/cat.png"
 import "../../styles/Header.scss";
 
 const Header = () => {
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-  const login = useSelector(state => state.auth.login)
+    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+    const login = useSelector(state => state.auth.login)
 
-  const dispatch = useDispatch();
-  useEffect(() => dispatch(authMe()), [dispatch, isLoggedIn]);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(authMe())
+    }, [dispatch, isLoggedIn]);
 
-  return (
-    <header className="header-area">
-      <div className="header-logo">
-        <img height={"60px"} alt="" src={catLogo} />
-      </div>
-      <div className="header-title">
-        MEOWGRAM
-      </div>
-      <div className="header-login">
-        {isLoggedIn ?
-          <NavLink to={"/profile"}>{login}</NavLink> :
-          <NavLink to={"/login"}>{"LOGIN"}</NavLink>}
-      </div>
-    </header>
-  )
+    return (
+        <header className="header-area">
+            <div className="header-logo">
+                <img height={"60px"} alt="" src={catLogo} />
+            </div>
+            <div className="header-title">
+                MEOWGRAM
+            </div>
+            <div className="header-login">
+                {isLoggedIn ?
+                    <NavLink to={"/profile"}>{login}</NavLink> :
+                    <NavLink to={"/login"}>{"LOGIN"}</NavLink>}
+            </div>
+        </header>
+    )
 };
 
 export default Header;

@@ -8,7 +8,6 @@ import "../../../styles/Dialogs.scss";
 
 const AddMessageForm = ({ userConvo }) => {
 
-
     const dispatch = useDispatch();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = (data) => {

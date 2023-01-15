@@ -15,7 +15,9 @@ const Profile = () => {
     const dispatch = useDispatch();
 
     let { id } = useParams();
-    useEffect(() => dispatch(getUserProfile(id || myProfileId)), [dispatch, id, myProfileId]);
+    useEffect(() => {
+        dispatch(getUserProfile(id || myProfileId));
+    }, [dispatch, id, myProfileId]);
 
     return (
         <div className="profile-area">

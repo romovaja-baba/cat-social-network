@@ -1,3 +1,4 @@
+import React from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import defaultProfilePicture from "../../../images/defaultPP.jpg";
@@ -31,4 +32,4 @@ const User = ({ user, followUser, unfollowUser }) => {
     )
 }
 
-export default User;
+export default React.memo(User);
