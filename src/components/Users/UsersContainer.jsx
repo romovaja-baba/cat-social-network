@@ -1,6 +1,6 @@
 import { getUsers, followUser, unfollowUser } from "../../redux/users-reducer";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
@@ -9,7 +9,6 @@ import Preloader from "../common/Preloader/Preloader";
 import Pagination from "../common/Pagination/Pagination";
 
 import "../../styles/Users.scss";
-import { useCallback } from "react";
 
 const UsersContainer = () => {
 

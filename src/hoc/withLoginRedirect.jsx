@@ -8,5 +8,5 @@ export const withLoginRedirect = (Component) => (props) => {
         return <Navigate to={'/profile'} />
     }
 
-    return < Component />
+    return <Component />
 };

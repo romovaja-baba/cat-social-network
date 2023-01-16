@@ -11,7 +11,7 @@ const MyPosts = () => {
         <div className="posts-area">
             <AddPostForm />
             <div className="posts-list">
-                { posts.map(post => <Post key={post.id} post={post} />) }
+                { posts.map(post => <Post key={post.id} post={post} />).reverse() }
             </div>
         </div>
     )

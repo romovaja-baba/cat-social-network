@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import "./styles/App.scss"
 
@@ -18,21 +18,20 @@ import { initialize } from './redux/app-reducer';
 
 const App = () => {
   const initialization = useSelector(state => state.app.initialization);
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!initialization) dispatch(initialize())
+    if (!initialization) dispatch(initialize());
   }, [dispatch, initialization])
 
   if (!initialization) return <Preloader />;
-
+  
   return (
-    <BrowserRouter>
       <div className='app-wrapper'>
         <div>
           <Header />
         </div>
-
 
         <div className='app-container'>
           <div className="app-side-container">
@@ -42,6 +41,7 @@ const App = () => {
 
           <div className='app-content'>
             <Routes>
+              <Route path="/" element={isLoggedIn ? <Navigate to={"/profile"} /> : <Navigate to={"/login"} />} />
               <Route path="/login" element={<Login />} />
               <Route path="/feed" element={<Feed />} />
               <Route path="/users" element={<UsersContainer />} />
@@ -55,7 +55,6 @@ const App = () => {
           </div>
         </div>
       </div>
-    </BrowserRouter>
   )
 };
 

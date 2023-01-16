@@ -1,9 +1,13 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import heartImage from "../../../../images/heart.png";
+import { deletePost } from "../../../../redux/profile-reducer";
 
 import "../../../../styles/Profile.scss";
 
 const Post = ({ post }) => {
+
+    const dispatch = useDispatch();
 
     return (
         <div className="post-item">
@@ -16,9 +20,10 @@ const Post = ({ post }) => {
             <div className="post-item-reaction">
                 {post.likeCount}
                 <img height={"20px"} src={heartImage} alt="" />
+                <button onClick={() => dispatch(deletePost(post.id))}>Delete</button>
             </div>
         </div>
     );
 };
 
-export default Post;
+export default React.memo(Post);

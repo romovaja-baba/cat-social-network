@@ -32,13 +32,7 @@
                 .red-border {
                     @include base.red-border
                 }
-
-                .login-input-error {
-                    @include errors.input-error;
-                }
             }
-
-
 
             .login-remember-me {
                 display: flex;
@@ -49,6 +43,10 @@
 
             .login-submit-button {
                 @include buttons.button;
+            }
+
+            .login-input-error {
+                @include errors.input-error;
             }
         }
     }

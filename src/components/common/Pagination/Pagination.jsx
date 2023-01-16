@@ -18,6 +18,7 @@ const Pagination = ({ onPageChanged, totalCount, siblingCount = 1, currentPage, 
 
     const onNext = () => { onPageChanged(currentPage + 1); }
     const onPrevious = () => { onPageChanged(currentPage - 1); }
+    const onNumberClick = (page) => { if (parseInt(page)) onPageChanged(page); }
     let lastPage = paginationRange[paginationRange.length - 1];
 
     return (
@@ -25,13 +26,13 @@ const Pagination = ({ onPageChanged, totalCount, siblingCount = 1, currentPage, 
             <div className={currentPage === 1 ? "pagination-arrows disabled" : "pagination-arrows"}>
                 <img src={leftArrow} onClick={() => onPrevious()} alt="" />
             </div>
-            {paginationRange.map(range => {
+            {paginationRange.map(page => {
                 return (
                     <div
-                        onClick={() => onPageChanged(range)}
-                        key={range}
-                        className={currentPage === range ? "pagination-page selected" : "pagination-page"}>
-                        {range}
+                        onClick={() => onNumberClick(page)}
+                        key={page}
+                        className={currentPage === page ? "pagination-page selected" : "pagination-page"}>
+                        {page}
                     </div>
                 )
             })}
