@@ -8,10 +8,24 @@
     .profile-maininfo-area {
         @include base.title-page;
 
-        .profile-maininfo-profilepicture img {
-            @include base.big-profile-picture;
-        }
+        .profile-maininfo-profilepicture {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
 
+            img { @include base.big-profile-picture; }
+
+            .profile-picture-update {
+                label {
+                    @include buttons.small-button;
+                }
+                input {
+                    display: none;
+                }
+            }
+        }
         .profile-maininfo {
             display: flex;
             flex-direction: column;

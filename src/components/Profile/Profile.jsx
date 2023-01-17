@@ -21,7 +21,7 @@ const Profile = () => {
 
     return (
         <div className="profile-area">
-            <ProfileInfo profile={profile} />
+            <ProfileInfo profile={profile} isOwner={!id}/>
             <MyPosts />
         </div>
     )

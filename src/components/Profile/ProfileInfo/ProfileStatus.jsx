@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getStatus, updateStatus } from "../../../redux/profile-reducer";
 import "../../../styles/Profile.scss";
 
-const ProfileStatus = () => {
+const ProfileStatus = ({isOwner}) => {
 
     const statusText = useSelector(state => state.profilePage.status);
     const id = useSelector(state => state.profilePage.profile.userId)
@@ -16,10 +16,17 @@ const ProfileStatus = () => {
         dispatch(getStatus(id));
     }, [dispatch, id, statusText]);
 
+    const statusOnClick = () => {
+        if (isOwner) {
+            setEditMode(true);
+        }
+    }
+
     const statusOnBlur = () => {
         dispatch(updateStatus(status));
         setEditMode(false);
     };
+
     return (
         <div className="profile-status-area">
             {editMode ?
@@ -29,7 +36,7 @@ const ProfileStatus = () => {
                     onChange={(e) => setStatus(e.currentTarget.value)}
                     autoFocus
                 /> :
-                <div className="profile-status-text" onClick={() => setEditMode(true)}>
+                <div className="profile-status-text" onClick={() => statusOnClick()}>
                     {statusText || "no status"}
                 </div>
             }
