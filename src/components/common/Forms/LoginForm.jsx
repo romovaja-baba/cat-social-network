@@ -8,11 +8,14 @@ import "../../../styles/Login.scss";
 const LoginForm = () => {
     const dispatch = useDispatch();
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+    const captcha = useSelector(state => state.auth.captcha);
+
+
     const { register, handleSubmit, formState: { errors }, clearErrors, setError, reset } = useForm(
         { mode: "all" }
     );
     const onSubmit = (data) => {
-        dispatch(login(data.email, data.password, data.rememberMe, setError));
+        dispatch(login(data.email, data.password, data.rememberMe, data.captcha, setError));
         reset();
     };
 
@@ -21,7 +24,7 @@ const LoginForm = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} >
             <div className="login-input-area">
                 <input
                     {...register("email", {
@@ -67,13 +70,34 @@ const LoginForm = () => {
                 <div>Remember me</div>
             </div>
 
-            {errors.server &&
+            {(captcha) &&
+                <div className="captcha-area">
+                    <img src={captcha} alt="captcha" />
+                    <input className={errors.captcha ? "captcha-input red-border" : "captcha-input"}
+                        {...register("captcha",
+                            {
+                                required: {
+                                    value: true, message: "Captcha is required"
+                                }
+                            })
+                        }
+                        placeholder="Enter the captcha" />
+                    {errors.captcha &&
+                        <div className="captcha-error">
+                            {errors.captcha.message}
+                        </div>
+                    }
+                </div>
+            }
+
+            {
+                errors.server &&
                 <div className="login-input-error ">
                     {errors.server.message}
                 </div>
             }
             <button type="submit" className="login-submit-button">Log In</button>
-        </form>
+        </form >
     )
 };
 

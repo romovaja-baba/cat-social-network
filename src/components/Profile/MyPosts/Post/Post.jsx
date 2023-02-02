@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import heartImage from "../../../../images/heart.png";
 import { deletePost } from "../../../../redux/profile-reducer";
 
-import "../../../../styles/Profile.scss";
+import "../../../../styles/Posts.scss";
 
 const Post = ({ post }) => {
 

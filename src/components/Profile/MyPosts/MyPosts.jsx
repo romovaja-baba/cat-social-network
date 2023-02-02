@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import Post from "./Post/Post";
-import "../../../styles/Profile.scss";
+import "../../../styles/Posts.scss";
 import AddPostForm from "../../common/Forms/AddPostForm";
 
 const MyPosts = () => {

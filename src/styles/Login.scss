@@ -48,6 +48,22 @@
             .login-input-error {
                 @include errors.input-error;
             }
+
+            .captcha-area {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .captcha-input {
+                    @include base.textarea;
+                    width: 202px;
+                }
+                .captcha-error {
+                    @include errors.input-error;
+                }
+                .red-border {
+                    @include base.red-border;
+                }
+            }
         }
     }
 }

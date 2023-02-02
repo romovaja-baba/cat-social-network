@@ -15,74 +15,78 @@
             align-items: center;
             gap: 15px;
 
-            img { @include base.big-profile-picture; }
+            img {
+                @include base.big-profile-picture;
+            }
 
             .profile-picture-update {
                 label {
                     @include buttons.small-button;
                 }
+
                 input {
                     display: none;
                 }
             }
+
+            .profile-maininfo-edit {
+                button {
+                    @include buttons.small-button;
+                }
+            }
         }
+
         .profile-maininfo {
             display: flex;
             flex-direction: column;
+            gap: 10px;
+            max-width: 50%;
 
-            .profile-maininfo-name { @include base.title-page-name; }
+            .profile-maininfo-name {
+                @include base.title-page-name;
+            }
 
             .profile-status-area {
+                display: flex;
+                justify-content: flex-start;
                 .profile-status-text {
-                    &:hover { background-color: base.$light-gray; }
+                    max-width: 100%;                  
+                    &:hover {
+                        background-color: base.$light-gray;
+                    }
                 }
-                input { @include base.textarea }
+
+                input {
+                    @include base.textarea;
+                }
+            }
+
+            .profile-maininfo-colored {
+
+                width: auto;
+
+                background-color: base.$light-gray;
+                padding: 10px 15px;
+                border-radius: base.$border-radius;
+
+                .profile-maininfo-job-area {
+                    .profile-maininfo-job-item {
+
+                    }
+                }
             }
         }
-    }
 
-    .posts-area {
-        @include base.basic-container;
-        gap: 30px;
-
-        .posts-newpost {
-            @include base.textarea-container;
-
-            .red-border { @include base.red-border; }
-
-            textarea { @include base.textarea; }
-
-            .posts-addbutton { @include buttons.add-button; }
-
-            button { @include buttons.clean-button; }
-        }
-
-        .post-input-error { @include errors.input-error; }
-
-        .posts-list {
+        .profile-editmode-area {
             @include base.basic-item-list;
-            gap: 45px;
+            align-items: center;
 
-            .post-item {
-                @include base.post-item;
+            .profile-editmode-input {
+                @include base.textarea;
+            }
 
-                .post-item-body {
-                    @include base.post-item-body;
-
-                    .post-item-user {
-                        .post-item-profilepicture {
-                            @include base.small-profile-picture;
-                        }
-                    }
-
-                    .post-item-text { @include base.post-item-text; }
-                }
-
-                .post-item-reaction {
-                    @include base.reaction;
-
-                    button { @include buttons.small-button; }
-                }
+            button {
+                @include buttons.button
             }
         }
     }

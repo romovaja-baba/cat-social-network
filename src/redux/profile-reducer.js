@@ -5,6 +5,7 @@ const DELETE_POST = "app/profile/DELETE_POST";
 const SET_USER_PROFILE = "app/profile/SET_USER_PROFILE";
 const SET_STATUS = "app/profile/SET_STATUS";
 const SAVE_PROFILE_PICTURE_SUCCESS = "app/profile/SAVE_PROFILE_PICTURE_SUCCESS";
+const SAVE_PROFILE_INFO_SUCCESS = "app/profile/SAVE_PROFILE_INFO_SUCCESS";
 
 let initialState = {
     profile: null,
@@ -55,6 +56,16 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state, profile: {...state.profile, photos: action.pics}
             }
+        case SAVE_PROFILE_INFO_SUCCESS:
+            return {
+                ...state, profile: {
+                    ...state.profile, 
+                    fullName: action.profile.fullName,
+                    lookingForAJob: action.profile.lookingForAJob,
+                    lookingForAJobDescription: action.profile.lookingForAJobDescription,
+                    aboutMe: action.profile.aboutMe
+                }
+            }
         default: return state;
     }
 };
@@ -63,7 +74,8 @@ export const addPost = (newPostText) => ({ type: ADD_POST, newPostText });
 export const deletePost = (postId) => ({ type: DELETE_POST, postId })
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 export const setStatus = (status) => ({ type: SET_STATUS, status });
-export const saveProfilePictureSuccess = (pics) => ({type: SAVE_PROFILE_PICTURE_SUCCESS, pics}) 
+export const saveProfilePictureSuccess = (pics) => ({type: SAVE_PROFILE_PICTURE_SUCCESS, pics});
+export const saveProfileInfoSuccess = (profile) => ({type: SAVE_PROFILE_INFO_SUCCESS, profile});
 
 export const getUserProfile = (id) => async (dispatch) => {
     let response = await profileAPI.getUserProfile(id);
@@ -87,6 +99,14 @@ export const saveProfilePicture = (pic) => async (dispatch) => {
     if (response.data.resultCode === 0) {
         dispatch(saveProfilePictureSuccess(response.data.data.photos));
     }
+}
+
+export const saveProfileInfo = (profile) => async (dispatch) => {
+     let response = await profileAPI.saveProfileInfo(profile);
+     console.log("reducer", response)
+     if (response.data.resultCode === 0) {
+        dispatch(saveProfileInfoSuccess(profile))
+     } 
 }
 
 export default profileReducer;

@@ -1,0 +1,49 @@
+@use 'base' as base;
+@use 'buttons' as buttons;
+@use 'errors' as errors;
+
+.posts-area {
+    @include base.basic-container;
+    gap: 30px;
+
+    .posts-newpost {
+        @include base.textarea-container;
+
+        .red-border { @include base.red-border; }
+
+        textarea { @include base.textarea; }
+
+        .posts-addbutton { @include buttons.add-button; }
+
+        button { @include buttons.clean-button; }
+    }
+
+    .post-input-error { @include errors.input-error; }
+
+    .posts-list {
+        @include base.basic-item-list;
+        gap: 45px;
+
+        .post-item {
+            @include base.post-item;
+
+            .post-item-body {
+                @include base.post-item-body;
+
+                .post-item-user {
+                    .post-item-profilepicture {
+                        @include base.small-profile-picture;
+                    }
+                }
+
+                .post-item-text { @include base.post-item-text; }
+            }
+
+            .post-item-reaction {
+                @include base.reaction;
+
+                button { @include buttons.small-button; }
+            }
+        }
+    }
+}

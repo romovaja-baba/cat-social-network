@@ -1,4 +1,6 @@
 @use 'buttons' as buttons;
+@use 'base' as base;
+@use 'errors' as errors;
 
 .logout-btn-container {
     .logout-btn {
