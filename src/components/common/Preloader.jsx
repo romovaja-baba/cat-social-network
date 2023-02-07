@@ -1,4 +1,4 @@
-import preloaderImage from "../../../images/preloader.svg";
+import preloaderImage from "../../images/preloader.svg";
 
 const Preloader = () => {
     return (

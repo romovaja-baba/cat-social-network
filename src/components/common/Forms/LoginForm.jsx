@@ -2,13 +2,14 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { login } from "../../../redux/auth-reducer";
+import { captchaSelector, isLoggedInSelector } from "../../../utils/selectors";
 
 import "../../../styles/Login.scss";
 
 const LoginForm = () => {
     const dispatch = useDispatch();
-    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-    const captcha = useSelector(state => state.auth.captcha);
+    const isLoggedIn = useSelector(isLoggedInSelector);
+    const captcha = useSelector(captchaSelector);
 
 
     const { register, handleSubmit, formState: { errors }, clearErrors, setError, reset } = useForm(

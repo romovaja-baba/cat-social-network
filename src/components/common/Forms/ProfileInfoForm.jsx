@@ -8,7 +8,6 @@ const ProfileInfoForm = ({ disableEditMode }) => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
-        console.log("form", data)
         dispatch(saveProfileInfo(data));
         disableEditMode();
     }
@@ -22,7 +21,6 @@ const ProfileInfoForm = ({ disableEditMode }) => {
                 <input type="checkbox" {...register("lookingForAJob")} placeholder="Looking for a job" />
             </div>
             <input {...register("lookingForAJobDescription")} placeholder="Description" className="profile-editmode-input" />
-
             <button>Save Edit</button>
         </form>
     )

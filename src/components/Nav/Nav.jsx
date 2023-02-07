@@ -1,32 +1,31 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-
 import LogoutButton from "../common/LogoutButton";
+import { isLoggedInSelector } from "../../utils/selectors";
 
-import "../../styles/Nav.scss";
 import { useSelector } from "react-redux";
 
+import "../../styles/Nav.scss";
+import NavDiv from "../common/NavDiv";
+
 const Nav = () => {
+    const isLoggedIn = useSelector(isLoggedInSelector);
 
-    const SelectedLink = () => select => select.isActive ? "active-nav-item" : "nav-item";
+    if (!isLoggedIn) return null;
 
-    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+    const navLinks = [
+        { to: "/feed", name: "Feed" },
+        { to: "/users", name: "Find Users" },
+        { to: "/profile", name: "Profile" },
+        { to: "/dialogs", name: "Dialogs" },
+        { to: "/music", name: "Music" },
+        { to: "/settings", name: "Settings" }
+    ]
 
-    if (isLoggedIn) {
-        return (
-            <nav className="nav-area">
-                <div><NavLink to="/feed" className={SelectedLink()}>Feed</NavLink></div>
-                <div><NavLink to="/users" className={SelectedLink()}>Find Users</NavLink></div>
-                <div><NavLink to="/profile" className={SelectedLink()}>Profile</NavLink></div>
-                <div><NavLink to="/dialogs" className={SelectedLink()}>Messages</NavLink></div>
-                <div><NavLink to="/music" className={SelectedLink()}>Music</NavLink></div>
-                <div><NavLink to="/settings" className={SelectedLink()}>Settings</NavLink></div>
-                <LogoutButton />
-            </nav>
-        )
-    } else {
-        return;
-    }
+    return (
+        <nav className="nav-area">
+            {navLinks.map(obj => <NavDiv to={obj.to} name={obj.name} key={obj.name} />)}
+            <LogoutButton />
+        </nav>
+    )
 };
 
 export default Nav;

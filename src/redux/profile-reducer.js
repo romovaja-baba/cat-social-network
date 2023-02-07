@@ -103,7 +103,6 @@ export const saveProfilePicture = (pic) => async (dispatch) => {
 
 export const saveProfileInfo = (profile) => async (dispatch) => {
      let response = await profileAPI.saveProfileInfo(profile);
-     console.log("reducer", response)
      if (response.data.resultCode === 0) {
         dispatch(saveProfileInfoSuccess(profile))
      } 

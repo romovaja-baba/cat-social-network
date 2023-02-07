@@ -1,10 +1,19 @@
 @use 'buttons' as buttons;
-@use 'base' as base;
-@use 'errors' as errors;
+@use 'text' as text;
 
 .logout-btn-container {
     .logout-btn {
         @include buttons.button;
         margin-top: 30px;
+    }
+}
+
+.socials-area {
+    .bold-text {
+        @include text.bold-text;
+    }
+
+    .gray-italics-text {
+        @include text.gray-italic-text;
     }
 }

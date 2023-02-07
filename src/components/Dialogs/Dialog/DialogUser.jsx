@@ -1,21 +1,12 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import NavDiv from "../../common/NavDiv";
 
 import "../../../styles/Dialogs.scss";
 
 const DialogUser = ({profilePicture, name, id}) => {
-    const SelectedLink = () => {
-        return (
-            select => select.isActive ? "active-dialog dialog-user-item" : "dialog-user-item"
-        );
-    };
-
     return (
         <div className="dialog-user-area">
             <img src={profilePicture} alt={name} />
-            <NavLink to={`/dialogs/${id}`} className={SelectedLink()}>
-                {name}
-            </NavLink>
+            <NavDiv to={`/dialogs/${id}`} name={name}/>
         </div>
     )
 };

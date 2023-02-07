@@ -7,11 +7,12 @@ import { useEffect } from "react";
 
 import { getUserProfile } from "../../redux/profile-reducer";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import { profileSelector, myProfileIdSelector } from "../../utils/selectors";
 
 const Profile = () => {
 
-    const profile = useSelector(state => state.profilePage.profile, shallowEqual);
-    const myProfileId = useSelector(state => state.auth.id);
+    const profile = useSelector(profileSelector, shallowEqual);
+    const myProfileId = useSelector(myProfileIdSelector);
     const dispatch = useDispatch();
 
     let { id } = useParams();

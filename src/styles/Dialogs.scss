@@ -19,13 +19,13 @@
             max-width: 250px;
             padding: 10px;
 
-            .dialog-user-item {
+            .nav-item {
                 @include base.basic-item;
                 @include base.no-decoration-links;
                 background-color: base.$white;
             }
 
-            .active-dialog {
+            .active-nav-item {
                 background: base.$light-gray;
             }
 

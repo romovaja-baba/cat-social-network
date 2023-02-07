@@ -1,15 +1,18 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+
+import NavDiv from "../common/NavDiv";
+
 import { authMe } from "../../redux/auth-reducer";
+import { isLoggedInSelector, loginSelector } from "../../utils/selectors";
 
 import catLogo from "../../images/cat.png"
 
 import "../../styles/Header.scss";
 
 const Header = () => {
-    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-    const login = useSelector(state => state.auth.login)
+    const isLoggedIn = useSelector(isLoggedInSelector);
+    const login = useSelector(loginSelector);
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -25,9 +28,7 @@ const Header = () => {
                 MEOWGRAM
             </div>
             <div className="header-login">
-                {isLoggedIn ?
-                    <NavLink to={"/profile"}>{login}</NavLink> :
-                    <NavLink to={"/login"}>{"LOGIN"}</NavLink>}
+                {isLoggedIn ?<NavDiv to="/profile" name={login}/> : <NavDiv to="/login" name="LOGIN"/>}
             </div>
         </header>
     )

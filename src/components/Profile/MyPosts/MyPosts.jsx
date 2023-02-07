@@ -2,11 +2,13 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import Post from "./Post/Post";
-import "../../../styles/Posts.scss";
 import AddPostForm from "../../common/Forms/AddPostForm";
+import { postsSelector } from "../../../utils/selectors";
+
+import "../../../styles/Posts.scss";
 
 const MyPosts = () => {
-    const posts = useSelector(state => state.profilePage.postsData);
+    const posts = useSelector(postsSelector);
     return (
         <div className="posts-area">
             <AddPostForm />

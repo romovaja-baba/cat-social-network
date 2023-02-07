@@ -2,13 +2,14 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux"
 import { Navigate } from "react-router-dom";
 import { logout } from "../../redux/auth-reducer";
+import { isLoggedInSelector } from "../../utils/selectors";
 
 import "../../styles/Common.scss";
 
 const LogoutButton = () => {
 
     const dispatch = useDispatch();
-    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+    const isLoggedIn = useSelector(isLoggedInSelector);
 
     const { handleSubmit } = useForm();
 

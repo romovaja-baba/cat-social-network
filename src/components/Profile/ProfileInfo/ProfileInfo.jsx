@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
-import Preloader from "../../common/Preloader/Preloader";
+import Preloader from "../../common/Preloader";
 import ProfileStatus from "./ProfileStatus";
 import ProfileInfoForm from "../../common/Forms/ProfileInfoForm";
+import ProfileSocials from "./ProfileSocials";
 
 import { saveProfilePicture } from "../../../redux/profile-reducer";
 import defaultProfilePicture from "../../../images/defaultPP.jpg";
@@ -20,9 +21,7 @@ const ProfileInfo = ({ profile, isOwner }) => {
         }
     }
 
-    if (!profile) {
-        return <Preloader />
-    }
+    if (!profile) return <Preloader />
 
     return (
         <div className="profile-maininfo-area">
@@ -50,14 +49,15 @@ const ProfileInfo = ({ profile, isOwner }) => {
                     <div className="profile-maininfo-colored">
                         <div className="profile-maininfo-job-area">
                             <div className="profile-maininfo-job-item active-text">
-                                { profile.lookingForAJob ? `Looking for a job : 
+                                {profile.lookingForAJob ? `Looking for a job : 
                                 ${profile.lookingForAJobDescription}` : `Not looking for a job`}
                             </div>
 
                             <div className="profile-maininfo-socials">
-                                socials
+                                {Object.entries(profile.contacts).map(social => {
+                                    return <ProfileSocials key={social} social={social} />
+                                })}
                             </div>
-
                         </div>
                     </div>
                 </div>

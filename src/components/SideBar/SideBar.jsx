@@ -3,10 +3,12 @@ import "../../styles/SideBar.scss";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+import { isLoggedInSelector, sideBarFriendsSelector } from "../../utils/selectors";
+
 const SideBar = () => {
 
-    const friends = useSelector(state => state.sideBarPage.friendsData);
-    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+    const friends = useSelector(sideBarFriendsSelector);
+    const isLoggedIn = useSelector(isLoggedInSelector);
 
     const friendsElements = friends.map((friend) => {
         return <div key={friend.id} className="sidebar-item">

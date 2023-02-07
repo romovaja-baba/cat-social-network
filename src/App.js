@@ -6,8 +6,9 @@ import "./styles/App.scss"
 import Nav from './components/Nav/Nav';
 import SideBar from './components/SideBar/SideBar';
 import Header from './components/Header/Header';
-import Preloader from './components/common/Preloader/Preloader';
+import Preloader from './components/common/Preloader';
 import { initialize } from './redux/app-reducer';
+import {initializationSelector, isLoggedInSelector} from "./utils/selectors";
 
 const Feed = lazy(() => import("./components/Feed/Feed"));
 const Dialogs = lazy(() => import("./components/Dialogs/Dialogs"));
@@ -18,8 +19,8 @@ const Settings = lazy(() => import("./components/Settings/Settings"));
 const Login = lazy(() => import("./components/Login/Login"));
 
 const App = () => {
-    const initialization = useSelector(state => state.app.initialization);
-    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+    const initialization = useSelector(initializationSelector);
+    const isLoggedIn = useSelector(isLoggedInSelector);
     const dispatch = useDispatch();
 
     useEffect(() => {

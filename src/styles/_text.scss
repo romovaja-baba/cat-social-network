@@ -1,0 +1,10 @@
+@use 'base' as base;
+
+@mixin bold-text {
+    font-weight: base.$bold;
+}
+
+@mixin gray-italic-text {
+    color: base.$gray;
+    font-style: italic;
+}

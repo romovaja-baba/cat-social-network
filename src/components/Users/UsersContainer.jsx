@@ -3,18 +3,19 @@ import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useEffect, useCallback } from "react";
 
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import { usersPageSelector } from "../../utils/selectors";
 
 import Users from "./Users";
-import Preloader from "../common/Preloader/Preloader";
+import Preloader from "../common/Preloader";
 import Pagination from "../common/Pagination/Pagination";
 
 import "../../styles/Users.scss";
 
 const UsersContainer = () => {
 
-    const { usersData, pageSize, totalUserCount, currentPage, isFetching } = useSelector((state) => {
-        return state.usersPage
-    }, shallowEqual);
+    const { usersData, pageSize, totalUserCount, currentPage, isFetching } = useSelector(
+        usersPageSelector, shallowEqual
+    );
 
     const dispatch = useDispatch();
 

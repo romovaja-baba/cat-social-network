@@ -1,4 +1,3 @@
-import React from "react";
 import "../../../styles/Dialogs.scss";
 
 const Message = ({ text, senderId }) => {
