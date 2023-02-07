@@ -7,13 +7,15 @@ import { postsSelector } from "../../../utils/selectors";
 
 import "../../../styles/Posts.scss";
 
-const MyPosts = () => {
+const MyPosts = ({ profilePicture }) => {
+
     const posts = useSelector(postsSelector);
+
     return (
         <div className="posts-area">
             <AddPostForm />
             <div className="posts-list">
-                { posts.map(post => <Post key={post.id} post={post} />).reverse() }
+                {posts.map(post => <Post key={post.id} post={post} profilePicture={profilePicture} />).reverse()}
             </div>
         </div>
     )

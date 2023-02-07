@@ -11,18 +11,13 @@ const LoginForm = () => {
     const isLoggedIn = useSelector(isLoggedInSelector);
     const captcha = useSelector(captchaSelector);
 
-
-    const { register, handleSubmit, formState: { errors }, clearErrors, setError, reset } = useForm(
-        { mode: "all" }
-    );
+    const { register, handleSubmit, formState: { errors }, clearErrors, setError, reset } = useForm({ mode: "all" });
     const onSubmit = (data) => {
         dispatch(login(data.email, data.password, data.rememberMe, data.captcha, setError));
         reset();
     };
 
-    if (isLoggedIn) {
-        return <Navigate to={'/profile'} />
-    }
+    if (isLoggedIn) <Navigate to={'/profile'} />;
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} >
@@ -46,15 +41,22 @@ const LoginForm = () => {
 
             <div className="login-input-area">
                 <input
-                    {...register("password", {
-                        required: {
-                            value: true,
-                            message: "This field is required"
-                        }, maxLength: {
-                            value: 15,
-                            message: "Your password must be max 15 characters long"
-                        }
-                    })}
+                    ref={{
+                        ...register("password", {
+                            required: {
+                                value: true,
+                                message: "This field is required"
+                            },
+                            maxLength: {
+                                value: 15,
+                                message: "Your password must be max 15 characters long"
+                            },
+                            pattern: {
+                                value: /\S+@\S+.\w+/i, 
+                                message: "Please enter a valid email"
+                            }
+                        })
+                    }}
                     onFocus={() => clearErrors()}
                     className={`login-item ${errors.password ? "red-border" : ""}`}
                     placeholder="Password"

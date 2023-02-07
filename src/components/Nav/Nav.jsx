@@ -1,10 +1,10 @@
-import LogoutButton from "../common/LogoutButton";
-import { isLoggedInSelector } from "../../utils/selectors";
-
 import { useSelector } from "react-redux";
 
-import "../../styles/Nav.scss";
+import LogoutButton from "../common/LogoutButton";
 import NavDiv from "../common/NavDiv";
+import { isLoggedInSelector } from "../../utils/selectors";
+
+import "../../styles/Nav.scss";
 
 const Nav = () => {
     const isLoggedIn = useSelector(isLoggedInSelector);

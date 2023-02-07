@@ -10,7 +10,7 @@ import defaultProfilePicture from "../../../images/defaultPP.jpg";
 
 import "../../../styles/Profile.scss";
 
-const ProfileInfo = ({ profile, isOwner }) => {
+const ProfileInfo = ({ profile, isOwner, statusText, id }) => {
 
     const dispatch = useDispatch();
     const [editMode, setEditMode] = useState(false);
@@ -45,7 +45,9 @@ const ProfileInfo = ({ profile, isOwner }) => {
             {editMode ? <ProfileInfoForm disableEditMode={() => setEditMode(false)} /> :
                 <div className="profile-maininfo">
                     <div className="profile-maininfo-name">{profile.fullName}</div>
-                    <ProfileStatus isOwner={isOwner} />
+
+                    <ProfileStatus isOwner={isOwner} statusText={statusText} id={id}/>
+                    
                     <div className="profile-maininfo-colored">
                         <div className="profile-maininfo-job-area">
                             <div className="profile-maininfo-job-item active-text">

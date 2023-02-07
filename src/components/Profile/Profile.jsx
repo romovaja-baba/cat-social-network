@@ -7,12 +7,13 @@ import { useEffect } from "react";
 
 import { getUserProfile } from "../../redux/profile-reducer";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
-import { profileSelector, myProfileIdSelector } from "../../utils/selectors";
+import { profileSelector, myProfileIdSelector, statusTextSelector } from "../../utils/selectors";
 
 const Profile = () => {
 
     const profile = useSelector(profileSelector, shallowEqual);
     const myProfileId = useSelector(myProfileIdSelector);
+    const statusText = useSelector(statusTextSelector);
     const dispatch = useDispatch();
 
     let { id } = useParams();
@@ -22,8 +23,8 @@ const Profile = () => {
 
     return (
         <div className="profile-area">
-            <ProfileInfo profile={profile} isOwner={!id}/>
-            <MyPosts />
+            <ProfileInfo profile={profile} isOwner={!id} statusText={statusText} id={id || myProfileId} />
+            {profile && <MyPosts profilePicture={profile.photos.small} />}
         </div>
     )
 };

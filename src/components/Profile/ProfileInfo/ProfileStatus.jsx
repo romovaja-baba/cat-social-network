@@ -1,14 +1,11 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getStatus, updateStatus } from "../../../redux/profile-reducer";
-import { statusTextSelector, profileIdSelector } from "../../../utils/selectors";
 import "../../../styles/Profile.scss";
 
-const ProfileStatus = ({isOwner}) => {
+const ProfileStatus = ({isOwner, statusText, id}) => {
 
-    const statusText = useSelector(statusTextSelector);
-    const id = useSelector(profileIdSelector)
     const dispatch = useDispatch();
     let [editMode, setEditMode] = useState(false);
     let [status, setStatus] = useState(statusText);

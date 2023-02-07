@@ -10,7 +10,6 @@ export const sideBarFriendsSelector = state => state.sideBarPage.friendsData;
 
 //profile
 export const profileSelector = state => state.profilePage.profile;
-export const profileIdSelector = state => state.profilePage.profile.userId;
 export const statusTextSelector = state => state.profilePage.status;
 export const postsSelector = state => state.profilePage.postsData;
 
