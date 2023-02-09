@@ -1,5 +1,4 @@
-import profileReducer, { setStatus } from "./profile-reducer";
-import { addPost, deletePost } from "./profile-reducer";
+import profileReducer, { setStatus, addPost, deletePost } from "../redux/profile-reducer";
 
 let state = {
     profile: null,
@@ -12,37 +11,31 @@ let state = {
 };
 
 test('incremented length of posts after adding', () => {
-    let action = addPost("new post");
-    let newState = profileReducer(state, action);
-    expect(newState.postsData.length).toBe(4);
+    let newState = profileReducer(state, addPost("new post"));
+    expect(newState.postsData).toHaveLength(4);
 });
 
 test("adequate new post text", () => {
-    let action = addPost("new post");
-    let newState = profileReducer(state, action);
+    let newState = profileReducer(state, addPost("new post"));
     expect(newState.postsData[3].text).toBe("new post");
 });
 
 test("decremented length of posts after deleting", () => {
-    let action = deletePost(1);
-    let newState = profileReducer(state, action);
-    expect(newState.postsData.length).toBe(2);
+    let newState = profileReducer(state, deletePost(1));
+    expect(newState.postsData).toHaveLength(2);
 });
 
 test("length of posts stayed the same", () => {
-    let action = deletePost(1000);
-    let newState = profileReducer(state, action);
+    let newState = profileReducer(state, deletePost(1000));
     expect(newState.postsData.length).toStrictEqual(state.postsData.length);
 });
 
 test("changed status", () => {
-    let action = setStatus("new status");
-    let newState = profileReducer(state, action);
+    let newState = profileReducer(state, setStatus("new status"));
     expect(newState.status).not.toBe(state.status);
 });
 
 test("adequate status", () => {
-    let action = setStatus("new post");
-    let newState = profileReducer(state, action);
-    expect(newState.status).toBeTruthy();
-})
+    let newState = profileReducer(state, setStatus("new post"));
+    expect(newState.status).toBe("new post");
+});

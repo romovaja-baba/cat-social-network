@@ -9,7 +9,6 @@ let SET_CURRENT_PAGE = "app/users/SET_CURRENT_PAGE";
 let SET_TOTAL_USER_COUNT = "app/users/SET_TOTAL_USER_COUNT";
 let SET_FETCHING = "app/users/SET_FETCHING";
 
-
 let initialState = {
     usersData: [],
     pageSize: 10,
@@ -17,7 +16,6 @@ let initialState = {
     currentPage: 1,
     isFetching: false
 }
-
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
