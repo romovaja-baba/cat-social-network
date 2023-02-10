@@ -24,10 +24,15 @@ const LoginForm = () => {
             <div className="login-input-area">
                 <input
                     {...register("email", {
-                        required: "This field is required", minLength: {
+                        required: "This field is required",
+                        minLength: {
                             value: 5,
                             message: "Your email must be at least 5 characters long"
-                        }
+                        },
+                        pattern: {
+                            value: /\S+@\S+.\w+/i,
+                            message: "Please enter a valid email"
+                        },
                     })}
                     onFocus={() => clearErrors()}
                     className={`login-item ${errors.email ? "red-border" : ""}`}
@@ -40,23 +45,15 @@ const LoginForm = () => {
             </div>
 
             <div className="login-input-area">
-                <input
-                    ref={{
-                        ...register("password", {
-                            required: {
-                                value: true,
-                                message: "This field is required"
-                            },
-                            maxLength: {
-                                value: 15,
-                                message: "Your password must be max 15 characters long"
-                            },
-                            pattern: {
-                                value: /\S+@\S+.\w+/i, 
-                                message: "Please enter a valid email"
-                            }
-                        })
-                    }}
+                <input {
+                    ...register("password", {
+                        required: "This field is required",
+                        maxLength: {
+                            value: 15,
+                            message: "Your password must be max 15 characters long"
+                        }
+                    })
+                }
                     onFocus={() => clearErrors()}
                     className={`login-item ${errors.password ? "red-border" : ""}`}
                     placeholder="Password"

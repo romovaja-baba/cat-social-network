@@ -42,13 +42,16 @@ const ProfileInfo = ({ profile, isOwner, statusText, id }) => {
                 }
             </div>
 
-            {editMode ? <ProfileInfoForm disableEditMode={() => setEditMode(false)} /> :
+            {editMode ? <ProfileInfoForm disableEditMode={() => setEditMode(false)} profile={profile}/> :
                 <div className="profile-maininfo">
                     <div className="profile-maininfo-name">{profile.fullName}</div>
 
                     <ProfileStatus isOwner={isOwner} statusText={statusText} id={id}/>
                     
                     <div className="profile-maininfo-colored">
+                        <div className="profile-maininfo-aboutme">
+                            {profile.aboutMe}
+                        </div>
                         <div className="profile-maininfo-job-area">
                             <div className="profile-maininfo-job-item active-text">
                                 {profile.lookingForAJob ? `Looking for a job : 

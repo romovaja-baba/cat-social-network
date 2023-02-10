@@ -1,6 +1,7 @@
 @use 'base' as base;
 @use 'buttons' as buttons;
 @use 'errors' as errors;
+@use 'text' as text;
 
 .profile-area {
     @include base.basic-container;
@@ -40,7 +41,6 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            max-width: 50%;
 
             .profile-maininfo-name {
                 @include base.title-page-name;
@@ -48,6 +48,8 @@
 
             .profile-status-area {
                 display: flex;
+                align-items: center;
+                height: 30px;
                 justify-content: flex-start;
                 .profile-status-text {
                     max-width: 100%;                  
@@ -62,31 +64,53 @@
             }
 
             .profile-maininfo-colored {
-
                 width: auto;
-
                 background-color: base.$light-gray;
                 padding: 10px 15px;
                 border-radius: base.$border-radius;
 
                 .profile-maininfo-job-area {
-                    .profile-maininfo-job-item {
 
+                    .bold-text {
+                        @include text.bold-text;
                     }
+
+                    .gray-italic-text {
+                        @include text.gray-italic-text;
+                    }
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
                 }
             }
         }
 
         .profile-editmode-area {
             @include base.basic-item-list;
-            align-items: center;
+
+            label {
+                @include text.bold-text;
+            }
 
             .profile-editmode-input {
                 @include base.textarea;
             }
 
+            .profile-editmode-job {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .profile-editmode-socials-area {
+                .profile-editmode-socials-input{
+                    @include base.textarea;
+                }
+            }
+
             button {
-                @include buttons.button
+                @include buttons.button;
+                align-self: center;
             }
         }
     }

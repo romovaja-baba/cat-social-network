@@ -18,7 +18,7 @@ const AddPostForm = () => {
             <form className="posts-newpost" onSubmit={handleSubmit(onSubmit)}>
                 <textarea {...register("newPostText",
                     {
-                        required: { value: true, message: "Post cannot be empty" },
+                        required: "Post cannot be empty",
                         maxLength: { value: 10, message: "The post should be under 10 characters" }
                     }
                 )}

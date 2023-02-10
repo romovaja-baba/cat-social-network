@@ -19,12 +19,7 @@ const AddMessageForm = ({ userConvo }) => {
         <>
             <form className="convo-input" onSubmit={handleSubmit(onSubmit)}>
                 <textarea
-                    {...register("newMessageText", {
-                        required: {
-                            value: "true",
-                            message: "Message cannot be empty"
-                        }
-                    })}
+                    {...register("newMessageText", { required: "Message cannot be empty"})}
                     placeholder="Enter your message here..."
                     className={errors.newMessageText ? "red-border" : ""}
                 />

@@ -27,6 +27,7 @@ const ProfileStatus = ({isOwner, statusText, id}) => {
         <div className="profile-status-area">
             {editMode ?
                 <input
+                    value={status}
                     placeholder="express your feelings"
                     onBlur={() => statusOnBlur()}
                     onChange={(e) => setStatus(e.currentTarget.value)}

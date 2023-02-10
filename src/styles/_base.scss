@@ -50,6 +50,7 @@ $bold: 600;
 @mixin title-page {
     display: flex;
     justify-content: flex-start;
+    align-items: flex-start;
     gap: 50px;
     padding: 30px;
     background-size: cover;
