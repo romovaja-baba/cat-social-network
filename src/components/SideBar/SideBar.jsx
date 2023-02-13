@@ -1,9 +1,8 @@
 import { useSelector } from "react-redux";
-
-import NavDiv from "../common/NavDiv";
 import { isLoggedInSelector, sideBarFriendsSelector } from "../../utils/selectors";
 
 import "../../styles/SideBar.scss";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
 
@@ -12,10 +11,10 @@ const SideBar = () => {
 
     const friendsElements = friends.map(friend => {
         return (
-            <div key={friend.id} className="sidebar-item">
+            <Link to={`/dialogs/${friend.id}`} key={friend.id} className="sidebar-item">
                 <img alt={friend.name} src={friend.profilePicture} />
-                <NavDiv to={`/dialogs/${friend.id}`} name={friend.name} />
-            </div>
+                {friend.name}
+            </Link>
         )
     });
 

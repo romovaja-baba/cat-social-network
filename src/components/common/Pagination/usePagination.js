@@ -6,6 +6,8 @@ const range = (start, end) => {
     return Array.from({ length }, (_, index) => index + start);
 };
 
+const DOTS = <span className="default-cursor">...</span>;
+
 export const usePagination = (
     totalCount,
     pageSize,
@@ -40,7 +42,7 @@ export const usePagination = (
             let leftItemCount = 3 + 2 * siblingCount;
             let leftRange = range(1, leftItemCount);
 
-            return [...leftRange, "...", totalPageCount]
+            return [...leftRange, DOTS, totalPageCount]
         };
 
         //CASE 3
@@ -49,14 +51,14 @@ export const usePagination = (
             let rightItemCount = 3 + 2 * siblingCount;
             let rightRange = range(totalPageCount - rightItemCount + 1, totalPageCount);
 
-            return [firstPageIndex, "...", ...rightRange];
+            return [firstPageIndex, DOTS, ...rightRange];
         }
 
         //CASE 4
 
         if (shouldShowLeftDots && shouldShowRightDots) {
             let middleRange = range(leftSiblingIndex, rightSiblingIndex);
-            return [firstPageIndex, "...", ...middleRange, "...", lastPageIndex]
+            return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex]
         }
 
     }, [totalCount, pageSize, siblingCount, currentPage]);

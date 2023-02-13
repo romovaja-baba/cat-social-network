@@ -13,12 +13,11 @@ const ProfileInfoForm = ({ disableEditMode, profile }) => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
-        data["lookingForAJobDescription"] = data["lookingForAJobDescription"] || "";
+        console.log(data)
         dispatch(saveProfileInfo(data));
         disableEditMode();
     };
 
-    const [checked, setChecked] = useState(false);
     const [name, setName] = useState(profile.fullName);
     const [aboutMe, setAboutMe] = useState(profile.aboutMe);
     const [description, setDescription] = useState(profile.lookingForAJobDescription);
@@ -49,21 +48,17 @@ const ProfileInfoForm = ({ disableEditMode, profile }) => {
                 <input
                     type="checkbox" {...register("lookingForAJob")}
                     placeholder="Looking for a job"
-                    onChange={e => setChecked(checked ? false : true)}
                 />
             </div>
-            {checked &&
-                <div>
-                    <label htmlFor="lookingForAJobDescription">Your Job Description:</label>
-                    <input
-                        {...register("lookingForAJobDescription")}
-                        value={description}
-                        onChange={e => setDescription(e.currentTarget.value)}
-                        placeholder="Description"
-                        className="profile-editmode-input" />
-                </div>
-
-            }
+            <div>
+                <label htmlFor="lookingForAJobDescription">Your Job Description:</label>
+                <input
+                    {...register("lookingForAJobDescription")}
+                    value={description}
+                    onChange={e => setDescription(e.currentTarget.value)}
+                    placeholder="Description"
+                    className="profile-editmode-input" />
+            </div>
             {Object.entries(profile.contacts).map(contact => {
                 return (
                     <SocialsForm socialName={contact[0]} socialLink={contact[1]}

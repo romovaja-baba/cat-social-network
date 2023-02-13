@@ -6,7 +6,7 @@ const ProfileSocials = ({ social = null, editMode }) => {
         return (
             <div className="socials-area">
                 <span className="bold-text">{socialName}</span>
-                : {socialLink || <span className="gray-italic-text">"no data"</span>}
+                : {socialLink || <span className="gray-italic-text">no data</span>}
             </div>
         )
     }

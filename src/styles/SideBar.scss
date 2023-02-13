@@ -14,10 +14,10 @@
 
         .sidebar-item {
             @include base.basic-item;
+            @include base.no-decoration-links;
             width: base.$sidebar-width;
 
             img { @include base.small-profile-picture; }
-            a { @include base.no-decoration-links }
         }
     }
 }
