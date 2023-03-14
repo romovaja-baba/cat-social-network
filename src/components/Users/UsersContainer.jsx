@@ -1,4 +1,4 @@
-import { getUsers, followUser, unfollowUser } from "../../redux/users-reducer";
+import { getUsers, follow, unfollow } from "../../redux/actions/users-actions"
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useEffect, useCallback } from "react";
 
@@ -20,7 +20,10 @@ const UsersContainer = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (!usersData.length) dispatch(getUsers(currentPage, pageSize));
+        if (!usersData.length) {
+            let usersInfo = {currentPage, pageSize};
+            dispatch(getUsers(usersInfo))
+        }
     }, [currentPage, dispatch, pageSize, usersData]);
 
     const onPageChanged = useCallback((currentPage) => {
@@ -38,8 +41,8 @@ const UsersContainer = () => {
             {isFetching ? <Preloader /> :
                 <Users
                     users={usersData}
-                    followUser={followUser}
-                    unfollowUser={unfollowUser}
+                    followUser={follow}
+                    unfollowUser={unfollow}
                 />
             }
         </div>

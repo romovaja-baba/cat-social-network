@@ -1,4 +1,4 @@
-const SEND_MESSAGE = "app/dialogs/SEND_MESSAGE";
+import { types } from "../actions/dialogs-actions";
 
 let initialState = {
     dialogUserData: [
@@ -56,7 +56,7 @@ let initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SEND_MESSAGE:
+        case types.SEND_MESSAGE:
             let newMessage = {
                 id: 10,
                 text: action.newMessageText,
@@ -75,7 +75,5 @@ const dialogsReducer = (state = initialState, action) => {
             return state;
     };
 };
-
-export const sendMessage = (userId, newMessageText) => ({ type: SEND_MESSAGE, userId, newMessageText });
 
 export default dialogsReducer;

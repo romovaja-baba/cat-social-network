@@ -1,15 +1,17 @@
-import { configureStore, combineReducers, applyMiddleware } from "@reduxjs/toolkit";
-import thunk from "redux-thunk";
+import createSagaMiddleware from "@redux-saga/core";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-import profileReducer from "./profile-reducer"
-import dialogsReducer from "./dialogs-reducer";
-import feedReducer from "./feed-reducer";
-import sideBarReducer from "./sidebar-reducer";
-import usersReducer from "./users-reducer";
-import authReducer from "./auth-reducer";
-import appReducer from "./app-reducer";
+import appReducer from "./reducers/app-reducer";
+import authReducer from "./reducers/auth-reducer";
+import dialogsReducer from "./reducers/dialogs-reducer";
+import feedReducer from "./reducers/feed-reducer";
+import profileReducer from "./reducers/profile-reducer";
+import rootSaga from "./sagas/rootSaga";
+import sideBarReducer from "./reducers/sidebar-reducer";
+import usersReducer from "./reducers/users-reducer";
 
-let reducers = combineReducers({
+const sagaMiddleware = createSagaMiddleware();
+const reducers = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     feedPage: feedReducer,
@@ -19,6 +21,15 @@ let reducers = combineReducers({
     app: appReducer
 });
 
-let store = configureStore({reducer: reducers}, applyMiddleware(thunk)); 
+let store = configureStore(
+    {
+        reducer: reducers,
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware({
+                serializableCheck: false
+            }).concat(sagaMiddleware)
+    });
+
+sagaMiddleware.run(rootSaga);
 
 export default store;

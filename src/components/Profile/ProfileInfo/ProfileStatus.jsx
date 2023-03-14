@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getStatus, updateStatus } from "../../../redux/profile-reducer";
+import { getStatus, updateStatus } from "../../../redux/actions/profile-actions";
 import "../../../styles/Profile.scss";
 
 const ProfileStatus = ({isOwner, statusText, id}) => {

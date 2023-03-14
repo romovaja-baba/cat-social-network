@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import NavDiv from "../common/NavDiv";
 
-import { authMe } from "../../redux/auth-reducer";
+import { authMe } from "../../redux/actions/auth-actions";
 import { isLoggedInSelector, loginSelector } from "../../utils/selectors";
 
 import catLogo from "../../images/cat.png"

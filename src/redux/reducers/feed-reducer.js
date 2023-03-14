@@ -10,7 +10,6 @@ let initialState = {
 };
 
 const feedReducer = (state = initialState, action) => {
-
     return state
 };
 

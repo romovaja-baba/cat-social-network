@@ -5,7 +5,7 @@ import ProfileStatus from "./ProfileStatus";
 import ProfileInfoForm from "../../common/Forms/ProfileInfoForm";
 import ProfileSocials from "./ProfileSocials";
 
-import { saveProfilePicture } from "../../../redux/profile-reducer";
+import { saveProfilePicture } from "../../../redux/actions/profile-actions";
 import defaultProfilePicture from "../../../images/defaultPP.jpg";
 
 import "../../../styles/Profile.scss";

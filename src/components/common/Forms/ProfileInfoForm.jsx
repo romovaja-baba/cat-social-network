@@ -3,8 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
 import SocialsForm from "./SocialsForm";
-import { saveProfileInfo } from "../../../redux/profile-reducer";
-
+import { saveProfileInfo } from "../../../redux/actions/profile-actions";
 import "../../../styles/Profile.scss";
 
 const ProfileInfoForm = ({ disableEditMode, profile }) => {

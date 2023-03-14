@@ -5,7 +5,7 @@ import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
-import { getUserProfile } from "../../redux/profile-reducer";
+import { getUserProfile } from "../../redux/actions/profile-actions";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { profileSelector, myProfileIdSelector, statusTextSelector } from "../../utils/selectors";
 

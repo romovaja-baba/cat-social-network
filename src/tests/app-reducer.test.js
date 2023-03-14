@@ -1,4 +1,4 @@
-import appReducer, { initializationSuccess } from "../redux/app-reducer";
+import appReducer from "../redux/app-reducer";
 
 let state = {
     initialization: false

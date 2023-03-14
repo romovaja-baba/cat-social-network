@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux"
 import { Navigate } from "react-router-dom";
-import { logout } from "../../redux/auth-reducer";
+import { logout } from "../../redux/actions/auth-actions";
 import { isLoggedInSelector } from "../../utils/selectors";
 
 import "../../styles/Common.scss";

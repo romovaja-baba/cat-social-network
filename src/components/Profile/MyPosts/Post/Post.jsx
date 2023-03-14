@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import heartImage from "../../../../images/heart.png";
-import { deletePost } from "../../../../redux/profile-reducer";
-
+import { deletePost } from "../../../../redux/actions/profile-actions";
 import defaultPP from "../../../../images/defaultPP.jpg";
 
 import "../../../../styles/Posts.scss";

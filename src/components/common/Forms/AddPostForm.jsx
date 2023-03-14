@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { addPost } from "../../../redux/profile-reducer";
+import { addPost } from "../../../redux/actions/profile-actions";
 import addImage from "../../../images/add.svg";
 
 import "../../../styles/Profile.scss";

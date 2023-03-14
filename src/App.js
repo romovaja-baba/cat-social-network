@@ -7,8 +7,8 @@ import Nav from './components/Nav/Nav';
 import SideBar from './components/SideBar/SideBar';
 import Header from './components/Header/Header';
 import Preloader from './components/common/Preloader';
-import { initialize } from './redux/app-reducer';
-import {initializationSelector, isLoggedInSelector} from "./utils/selectors";
+import { initialize } from './redux/actions/app-actions';
+import { initializationSelector, isLoggedInSelector } from "./utils/selectors";
 
 const Feed = lazy(() => import("./components/Feed/Feed"));
 const Dialogs = lazy(() => import("./components/Dialogs/Dialogs"));

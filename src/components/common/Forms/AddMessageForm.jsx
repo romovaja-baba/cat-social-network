@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { sendMessage } from "../../../redux/dialogs-reducer";
+import { sendMessage } from "../../../redux/actions/dialogs-actions";
 
 import addImage from "../../../images/add.svg";
 

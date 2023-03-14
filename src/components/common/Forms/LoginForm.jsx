@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { login } from "../../../redux/auth-reducer";
+import { login } from "../../../redux/actions/auth-actions";
 import { captchaSelector, isLoggedInSelector } from "../../../utils/selectors";
 
 import "../../../styles/Login.scss";
@@ -13,7 +13,11 @@ const LoginForm = () => {
 
     const { register, handleSubmit, formState: { errors }, clearErrors, setError, reset } = useForm({ mode: "all" });
     const onSubmit = (data) => {
-        dispatch(login(data.email, data.password, data.rememberMe, data.captcha, setError));
+        const loginInfo = {
+            email: data.email, password: data.password,
+            rememberMe: data.rememberMe, captcha: data.captcha, setError
+        }
+        dispatch(login(loginInfo));
         reset();
     };
 
