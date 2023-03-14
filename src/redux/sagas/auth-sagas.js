@@ -24,7 +24,7 @@ function* login(loginInfo) {
     try {
         const response = yield call(authAPI.login, loginInfo);
         if (response.data.resultCode === 0) {
-            yield put(authMe())
+            yield authMe()
         } else if (response.data.resultCode === 10)
             yield getCaptcha()
     }
@@ -40,10 +40,16 @@ export function* watchLogin() {
 
 //LOGOUT
 function* logout() {
-    const response = yield call(authAPI.logout);
-    if (response.data.resultCode === 0) {
-        yield put(setAuthUserData(null, null, null, false))
+    try {
+        const response = yield call(authAPI.logout);
+        if (response.data.resultCode === 0) {
+            yield put(setAuthUserData(null, null, null, false))
+        }
     }
+    catch (error) {
+        console.log(error)
+    }
+    
 };
 export function* watchLogout() {
     yield takeEvery(types.LOGOUT, logout);

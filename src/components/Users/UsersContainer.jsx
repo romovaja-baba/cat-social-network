@@ -27,7 +27,8 @@ const UsersContainer = () => {
     }, [currentPage, dispatch, pageSize, usersData]);
 
     const onPageChanged = useCallback((currentPage) => {
-        dispatch(getUsers(currentPage, pageSize));
+        const usersInfo = {currentPage, pageSize};
+        dispatch(getUsers(usersInfo));
     }, [pageSize, dispatch]);
 
     return (

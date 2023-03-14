@@ -3,8 +3,14 @@ import { authMe } from "../actions/auth-actions";
 import { types, initializationSuccess } from "../actions/app-actions";
 
 function* initialization() {
-    yield put(authMe())
-    yield put(initializationSuccess())
+    try {
+        yield put(authMe())
+        yield put(initializationSuccess())
+    }
+    catch (error) {
+        console.log(error)
+    }
+    
 }
 export function* watchInitialize() {
     yield takeEvery(types.INITIALIZATION, initialization)

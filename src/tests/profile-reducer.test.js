@@ -1,4 +1,5 @@
-import profileReducer, { setStatus, addPost, deletePost } from "../redux/profile-reducer";
+import { addPost, deletePost, setStatus } from "../redux/actions/profile-actions";
+import profileReducer from "../redux/reducers/profile-reducer";
 
 let state = {
     profile: null,

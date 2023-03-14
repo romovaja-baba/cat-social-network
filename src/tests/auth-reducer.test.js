@@ -1,4 +1,5 @@
-import authReducer, { setAuthUserData, setCaptcha } from "../redux/auth-reducer";
+import { setAuthUserData, setCaptcha } from "../redux/actions/auth-actions";
+import authReducer from "../redux/reducers/auth-reducer";
 
 let state = {
     id: null,

@@ -8,12 +8,7 @@ const range = (start, end) => {
 
 const DOTS = <span className="default-cursor">...</span>;
 
-export const usePagination = (
-    totalCount,
-    pageSize,
-    siblingCount = 1,
-    currentPage
-) => {
+export const usePagination = (totalCount, pageSize, siblingCount = 1, currentPage) => {
     const paginationRange = useMemo(() => {
         const totalPageCount = Math.ceil(totalCount / pageSize);
         const totalPageNumbers = siblingCount + 5;

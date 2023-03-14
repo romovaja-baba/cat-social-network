@@ -39,7 +39,7 @@ function* updateStatus(status) {
     try {
         let response = yield call(profileAPI.updateStatus, status);
         if (response.data.resultCode === 0) {
-            yield put(setStatus(status))
+            yield put(setStatus(status.status))
         }
     }
     catch (error) {
@@ -72,7 +72,7 @@ function* saveProfileInfo(profile) {
     try {
         let response = yield call(profileAPI.saveProfileInfo, profile);
         if (response.data.resultCode === 0) {
-            yield put(saveProfileInfoSuccess(profile))
+            yield put(saveProfileInfoSuccess(profile.profile))
         }
     }
     catch (error) {

@@ -25,7 +25,7 @@ function* followUser(userId) {
     try {
         let response = yield call(usersAPI.followUser, userId);
         if (response.data.resultCode === 0) {
-            yield put(follow(userId))
+            yield put(follow(userId.userId))
         }
     }
     catch (error) {
@@ -41,7 +41,7 @@ function* unfollowUser(userId) {
     try {
         let response = yield call(usersAPI.unfollowUser, userId);
         if (response.data.resultCode === 0) {
-            yield put(unfollow(userId))
+            yield put(unfollow(userId.userId))
         }
     }
     catch (error) {

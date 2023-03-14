@@ -1,4 +1,5 @@
-import usersReducer, { follow, setCurrentPage, setFetching, setTotalUserCount, setUsers, unfollow } from "../redux/users-reducer";
+import { follow, setCurrentPage, setFetching, setTotalUserCount, setUsers, unfollow } from "../redux/actions/users-actions";
+import usersReducer from "../redux/reducers/users-reducer";
 
 let state = {
     usersData: [],

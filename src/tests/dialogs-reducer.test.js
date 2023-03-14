@@ -1,4 +1,5 @@
-import dialogsReducer, { sendMessage } from "../redux/dialogs-reducer";
+import { sendMessage } from "../redux/actions/dialogs-actions";
+import dialogsReducer from "../redux/reducers/dialogs-reducer";
 
 let state = {
     convosData:

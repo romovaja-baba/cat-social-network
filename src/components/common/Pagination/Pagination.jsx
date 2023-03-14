@@ -11,7 +11,7 @@ const Pagination = ({ onPageChanged, totalCount, siblingCount = 1, currentPage, 
         totalCount || 0,
         pageSize || 0,
         siblingCount || 1,
-        currentPage || 1
+        currentPage || 1    
     );
 
     if (currentPage === 0 || paginationRange.length < 2) return null;
@@ -30,7 +30,6 @@ const Pagination = ({ onPageChanged, totalCount, siblingCount = 1, currentPage, 
                 return (
                     <div
                         onClick={() => onNumberClick(page)}
-                        key={page}
                         className={currentPage === page ? "pagination-page selected" : "pagination-page"}>
                         {page}
                     </div>

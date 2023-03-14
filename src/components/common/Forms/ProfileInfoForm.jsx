@@ -12,7 +12,6 @@ const ProfileInfoForm = ({ disableEditMode, profile }) => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
-        console.log(data)
         dispatch(saveProfileInfo(data));
         disableEditMode();
     };
