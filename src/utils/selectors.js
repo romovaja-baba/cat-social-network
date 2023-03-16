@@ -1,6 +1,9 @@
+//app
+export const isInitSuccessSelector = state => state.app.isInitSuccess;
+export const initializationSelector = state => state.app.initialization;
+
 //auth
 export const isLoggedInSelector = state => state.auth.isLoggedIn;
-export const initializationSelector = state => state.app.initialization;
 export const loginSelector = state => state.auth.login;
 export const myProfileIdSelector = state => state.auth.id;
 export const captchaSelector = state => state.auth.captcha;

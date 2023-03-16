@@ -1,6 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { setCaptcha, setAuthUserData, types } from "../actions/auth-actions";
 import { authAPI, securityAPI } from "../../api/api";
+import { initializationReset } from "../actions/app-actions";
 
 //AUTH ME
 function* authMe() {
@@ -43,7 +44,8 @@ function* logout() {
     try {
         const response = yield call(authAPI.logout);
         if (response.data.resultCode === 0) {
-            yield put(setAuthUserData(null, null, null, false))
+            yield put(setAuthUserData(null, null, null, false));
+            yield put(initializationReset())
         }
     }
     catch (error) {

@@ -8,7 +8,7 @@ import SideBar from './components/SideBar/SideBar';
 import Header from './components/Header/Header';
 import Preloader from './components/common/Preloader';
 import { initialize } from './redux/actions/app-actions';
-import { initializationSelector, isLoggedInSelector } from "./utils/selectors";
+import { initializationSelector, isInitSuccessSelector } from "./utils/selectors";
 
 const Feed = lazy(() => import("./components/Feed/Feed"));
 const Dialogs = lazy(() => import("./components/Dialogs/Dialogs"));
@@ -20,13 +20,12 @@ const Login = lazy(() => import("./components/Login/Login"));
 
 const App = () => {
     const initialization = useSelector(initializationSelector);
-    const isLoggedIn = useSelector(isLoggedInSelector);
+    const isInitSuccess = useSelector(isInitSuccessSelector);
     const dispatch = useDispatch();
 
     useEffect(() => {
         if (!initialization) dispatch(initialize());
     }, [dispatch, initialization])
-
     if (!initialization) return <Preloader />;
 
     return (
@@ -44,7 +43,7 @@ const App = () => {
                 <div className='app-content'>
                     <Suspense fallback={<div><Preloader /></div>}>
                         <Routes>
-                            <Route path="/" element={isLoggedIn ?
+                            <Route path="/" element={isInitSuccess ?
                                 <Navigate to={"/profile"} /> :
                                 <Navigate to={"/login"} />} />
                             <Route path="/login" element={<Login />} />
@@ -62,6 +61,6 @@ const App = () => {
             </div>
         </div>
     )
-};
+}
 
 export default App;

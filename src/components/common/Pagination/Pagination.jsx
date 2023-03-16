@@ -11,7 +11,7 @@ const Pagination = ({ onPageChanged, totalCount, siblingCount = 1, currentPage, 
         totalCount || 0,
         pageSize || 0,
         siblingCount || 1,
-        currentPage || 1    
+        currentPage || 1
     );
 
     if (currentPage === 0 || paginationRange.length < 2) return null;
@@ -26,10 +26,11 @@ const Pagination = ({ onPageChanged, totalCount, siblingCount = 1, currentPage, 
             <div className={currentPage === 1 ? "pagination-arrows disabled" : "pagination-arrows"}>
                 <img src={leftArrow} onClick={() => onPrevious()} alt="" />
             </div>
-            {paginationRange.map(page => {
+            {paginationRange.map((page, index) => {
                 return (
                     <div
                         onClick={() => onNumberClick(page)}
+                        key={index}
                         className={currentPage === page ? "pagination-page selected" : "pagination-page"}>
                         {page}
                     </div>

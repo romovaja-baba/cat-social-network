@@ -15,7 +15,7 @@ const LogoutButton = () => {
 
     const onSubmit = () => {
         dispatch(logout());
-        <Navigate to="/login" />
+        // <Navigate to="/login" />
     }
 
     if (!isLoggedIn) return null;
