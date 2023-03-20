@@ -1,14 +1,14 @@
-import React, { lazy, Suspense, useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import "./styles/App.scss"
+import { lazy, Suspense, useEffect } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import "./styles/App.scss";
 
+import Preloader from './components/common/Preloader';
+import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 import SideBar from './components/SideBar/SideBar';
-import Header from './components/Header/Header';
-import Preloader from './components/common/Preloader';
 import { initialize } from './redux/actions/app-actions';
-import { initializationSelector, isLoggedInSelector } from "./utils/selectors";
 import { useAppDispatch, useAppSelector } from './utils/hooks';
+import { initializationSelector, isLoggedInSelector } from "./utils/selectors";
 
 const Feed = lazy(() => import("./components/Feed/Feed"));
 const Dialogs = lazy(() => import("./components/Dialogs/Dialogs"));

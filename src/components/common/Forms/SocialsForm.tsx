@@ -5,12 +5,13 @@ import { IContacts } from "../../../interfaces/profile.interface";
 
 interface Props {
     socialName: string,
-    socialLink: string,}
+    socialLink: string,
+}
 
-const SocialsForm : React.FC<Props> = ({ socialName, socialLink }: Props) => {
+const SocialsForm: React.FC<Props> = ({ socialName, socialLink }: Props) => {
 
     const [social, setSocial] = useState<string>(socialLink);
-    const {register} = useFormContext<IContacts>();
+    const { register } = useFormContext<IContacts>();
     let name = `contacts.${socialName}`;
 
     return (

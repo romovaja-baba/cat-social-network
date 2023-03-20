@@ -8,12 +8,13 @@ import "../../../styles/Pagination.scss";
 interface Props {
     onPageChanged: (arg: number) => void,
     totalCount: number,
-    siblingCount: number,
     currentPage: number,
     pageSize: number
 }
 
-const Pagination = ({ onPageChanged, totalCount, siblingCount, currentPage, pageSize }: Props) => {
+const Pagination = ({ onPageChanged, totalCount, currentPage, pageSize }: Props) => {
+
+    let siblingCount: number = 1;
 
     let paginationRange = usePagination(
         totalCount || 1,

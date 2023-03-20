@@ -46,7 +46,6 @@ const UsersContainer = () => {
                 totalCount={totalUserCount}
                 currentPage={currentPage}
                 pageSize={pageSize}
-                siblingCount={1}
             />
             {isFetching ? <Preloader /> :
                 <Users

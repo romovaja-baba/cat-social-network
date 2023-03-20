@@ -1,17 +1,15 @@
 import { useForm } from "react-hook-form";
-import { sendMessage } from "../../../redux/actions/dialogs-actions";
-
 import addImage from "../../../images/add.svg";
-
+import { IUserConvo } from "../../../interfaces/dialogs.interface";
+import { sendMessage } from "../../../redux/actions/dialogs-actions";
 import "../../../styles/Dialogs.scss";
 import { useAppDispatch } from "../../../utils/hooks";
-import { IUserConvo } from "../../../interfaces/dialogs.interface";
 
 interface Props {
     userConvo: IUserConvo
 }
 
-const AddMessageForm = ({ userConvo }: Props) => {
+const AddMessageForm: React.FC<Props> = ({ userConvo }: Props) => {
 
     interface MessageInputValues {
         newMessageText: string

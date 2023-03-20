@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { addPost } from "../../../redux/actions/profile-actions";
 import addImage from "../../../images/add.svg";
 
-import "../../../styles/Profile.scss";
+import "../../../styles/Posts.scss";
 import { useAppDispatch } from "../../../utils/hooks";
 
 const AddPostForm = () => {

@@ -12,35 +12,35 @@ const instance = axios.create({
 });
 
 export const usersAPI = {
-    getUsers(payload : {usersInfo: IUsersToApi}) {
+    getUsers(payload: { usersInfo: IUsersToApi }) {
         return instance.get(`users?page=${payload.usersInfo.currentPage}&count=${payload.usersInfo.pageSize}`)
     },
-    followUser(payload : {userId: number}) {
+    followUser(payload: { userId: number }) {
         return instance.post(`follow/${payload.userId}`)
     },
-    unfollowUser(payload: {userId: number}) {
+    unfollowUser(payload: { userId: number }) {
         return instance.delete(`follow/${payload.userId}`)
     }
 };
 
 export const profileAPI = {
-    getUserProfile(payload: {id: number}) {
+    getUserProfile(payload: { id: number }) {
         return instance.get(`profile/${payload.id}`)
     },
-    getStatus(payload: {id: number}) {
+    getStatus(payload: { id: number }) {
         return instance.get(`profile/status/${payload.id}`)
     },
-    updateStatus(payload: {status: string}) {
+    updateStatus(payload: { status: string }) {
         return instance.put(`profile/status/`, { status: payload.status })
     },
-    saveProfilePicture(payload: {pic: string}) {
+    saveProfilePicture(payload: { pic: string }) {
         let formData = new FormData();
         formData.append("image", payload.pic)
         return instance.put(`profile/photo`, formData, {
             headers: { "Content-Type": "multipart/form-data" }
         })
     },
-    saveProfileInfo(payload: {profile: IProfile}) {
+    saveProfileInfo(payload: { profile: IProfile }) {
         return instance.put(`profile`, payload.profile)
     }
 };
@@ -49,8 +49,8 @@ export const authAPI = {
     authMe() {
         return instance.get('auth/me')
     },
-    login(payload: {loginInfo: ILogin}) {
-        const {email, password, rememberMe, captcha} = payload.loginInfo;
+    login(payload: { loginInfo: ILogin }) {
+        const { email, password, rememberMe, captcha } = payload.loginInfo;
         return instance.post('auth/login', { email, password, rememberMe, captcha })
     },
     logout() {
