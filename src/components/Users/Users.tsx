@@ -9,9 +9,6 @@ interface Props {
 }
 
 const Users = ({ users, followUser, unfollowUser }: Props) => {
-
-    console.log(users)
-
     return (
         <div className="users-area">
             <div className="users-items-area">
