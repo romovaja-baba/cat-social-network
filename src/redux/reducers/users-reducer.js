@@ -1,5 +1,5 @@
 import { types } from "../actions/users-actions";
-import { updateObjectInArray } from "../../utils/objectHelper";
+import { updateObjectInArray } from "../../utils/objectHelper.js";
 
 let initialState = {
     usersData: [],
