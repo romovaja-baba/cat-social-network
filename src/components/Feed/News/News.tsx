@@ -7,7 +7,6 @@ interface Props {
 }
 
 const News: React.FC<Props> = ({ news }: Props) => {
-    console.log(news)
     return (
         <div className="news-item">
             <div className="news-maininfo">
