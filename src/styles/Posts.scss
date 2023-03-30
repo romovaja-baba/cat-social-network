@@ -11,7 +11,7 @@
 
         .red-border { @include base.red-border; }
 
-        textarea { @include base.textarea; }
+        input { @include base.textarea; }
 
         .posts-addbutton { @include buttons.add-button; }
 
