@@ -29,12 +29,15 @@ function* login(loginInfo) {
         const response = yield call(authAPI.login, loginInfo);
         if (response.data.resultCode === 0) {
             yield authMe()
-        } else if (response.data.resultCode === 10)
+        } else if (response.data.resultCode === 10) {
             yield getCaptcha()
+        } else {
+            loginInfo.loginInfo.setError("server", { message: response.data.message })
+        }
     }
     catch (error) {
         // TODO: remove console log, add error logic
-        // setError("server", { message: response.data.message })
+        // loginInfo.setError("server", { message: response.data.message })
         console.log(error)
     }
 }
@@ -54,7 +57,7 @@ function* logout() {
         // TODO: remove console log, add error logic
         console.log(error)
     }
-    
+
 }
 
 export function* watchLogout() {

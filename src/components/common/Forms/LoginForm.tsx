@@ -93,10 +93,9 @@ const LoginForm = () => {
                 </div>
             }
 
-            {
-                errors &&
+            {errors.server &&
                 <div className="login-input-error ">
-                    There is something wrong
+                    Incorrect email or password
                 </div>
             }
             <button type="submit" className="login-submit-button">Log In</button>
