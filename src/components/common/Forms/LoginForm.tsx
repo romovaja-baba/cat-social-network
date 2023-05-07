@@ -4,12 +4,10 @@ import { captchaSelector } from "../../../utils/selectors";
 
 import "../../../styles/Login.scss";
 import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
-import { isLoggedInSelector } from "../../../utils/selectors";
 import { ILogin } from "../../../interfaces/auth.interface";
 
 const LoginForm = () => {
     const dispatch = useAppDispatch();
-    const isLoggedIn = useAppSelector(isLoggedInSelector);
     const captcha = useAppSelector(captchaSelector);
 
     const {
@@ -98,7 +96,7 @@ const LoginForm = () => {
             {
                 errors &&
                 <div className="login-input-error ">
-                    "There is something wrong"
+                    There is something wrong
                 </div>
             }
             <button type="submit" className="login-submit-button">Log In</button>

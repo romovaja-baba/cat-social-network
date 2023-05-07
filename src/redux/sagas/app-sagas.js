@@ -1,10 +1,10 @@
-import { put, takeEvery } from "redux-saga/effects";
-import { authMe } from "../actions/auth-actions";
+import { put, call, takeEvery } from "redux-saga/effects";
+import { authMe } from "./auth-sagas";
 import { types, initializationSuccess, initializationFail } from "../actions/app-actions";
 
 function* initialization() {
     try {
-        yield put(authMe())
+        yield call(authMe)
         yield put(initializationSuccess())
     }
     catch (error) {
@@ -13,5 +13,5 @@ function* initialization() {
     }
 }
 export function* watchInitialize() {
-    yield takeEvery(types.INITIALIZATION, initialization)
+    yield takeEvery(types.SAGA_INITIALIZATION, initialization)
 }

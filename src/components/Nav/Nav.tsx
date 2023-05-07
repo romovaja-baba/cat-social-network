@@ -1,15 +1,8 @@
-import React from "react";
 import "../../styles/Nav.scss";
-import { useAppSelector } from "../../utils/hooks";
-import { isLoggedInSelector } from "../../utils/selectors";
 import LogoutButton from "../common/LogoutButton";
 import NavDiv from "../common/NavDiv";
 
 const Nav = () => {
-    const isLoggedIn: boolean = useAppSelector(isLoggedInSelector);
-
-    if (!isLoggedIn) return null;
-
     const navLinks = [
         { to: "/feed", name: "Feed" },
         { to: "/users", name: "Find Users" },

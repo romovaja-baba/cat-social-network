@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../../styles/SideBar.scss";
 import { useAppSelector } from "../../utils/hooks";
-import { isLoggedInSelector, sideBarFriendsSelector } from "../../utils/selectors";
+import { sideBarFriendsSelector } from "../../utils/selectors";
 
 interface FriendValue {
     id: number,
@@ -10,9 +10,7 @@ interface FriendValue {
 }
 
 const SideBar = () => {
-
     const friends = useAppSelector(sideBarFriendsSelector);
-    const isLoggedIn = useAppSelector(isLoggedInSelector);
     
     const friendsElements = friends.map((friend: FriendValue, index: number) => {
         return (
@@ -22,8 +20,6 @@ const SideBar = () => {
             </Link>
         )
     });
-
-    if (!isLoggedIn) return null;
 
     return (
         <div className="sidebar-area">

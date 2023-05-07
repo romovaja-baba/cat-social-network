@@ -1,7 +1,6 @@
 import type { RootState } from "../redux/redux-store";
 //app
-export const isInitSuccessSelector = (state: RootState) => state.app.isInitSuccess;
-export const initializationSelector = (state: RootState) => state.app.initialization;
+export const initializationSelector = (state: RootState) => state.app.isInitFinished;
 
 //auth
 export const isLoggedInSelector = (state: RootState) => state.auth.isLoggedIn;
