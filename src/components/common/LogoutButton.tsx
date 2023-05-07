@@ -1,6 +1,4 @@
-import React from "react";
 import { useForm } from "react-hook-form";
-import { Navigate } from "react-router-dom";
 import { logout } from "../../redux/actions/auth-actions";
 import { isLoggedInSelector } from "../../utils/selectors";
 
@@ -16,7 +14,6 @@ const LogoutButton = () => {
 
     const onSubmit = () => {
         dispatch(logout());
-        // <Navigate to="/login" />
     }
 
     if (!isLoggedIn) return null;
