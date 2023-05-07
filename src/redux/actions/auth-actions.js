@@ -17,3 +17,5 @@ export const setAuthUserData = (id, email, login, isLoggedIn) => (
     { type: types.SET_AUTH_USER_DATA, payload: { id, email, login, isLoggedIn } });
 export const getCaptcha = () => ({ type: types.GET_CAPTCHA })
 export const setCaptcha = (captcha) => ({ type: types.SET_CAPTCHA, captcha });
+
+

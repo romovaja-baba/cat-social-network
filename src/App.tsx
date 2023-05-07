@@ -1,14 +1,14 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import "./styles/App.scss";
+import './styles/App.scss';
 
 import Preloader from './components/common/Preloader';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 import SideBar from './components/SideBar/SideBar';
 import { initialize } from './redux/actions/app-actions';
+import { initializationSelector, isLoggedInSelector } from './utils/selectors';
 import { useAppDispatch, useAppSelector } from './utils/hooks';
-import { initializationSelector, isLoggedInSelector } from "./utils/selectors";
 
 const Feed = lazy(() => import("./components/Feed/Feed"));
 const Dialogs = lazy(() => import("./components/Dialogs/Dialogs"));
@@ -19,15 +19,15 @@ const Settings = lazy(() => import("./components/Settings/Settings"));
 const Login = lazy(() => import("./components/Login/Login"));
 
 const App = () => {
-    const initialization: boolean = useAppSelector(initializationSelector);
+    const isInitFinished: boolean = useAppSelector(initializationSelector);
     const isLoggedIn: boolean = useAppSelector(isLoggedInSelector);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        if (!initialization) dispatch(initialize());
-    }, [dispatch, initialization])
+        if (!isInitFinished) dispatch(initialize());
+    }, [dispatch, isInitFinished])
 
-    if (!initialization) return <Preloader/>;
+    if (!isInitFinished) return <Preloader />;
 
     return (
         <div className='app-wrapper'>
@@ -36,17 +36,17 @@ const App = () => {
             </div>
 
             <div className='app-container'>
-                <div className="app-side-container">
-                    <Nav />
-                    <SideBar />
-                </div>
+                {isLoggedIn && (
+                    <div className="app-side-container">
+                        <Nav />
+                        <SideBar />
+                    </div>
+                )}
 
                 <div className='app-content'>
                     <Suspense fallback={<div><Preloader /></div>}>
                         <Routes>
-                            <Route path="/" element={isLoggedIn ?
-                                <Navigate to={"/profile"} /> :
-                                <Navigate to={"/login"} />} />
+                            <Route path="/" element={<Navigate replace to='/profile' />} />
                             <Route path="/login" element={<Login />} />
                             <Route path="/feed" element={<Feed />} />
                             <Route path="/users" element={<UsersContainer />} />
@@ -62,6 +62,6 @@ const App = () => {
             </div>
         </div>
     )
-};
+}
 
 export default App;

@@ -1,4 +1,4 @@
-import { initializationSuccess } from "../redux/actions/app-actions";
+import { initialize } from "../redux/actions/app-actions";
 import appReducer from "../redux/reducers/app-reducer";
 
 let state = {
@@ -6,6 +6,6 @@ let state = {
 };
 
 test("initialization success", () => {
-    let newState = appReducer(state, initializationSuccess());
+    let newState = appReducer(state, initialize());
     expect(newState.initialization).toBe(true);
 });

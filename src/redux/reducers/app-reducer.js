@@ -1,7 +1,7 @@
 import { types } from "../actions/app-actions";
 
 let initialState = {
-    initialization: false
+    isInitFinished: false
 };
 
 const appReducer = (state = initialState, action) => {
@@ -9,7 +9,12 @@ const appReducer = (state = initialState, action) => {
         case types.INITIALIZATION_SUCCESS:
             return {
                 ...state,
-                initialization: true
+                isInitFinished: true
+            }
+        case types.INITIALIZATION_FAIL:
+            return {
+                ...state,
+                isInitFinished: true
             }
         default: return state;
     }

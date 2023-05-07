@@ -1,8 +1,9 @@
 import type { RootState } from "../redux/redux-store";
+//app
+export const initializationSelector = (state: RootState) => state.app.isInitFinished;
 
 //auth
 export const isLoggedInSelector = (state: RootState) => state.auth.isLoggedIn;
-export const initializationSelector = (state: RootState) => state.app.initialization;
 export const loginSelector = (state: RootState) => state.auth.login;
 export const myProfileIdSelector = (state: RootState) => state.auth.id;
 export const captchaSelector = (state: RootState) => state.auth.captcha;

@@ -1,8 +1,6 @@
-import React from "react";
 import { useForm } from "react-hook-form";
-import { Navigate } from "react-router-dom";
 import { login } from "../../../redux/actions/auth-actions";
-import { captchaSelector, isLoggedInSelector } from "../../../utils/selectors";
+import { captchaSelector } from "../../../utils/selectors";
 
 import "../../../styles/Login.scss";
 import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
@@ -10,7 +8,6 @@ import { ILogin } from "../../../interfaces/auth.interface";
 
 const LoginForm = () => {
     const dispatch = useAppDispatch();
-    const isLoggedIn = useAppSelector(isLoggedInSelector);
     const captcha = useAppSelector(captchaSelector);
 
     const {
@@ -24,8 +21,6 @@ const LoginForm = () => {
         dispatch(login(loginInfo));
         reset();
     };
-
-    if (isLoggedIn) <Navigate to={'/profile'} />;
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} >
@@ -98,10 +93,9 @@ const LoginForm = () => {
                 </div>
             }
 
-            {
-                errors &&
+            {errors.server &&
                 <div className="login-input-error ">
-                    "There is something wrong"
+                    Incorrect email or password
                 </div>
             }
             <button type="submit" className="login-submit-button">Log In</button>
