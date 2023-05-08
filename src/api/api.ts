@@ -4,10 +4,10 @@ import { IProfile } from "../interfaces/profile.interface";
 import { IUsersToApi } from "../interfaces/users.interface";
 
 const instance = axios.create({
-    baseURL: "https://social-network.samuraijs.com/api/1.0/",
+    baseURL: process.env.REACT_APP_SAMURAIJS_BASE_URL,
     withCredentials: true,
     headers: {
-        "API-KEY": "eaa51dd2-35e8-4e9d-a461-05fcfc1bcdae"
+        "API-KEY": process.env.REACT_APP_SAMURAIJS_API_KEY
     }
 });
 
