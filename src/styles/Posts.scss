@@ -9,16 +9,26 @@
     .posts-newpost {
         @include base.textarea-container;
 
-        .red-border { @include base.red-border; }
+        .red-border {
+            @include base.red-border;
+        }
 
-        input { @include base.textarea; }
+        input {
+            @include base.textarea;
+        }
 
-        .posts-addbutton { @include buttons.add-button; }
+        .posts-addbutton {
+            @include buttons.add-button;
+        }
 
-        button { @include buttons.clean-button; }
+        button {
+            @include buttons.clean-button;
+        }
     }
 
-    .post-input-error { @include errors.input-error; }
+    .post-input-error {
+        @include errors.input-error;
+    }
 
     .posts-list {
         @include base.basic-item-list;
@@ -36,13 +46,17 @@
                     }
                 }
 
-                .post-item-text { @include base.post-item-text; }
+                .post-item-text {
+                    @include base.post-item-text;
+                }
             }
 
             .post-item-reaction {
                 @include base.reaction;
 
-                button { @include buttons.small-button; }
+                button {
+                    @include buttons.small-button;
+                }
             }
         }
     }

@@ -21,7 +21,6 @@
             padding: 10px;
 
             .navdiv-area {
-
                 .nav-item {
                     @include base.no-decoration-links;
                     white-space: nowrap;
@@ -36,7 +35,7 @@
             }
 
             img {
-                @include base.small-profile-picture
+                @include base.small-profile-picture;
             }
         }
     }

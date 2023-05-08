@@ -52,7 +52,7 @@
                 height: 30px;
                 justify-content: flex-start;
                 .profile-status-text {
-                    max-width: 100%;                  
+                    max-width: 100%;
                     &:hover {
                         background-color: base.$light-gray;
                     }
@@ -70,7 +70,6 @@
                 border-radius: base.$border-radius;
 
                 .profile-maininfo-job-area {
-
                     .bold-text {
                         @include text.bold-text;
                     }
@@ -103,7 +102,7 @@
             }
 
             .profile-editmode-socials-area {
-                .profile-editmode-socials-input{
+                .profile-editmode-socials-input {
                     @include base.textarea;
                 }
             }

@@ -1,10 +1,10 @@
 export interface IMessage {
-    id: number,
-    text: string,
+    id: number
+    text: string
     senderId: number
 }
 
 export interface IUserConvo {
-    userId: number,
+    userId: number
     messages: IMessage[]
 }

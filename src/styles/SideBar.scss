@@ -5,10 +5,11 @@
     width: base.$sidebar-width;
     justify-content: center;
 
-    .sidebar-title { @include base.basic-item-title }
+    .sidebar-title {
+        @include base.basic-item-title;
+    }
 
     .sidebar-list {
-
         @include base.basic-item-list;
         gap: 0;
 
@@ -17,7 +18,9 @@
             @include base.no-decoration-links;
             width: base.$sidebar-width;
 
-            img { @include base.small-profile-picture; }
+            img {
+                @include base.small-profile-picture;
+            }
         }
     }
 }

@@ -1,16 +1,16 @@
-import createSagaMiddleware from "@redux-saga/core";
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import createSagaMiddleware from '@redux-saga/core'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
-import appReducer from "./reducers/app-reducer";
-import authReducer from "./reducers/auth-reducer";
-import dialogsReducer from "./reducers/dialogs-reducer";
-import feedReducer from "./reducers/feed-reducer";
-import profileReducer from "./reducers/profile-reducer";
-import rootSaga from "./sagas/rootSaga";
-import sideBarReducer from "./reducers/sidebar-reducer";
-import usersReducer from "./reducers/users-reducer";
+import appReducer from './reducers/app-reducer'
+import authReducer from './reducers/auth-reducer'
+import dialogsReducer from './reducers/dialogs-reducer'
+import feedReducer from './reducers/feed-reducer'
+import profileReducer from './reducers/profile-reducer'
+import rootSaga from './sagas/rootSaga'
+import sideBarReducer from './reducers/sidebar-reducer'
+import usersReducer from './reducers/users-reducer'
 
-const sagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware()
 const reducers = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
@@ -18,21 +18,20 @@ const reducers = combineReducers({
     sideBarPage: sideBarReducer,
     usersPage: usersReducer,
     auth: authReducer,
-    app: appReducer
-});
+    app: appReducer,
+})
 
-let store = configureStore(
-    {
-        reducer: reducers,
-        middleware: (getDefaultMiddleware) =>
-            getDefaultMiddleware({
-                serializableCheck: false
-            }).concat(sagaMiddleware)
-    });
+let store = configureStore({
+    reducer: reducers,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }).concat(sagaMiddleware),
+})
 
-sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(rootSaga)
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
 
-export default store;
+export default store

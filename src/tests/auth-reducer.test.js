@@ -1,23 +1,23 @@
-import { setAuthUserData, setCaptcha } from "../redux/actions/auth-actions";
-import authReducer from "../redux/reducers/auth-reducer";
+import { setAuthUserData, setCaptcha } from '../redux/actions/auth-actions'
+import authReducer from '../redux/reducers/auth-reducer'
 
 let state = {
     id: null,
     email: null,
     login: null,
     isLoggedIn: false,
-    captcha: null
-};
+    captcha: null,
+}
 
-test("authorized user", () => {
-    let newState = authReducer(state, setAuthUserData(1, "iii@gmail.com", "iii", true));
-    expect(newState.id).toBe(1);
-    expect(newState.email).toBe("iii@gmail.com");
-    expect(newState.login).toBe("iii");
+test('authorized user', () => {
+    let newState = authReducer(state, setAuthUserData(1, 'iii@gmail.com', 'iii', true))
+    expect(newState.id).toBe(1)
+    expect(newState.email).toBe('iii@gmail.com')
+    expect(newState.login).toBe('iii')
     expect(newState.isLoggedIn).toBe(true)
-});
+})
 
-test("passed captcha", () => {
-    let newState = authReducer(state, setCaptcha("123ABC"));
-    expect(newState.captcha).toBe("123ABC");
-});
+test('passed captcha', () => {
+    let newState = authReducer(state, setCaptcha('123ABC'))
+    expect(newState.captcha).toBe('123ABC')
+})

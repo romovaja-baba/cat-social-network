@@ -45,7 +45,8 @@
     ]
   },
   "devDependencies": {
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "prettier": "2.8.8"
   },
   "jest": {
     "transformIgnorePatterns": [

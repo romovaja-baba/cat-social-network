@@ -30,7 +30,7 @@
                 }
 
                 .red-border {
-                    @include base.red-border
+                    @include base.red-border;
                 }
             }
 
