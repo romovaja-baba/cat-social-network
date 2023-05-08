@@ -1,16 +1,20 @@
-import "../../../styles/Dialogs.scss";
+import '../../../styles/Dialogs.scss'
 
 interface Props {
-    text: string,
+    text: string
     senderId: number
 }
 
 const Message = ({ text, senderId }: Props) => {
     return (
-        <div className={senderId === 0 ? "message-myself message-item" : "message-others message-item"}>
+        <div
+            className={
+                senderId === 0 ? 'message-myself message-item' : 'message-others message-item'
+            }
+        >
             {text}
         </div>
-    ) as any;
-};
+    ) as any
+}
 
-export default Message;
+export default Message

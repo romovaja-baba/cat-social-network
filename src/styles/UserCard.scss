@@ -40,7 +40,7 @@
         flex-direction: column;
         justify-content: flex-start;
         gap: 15px;
-        
+
         .usercard-name {
             @include base.basic-item-title;
         }

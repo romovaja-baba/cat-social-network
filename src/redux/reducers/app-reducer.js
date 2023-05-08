@@ -1,23 +1,24 @@
-import { types } from "../actions/app-actions";
+import { types } from '../actions/app-actions'
 
 let initialState = {
-    isInitFinished: false
-};
+    isInitFinished: false,
+}
 
 const appReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.INITIALIZATION_SUCCESS:
             return {
                 ...state,
-                isInitFinished: true
+                isInitFinished: true,
             }
         case types.INITIALIZATION_FAIL:
             return {
                 ...state,
-                isInitFinished: true
+                isInitFinished: true,
             }
-        default: return state;
+        default:
+            return state
     }
-};
+}
 
-export default appReducer;
+export default appReducer

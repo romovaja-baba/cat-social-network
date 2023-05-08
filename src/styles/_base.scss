@@ -1,4 +1,4 @@
-$yellow: #FFB703;
+$yellow: #ffb703;
 $white: #fff;
 $light-gray: #f0f0f0;
 $gray: #858585;
@@ -110,7 +110,8 @@ $bold: 600;
     font-weight: $bold;
 }
 
-@mixin basic-item-description {}
+@mixin basic-item-description {
+}
 
 @mixin basic-item {
     background-color: $light-gray;
@@ -201,4 +202,3 @@ $bold: 600;
     border-radius: 45%;
     object-fit: cover;
 }
-

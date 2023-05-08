@@ -13,6 +13,6 @@
     }
 
     .active-nav-item {
-        @include base.active-nav-item
+        @include base.active-nav-item;
     }
 }
