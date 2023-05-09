@@ -1,12 +1,14 @@
 import { types } from '../actions/dialogs-actions'
 
+const host = process.env.REACT_APP_HOST
+
 let initialState = {
     dialogUserData: [
-        { id: 1, name: 'Vlawd', profilePicture: 'http://localhost:3000/cool-cat.jpg' },
-        { id: 2, name: 'Ameowlinda', profilePicture: 'http://localhost:3000/soft-cat.jpg' },
-        { id: 3, name: 'Dr. Whiskman', profilePicture: 'http://localhost:3000/doctor-cat.jpg' },
-        { id: 4, name: 'Hissley', profilePicture: 'http://localhost:3000/teddy-bear-cat.jpg' },
-        { id: 5, name: 'Hecker', profilePicture: 'http://localhost:3000/hecker-cat.jpg' },
+        { id: 1, name: 'Vlawd', profilePicture: `${host}/cool-cat.jpg` },
+        { id: 2, name: 'Ameowlinda', profilePicture: `${host}/soft-cat.jpg` },
+        { id: 3, name: 'Dr. Whiskman', profilePicture: `${host}/doctor-cat.jpg` },
+        { id: 4, name: 'Hissley', profilePicture: `${host}/teddy-bear-cat.jpg` },
+        { id: 5, name: 'Hecker', profilePicture: `${host}/hecker-cat.jpg` },
     ],
 
     convosData: [
